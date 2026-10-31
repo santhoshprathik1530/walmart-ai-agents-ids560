@@ -1,0 +1,362 @@
+{
+ "R01": {
+  "answer": "Walmart U.S. comparable store sales rose 2.2 percent in the 13-week period ended July 27, 2012 (per the FY13 Q2 earnings release).",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The candidate states Walmart U.S. comparable store sales rose 2.2 percent for the 13-week period ended July 27, matching the reference's key figure. Passage [2] directly supports this figure, and the attribution to the FY13 Q2 earnings release matches passage [1]'s source. The candidate omits the ticket and traffic detail, but the core figure is correct and fully supported.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1162,
+  "tokens": 4174
+ },
+ "R03": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; reference traffic/ticket figures (1.4%, 0.1%) are not in passages, but question has a reference answer.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1392,
+  "tokens": 4284
+ },
+ "R04": {
+  "answer": "Walmart U.S. expected comparable store sales of 1.0 percent to 3.0 percent for the 4-5-4 period from July 28 through October 26, 2012.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Passage [3] states Walmart U.S. expects comparable store sales to range from 1.0 to 3.0 percent for the 4-5-4 period July 28 through October 26, matching the reference answer. The candidate's additional framing of the period as the 4-5-4 period is also supported by the same passage.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1238,
+  "tokens": 4025
+ },
+ "R05": {
+  "answer": "Season to date, Walmart's key back-to-school apparel categories were up 7.0 percent, according to its Q2 FY13 earnings call on August 16, 2012.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "States the 7.0 percent season-to-date figure, matching the Q2 FY13 call transcript dated 2012-08-16.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1152,
+  "tokens": 3979
+ },
+ "R08": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; omits the reference's brand-to-generic conversion pressure on pharmacy sales.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1097,
+  "tokens": 4220
+ },
+ "R10": {
+  "answer": "In its Q3 FY13 earnings call, Walmart said average fuel prices were up about 6 percent year over year, and that some customers were consolidating their shopping trips as a result.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The candidate states the same key facts as the reference: average fuel prices up about 6 percent year over year and some customers consolidating shopping trips. Passage [4] (Q3 FY2013 call) directly supports both claims, and the candidate's attribution to the Q3 FY13 earnings call is accurate.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1233,
+  "tokens": 3891
+ },
+ "R12": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's 50 vs 400 basis points are absent from the passages shown.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1124,
+  "tokens": 4281
+ },
+ "R14": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; passages lack the Walmart U.S. home low single-digit comp and college essentials details.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 999,
+  "tokens": 3864
+ },
+ "R15": {
+  "answer": "Walmart was monitoring key commodities and the severe drought across parts of the country to gauge its potential impact on food prices for the rest of the year.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate names the severe drought and its potential effect on food prices, matching the reference; supported by passage 1.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1237,
+  "tokens": 4215
+ },
+ "R16": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Passages lack Q3 FY13 Walmart U.S. grocery comp data; the candidate correctly says the sources don't contain it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1220,
+  "tokens": 4028
+ },
+ "B01": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The passages cover the Aug 29 and Oct 10, 2012 Beige Books, not July 18. The candidate correctly says the sources lack it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 819,
+  "tokens": 3568
+ },
+ "B02": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declined; the reference's Dallas categories are missing from the shown passages, but it still should not be marked correct.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1916,
+  "tokens": 4297
+ },
+ "B03": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Reference says gasoline fell about 40 cents; candidate declines, and passages lack this figure.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1092,
+  "tokens": 4137
+ },
+ "B04": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines, but the reference's gasoline price rise is not in the passages.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1221,
+  "tokens": 3915
+ },
+ "B05": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The passages contain only the Oct 10 header, not the San Francisco grocery detail; declining is accurate.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 911,
+  "tokens": 4415
+ },
+ "B06": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Passages lack the July 18, 2012 Beige Book; candidate correctly says sources don't contain it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 987,
+  "tokens": 4117
+ },
+ "B08": {
+  "answer": "The Philadelphia District's Oct 10, 2012 Beige Book said the tourist season \"concluded on a high note\" because Labor Day weekend benefited by comparison to the prior year, when severe weather disrupted end-of-summer plans.",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Captures the comparison to last year's severe weather, but omits the retailer's strongest-in-years and sunny-weather details.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1837,
+  "tokens": 3882
+ },
+ "B10": {
+  "answer": "No. The October 10, 2012 Beige Book (Atlanta District) reported that after brief, precautionary shutdowns, regional refiners fully restored operations with very little damage from the storm.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The reference says refiners shut down briefly as a precaution and restored operations with very little damage; the candidate states the same key facts, and passage [1] (Oct 10, 2012 Atlanta Beige Book) explicitly supports this.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1204,
+  "tokens": 3673
+ },
+ "B11": {
+  "answer": "In the August 29, 2012 Beige Book, most Atlanta District retail contacts reported slower sales, and the report said retail growth had slowed.",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Captures 'generally slower' sales but omits that discount stores outperformed department stores.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1283,
+  "tokens": 3852
+ },
+ "B12": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "No July 18 Beige Book is among the passages; the candidate correctly says the sources lack it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1150,
+  "tokens": 4053
+ },
+ "W02": {
+  "answer": "Walmart's 2012 Christmas layaway program was available nationwide from Sept. 16 through Dec. 14, 2012.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The reference answer is nationwide from September 16 through December 14, 2012. The candidate gives the same dates and the same nationwide availability, and passages [1] and [5] both state 'Available nationwide Sept. 16 through Dec. 14'.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1219,
+  "tokens": 3985
+ },
+ "W03": {
+  "answer": "Walmart rolled back its Christmas Layaway open fee from $15 to $5, announced September 4, 2012, with customers who make their final payment receiving a $5 refund on a Walmart gift card.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: $15 to $5 open fee, with a $5 gift card refund on final payment, dated Sept. 4, 2012.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 870,
+  "tokens": 4184
+ },
+ "N01": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The reference answer is UNANSWERABLE, and the candidate correctly states that the sources do not contain this information. The candidate makes no unsupported claims, so it is faithful.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 854,
+  "tokens": 3951
+ },
+ "N02": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The reference marks the question as unanswerable because the sources do not mention Store 28 or any stockout in August 2012. The candidate correctly says the sources do not contain this, and a refusal is faithful.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 1039,
+  "tokens": 4218
+ },
+ "N03": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The reference answer is UNANSWERABLE, and the candidate correctly says the sources do not contain the information. The candidate makes no unsupported claims, so it is faithful.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 853,
+  "tokens": 3996
+ },
+ "R02": {
+  "answer": "Walmart U.S. comparable store sales increased 1.5 percent in the third quarter of FY2013, according to Bill Simon's statement in the November 15, 2012 earnings release. The 1.3 percent figure in that passage is the prior year's comp, which the quarter lapped.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "States the 1.5 percent comp increase, matching the reference, and cites the supporting Nov 15 release.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1705,
+  "tokens": 4431
+ },
+ "R06": {
+  "answer": "In Q2 FY2013, electronics sales growth was held back because deflation continued to affect the category, according to the Q2 earnings call transcript. The passages give no specific electronics sales figure.",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Gives the deflation reason but omits the reference's low single-digit negative comp performance.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1535,
+  "tokens": 3875
+ },
+ "R07": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference's negative low-single-digit comp is not given, so it scores 0.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1639,
+  "tokens": 4076
+ },
+ "R09": {
+  "answer": "Walmart's 2012 layaway program ran nationwide from Sept. 16 through Dec. 14. Layaway sales are recognized when customers pay for and pick up the merchandise, which for the $300 million of additional layaway sales is in the quarter ending Jan. 31, 2013.",
+  "correct": 1,
+  "faithful": 0,
+  "why": "Launch dates and pay-and-pickup recognition match, but it drops 'most' of the $300M, overstating the source.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1616,
+  "tokens": 4675
+ },
+ "R11": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Passages lack the Walmart Q3 FY2013 weather claim; the candidate correctly says the sources don't contain it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1913,
+  "tokens": 3995
+ },
+ "R13": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's Labor Day, back-to-school, and Halloween are not in the shown passages.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1595,
+  "tokens": 3684
+ },
+ "B07": {
+  "answer": "The October 10, 2012 Beige Book attributes some of the weakness at a major New York-region retail chain to unseasonably mild weather, which dampened sales of seasonal merchandise. The report does not give a full explanation for the rest of the weakness.",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Gives the mild-weather cause but omits that sales ran well below 2011 levels.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 2168,
+  "tokens": 4074
+ },
+ "B13": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference's national factors are missing, so it earns no credit.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1592,
+  "tokens": 3772
+ },
+ "B14": {
+  "answer": "The July 18, 2012 Beige Book suggests this may have reflected a delay in deep discounting of back-to-school items, which had already been discounted by the same time last year. It was the first year-over-year decline at outlet centers since 2007, and the report notes that this was not necessarily a negative signal.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: a delayed deep discounting of back-to-school items, already discounted last year. Claims are supported by the July 18 Beige Book.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1891,
+  "tokens": 4100
+ },
+ "W01": {
+  "answer": "Walmart U.S. net sales grew about $2.3 billion in Q3 FY2013, a 3.6% increase for the three months ended October 31, 2012. The growth came from a 1.5% comparable store sales increase driven by improved ticket and traffic, plus 2.1% year-over-year growth in retail square feet. Its focus on expanded merchandise assortment and price leadership was also a key factor.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Gives the 3.6% quarterly growth and 1.5% comp drivers, all supported by passage 4 and passage 1.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1667,
+  "tokens": 4627
+ },
+ "W04": {
+  "answer": "The passages don't describe an expansion in late August 2012. The closest match is from the August 16, 2012 earnings call, which says Walmart redesigned its pharmacy website at walmart.com to simplify ordering prescriptions online, with the re-launch in May.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Correctly says the passages lack a late-August 2012 expansion; its website claims match passage 1.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1942,
+  "tokens": 4717
+ }
+}

@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "record_type": "forecast_exception_ai_rag_handoff",
+  "workflow_status": "detection_complete_ai_investigation_proposed",
+  "exception_id": "ET_STORE07_DEPT72_2012-08-24",
+  "case": {
+    "store_id": 7,
+    "department_id": 72,
+    "week_start_date": "2012-08-24",
+    "analysis_grain": "store_department_week",
+    "store_region_inferred": "Colorado",
+    "store_region_mapping_confidence": "High",
+    "department_name_inferred": "Electronics",
+    "department_mapping_confidence": "High",
+    "mapping_verified_by_walmart": false
+  },
+  "detector": {
+    "model": "ExtraTreesRegressor",
+    "learning": "supervised_sales_regression",
+    "model_selection": "preliminary_selected_by_average_chronological_validation_wape",
+    "initial_exception_rule": "actual_sales <= 0.90 * expected_sales and at_least_one_store_week_markdown_field_recorded",
+    "initial_threshold_shortfall_pct": 10.0,
+    "historical_95th_percentile_error_check_status": "proposed_not_applied",
+    "flagged": true,
+    "model_prediction_scope": "eligible_store_department_weeks",
+    "further_anomaly_validation_required": true
+  },
+  "sales": {
+    "currency": "USD",
+    "actual_sales": 33957.54,
+    "expected_sales": 45010.06,
+    "expected_sales_raw": 45010.06096721535,
+    "predicted_shortfall_usd": 11052.52,
+    "sales_deviation_pct": -24.5557,
+    "forecast_based_not_causal": true
+  },
+  "baseline_check": {
+    "method": "8_week_trailing_moving_average",
+    "actual_sales_usd": 33957.54,
+    "expected_sales_usd": 46429.1,
+    "shortfall_pct": 26.862,
+    "flagged_at_10_pct": true
+  },
+  "store_week_aggregation": {
+    "method": "sum_department_expected_sales_over_eligible_departments",
+    "eligible_departments": 65,
+    "actual_sales_usd": 609039.58,
+    "expected_sales_usd": 659169.63,
+    "net_forecast_shortfall_usd": 50130.05,
+    "sales_deviation_pct": -7.605,
+    "flagged_at_10_pct": false,
+    "coverage_note": "Aggregated over model-eligible departments; may not equal full store sales if departments excluded"
+  },
+  "department_contributions": {
+    "gross_positive_shortfalls_usd": 57606.43,
+    "net_expected_minus_actual_usd": 50130.05,
+    "selected_department_share_of_gross_pct": 19.1863,
+    "top_five_departments": [
+      {
+        "department_id": 72,
+        "department_name_inferred": "Electronics",
+        "name_confidence": "High",
+        "actual_sales_usd": 33957.54,
+        "expected_sales_usd": 45010.06,
+        "positive_shortfall_usd": 11052.52,
+        "share_of_gross_positive_shortfall_pct": 19.19
+      },
+      {
+        "department_id": 95,
+        "department_name_inferred": "DSD Grocery, Snacks & Beverages",
+        "name_confidence": "High",
+        "actual_sales_usd": 41387.24,
+        "expected_sales_usd": 45260.28,
+        "positive_shortfall_usd": 3873.04,
+        "share_of_gross_positive_shortfall_pct": 6.72
+      },
+      {
+        "department_id": 38,
+        "department_name_inferred": "Pharmacy (Rx)",
+        "name_confidence": "High",
+        "actual_sales_usd": 30998.54,
+        "expected_sales_usd": 34074.11,
+        "positive_shortfall_usd": 3075.57,
+        "share_of_gross_positive_shortfall_pct": 5.34
+      },
+      {
+        "department_id": 11,
+        "department_name_inferred": "Hardware",
+        "name_confidence": "High",
+        "actual_sales_usd": 10737.09,
+        "expected_sales_usd": 13591.27,
+        "positive_shortfall_usd": 2854.18,
+        "share_of_gross_positive_shortfall_pct": 4.95
+      },
+      {
+        "department_id": 48,
+        "department_name_inferred": "Firearms",
+        "name_confidence": "High",
+        "actual_sales_usd": 107.0,
+        "expected_sales_usd": 2880.81,
+        "positive_shortfall_usd": 2773.81,
+        "share_of_gross_positive_shortfall_pct": 4.82
+      }
+    ],
+    "method": "positive_shortfall = max(expected_department_sales - actual_department_sales, 0)",
+    "net_vs_gross_note": "Overperforming departments offset positive shortfalls in the net store gap; neither metric proves causation"
+  },
+  "markdown_context": {
+    "data_grain": "store_week",
+    "date": "2012-08-24",
+    "values": {
+      "MarkDown1": 2534.52,
+      "MarkDown2": 19.6,
+      "MarkDown3": 1.86,
+      "MarkDown4": 1627.26,
+      "MarkDown5": 3915.85
+    },
+    "recorded_any": true,
+    "recorded_total_of_five_fields_usd": 8099.09,
+    "zero_means_no_department_promotion": false,
+    "department_72_markdown_verified": false,
+    "note": "Store-week MarkDown1-5 values cannot be assigned to Department 72, and their sum is not verified spend or causal promotional impact."
+  },
+  "contextual_indicators": {
+    "data_grain": "store_week",
+    "date": "2012-08-24",
+    "temperature_fahrenheit": 59.27,
+    "fuel_price_usd_per_gallon": 3.558,
+    "cpi": 198.0984199,
+    "unemployment_as_recorded": 7.872,
+    "is_holiday": false,
+    "role": "structured investigation context; values do not establish why sales changed"
+  },
+  "test_window": {
+    "start": "2012-07-20",
+    "end": "2012-10-26",
+    "observed_weeks_for_case": 15,
+    "flagged_weeks_for_department": 5,
+    "flagged_week_dates": [
+      "2012-08-17",
+      "2012-08-24",
+      "2012-10-12",
+      "2012-10-19",
+      "2012-10-26"
+    ]
+  },
+  "investigation_handoff": {
+    "priority": "candidate_for_analyst_review",
+    "evidence_to_retrieve": [
+      "department_72_sales_history_and_seasonality",
+      "store_week_markdown_history",
+      "same_department_same_week_other_stores",
+      "macro_context_vs_prior_weeks",
+      "time_aligned_public_retail_reports_and_archived_context"
+    ],
+    "rag_source_time_alignment": "Use historical sources relevant to 2012; newer sources cannot prove 2012 explanations",
+    "requested_ai_output": [
+      "observed_facts",
+      "possible_explanations_with_citations",
+      "support_and_contradictory_evidence",
+      "mapping_and_data_limitations",
+      "confidence_per_explanation",
+      "recommended_human_followup_actions"
+    ],
+    "root_cause_confirmed": false,
+    "recommendation_status": "not_yet_generated",
+    "human_approval_required": true
+  },
+  "provenance": {
+    "source_files": [
+      "walmart_new_benchmark/test_predictions.csv",
+      "store7_aug24_extra_trees_department_shortfalls.csv",
+      "store7_store_week_extra_trees.csv",
+      "store7_dept72_extra_trees_detection.csv",
+      "store7_dept72_8week_predictions.csv",
+      "features.csv",
+      "Walmart_Mapping_Tables.xlsx"
+    ],
+    "reproducibility_note": "Exact case numerical values populated from saved analysis tables; model outputs are from previously run benchmark and not refit here."
+  }
+}

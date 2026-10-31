@@ -1,0 +1,224 @@
+{
+ "R01": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference: 2.2 percent with positive ticket and traffic, directly supported by passage 4.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R02": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate states a 1.5 percent increase for the 13 weeks ended Oct. 26, 2012, matching the reference and passage 5.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R03": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches reference figures (ticket +1.4%, traffic +0.1%) and is supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R04": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate states 1.0 to 3.0 percent for July 28 to October 26, matching the reference and passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R05": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference 7.0 percent season-to-date figure; the Q2 FY13 call on Aug 16, 2012 is supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R10": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches reference: fuel prices up ~6% year over year and some customers consolidating trips, supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R11": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the warm October effect on apparel and is supported by passage 1 including the low single-digit comp.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R13": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate lists Labor Day, back-to-school, and Halloween, matching the reference and passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R15": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference answer is the drought's effect on food prices; the candidate declines to answer, so it is wrong, though the refusal is faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R16": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate states low single-digit positive comp, matching the reference; the added inflation figures (50 bps vs 400 bps) are supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B01": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference: Boston and Cleveland flat, New York softened; supported by passage 5.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B02": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference categories exactly and is supported by passage 3.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B03": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches passage 5: gasoline price declined about 40 cents over the reporting period in the July 18, 2012 Dallas report.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B04": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference (diesel and gasoline up about 30 cents) and is supported by passage 2.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B05": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference and passage [3]: grocery spending soft as shoppers shifted to cheaper products.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B06": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches reference: TV declines offset flooring/appliance gains, leaving home furnishings and major appliances flat; supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B10": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches reference: precautionary brief shutdowns, full restoration, very little damage, supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W02": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference dates (nationwide, Sept. 16 through Dec. 14, 2012), supported by passages 1 and 5.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W03": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference: $15 to $5 open fee cut, $5 refunded on a Walmart gift card after final payment; supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "N01": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "The passages say nothing about optical department sales, and the candidate correctly says the sources don't contain it.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "N02": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "The candidate correctly says the sources don't contain this; passages have no store-level stockout information.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "N03": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "The question is unanswerable, and the candidate correctly says the sources do not contain it; the passages have no Texas data.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R06": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate gives low single-digit negative comp and electronics deflation; extra details on tablets and Straight Talk are supported by passage 4.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R07": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Candidate cites the reference's low single-digit negative comp and deflation, but frames it as a conflict between sources rather than answering definitively.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R08": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches reference: brand-to-generic conversions pressured sales while Lipitor conversions improved margins, directly supported by passage 2.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R09": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Gives the Sept. 16 launch (mid-September) and revenue recognized once paid and picked up; both match the passages. It omits the Q4 point, but that is implied.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R12": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate gives 50 bps vs 400 bps matching reference and passage 3; the caveat about Walmart U.S. attribution is accurate.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R14": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Gives the low single-digit positive comp, but omits the strong college essentials such as bedding and bath.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B07": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Captures the mild weather cause but omits the major chain's sluggish sales well below 2011 levels; claims are supported by passage 2.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B08": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference: strongest Labor Day weekend in years from retail, and comparison to last year's severe weather, both supported by passages 1 and 2.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B09": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference: home furnishings, clothing, back-to-school sold well; high-end jewelry weaker, as in passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B11": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches reference: generally slower sales, discount retailers somewhat better than department stores; supported by passage 3.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B12": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Gives furniture and electronics slowed (matches), but omits that adult clothing and shoes stayed strong. Claims are supported by passage 5.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B13": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate lists all four factors matching the reference and passage 1 exactly.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B14": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: a possible delay in deep discounting of back-to-school items already discounted the prior year; the extra details are supported by passage 2.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W01": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Candidate gives the 1.5% comp and drivers supported by passage 3, but omits the 3.6% growth figure, giving $2.3B instead.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W04": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The candidate declines, but the question is answerable per the reference (expanded immunizations in 2,700+ stores); a refusal is faithful but incorrect.",
+  "model": "anthropic/claude-sonnet-5.5"
+ }
+}

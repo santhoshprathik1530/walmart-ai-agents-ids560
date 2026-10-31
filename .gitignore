@@ -1,0 +1,33 @@
+# secrets
+.env
+**/.env
+
+# Kaggle competition data: Kaggle's rules don't allow re-sharing; download it (see README)
+app/data/train.csv
+app/data/features.csv
+app/data/stores.csv
+app/data/test.csv
+
+# rebuilt by commands (see README)
+app/vectorstore/
+app/models/
+.venv_eval/
+__pycache__/
+*.pyc
+
+# older versions and experiments kept locally only
+app/data/cases_v3/
+app/data/v33_archive/
+app/data/v34_ourrule_archive/
+app/data/cases_v3_uploaded/
+app/data/agent_outputs_v3_live.json
+app/data/ml_v33_complete/*
+!app/data/ml_v33_complete/per_store_mad_experiment/
+app/data/ml_v33_complete/per_store_mad_experiment/*
+!app/data/ml_v33_complete/per_store_mad_experiment/per_store_mad_department_flags.csv
+!app/data/ml_v33_complete/per_store_mad_experiment/per_store_mad_thresholds.csv
+
+# local tool settings
+.claude/
+.DS_Store
+~$*

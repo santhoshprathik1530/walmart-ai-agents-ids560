@@ -1,0 +1,38 @@
+{
+ "cases": 40,
+ "answered": 40,
+ "errors": [],
+ "all_checks_passed": 39,
+ "check_pass": {
+  "Numbers match the evidence": 39,
+  "Quotes are word for word": 40,
+  "Every factor cites evidence": 40,
+  "Answer is complete": 40,
+  "Guardrails respected": 40,
+  "Every factor is tagged": 40,
+  "Status agrees with the data": 40
+ },
+ "llm_vs_code_status": "40/40",
+ "code_status": {
+  "No action needed": 24,
+  "Action needed": 12,
+  "Check before acting": 4
+ },
+ "shown_status": {
+  "No action needed": 24,
+  "Action needed": 12,
+  "Check before acting": 4
+ },
+ "factors_per_case": 4.2,
+ "factor_types": {
+  "data": 89,
+  "report": 37,
+  "model": 42
+ },
+ "cases_citing_a_report": 36,
+ "golden_case_facts_covered": "20/20",
+ "golden_case_facts_missing": [],
+ "golden_status_vs_draft": "10/10 (draft = code triage; human labels pending)",
+ "seconds_per_case": 18.6,
+ "tokens_per_case": 11619
+}

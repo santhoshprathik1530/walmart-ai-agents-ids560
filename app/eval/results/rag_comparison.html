@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RAG Variant Comparison</title><style>
+:root{--bg:#fff;--ink:#1a1a1a;--ink2:#555;--muted:#777;--grid:#e6e6e6;--bar:#a9c3f5;--chosen:#0053e2;--ci:#1a1a1a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16181d;--ink:#f2f2f2;--ink2:#c4c4c4;--muted:#9a9a9a;--grid:#2c2f36;--bar:#3a5a96;--chosen:#6f9bff;--ci:#f2f2f2}}
+:root[data-theme="dark"]{--bg:#16181d;--ink:#f2f2f2;--ink2:#c4c4c4;--muted:#9a9a9a;--grid:#2c2f36;--bar:#3a5a96;--chosen:#6f9bff;--ci:#f2f2f2}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;padding:24px 16px}
+main{max-width:760px;margin:auto} h1{font-size:22px;margin:0 0 4px} p{color:var(--ink2);margin:0 0 18px}
+figure{margin:0 0 26px} figcaption{font-weight:600;margin-bottom:6px} svg{width:100%;height:auto;overflow:visible}
+.grid{stroke:var(--grid);stroke-width:1} .tick{fill:var(--muted);font-size:11px;text-anchor:middle}
+.lab{fill:var(--ink2);font-size:12px;text-anchor:end} .val{fill:var(--ink);font-size:12px;font-weight:600}
+.bar{fill:var(--bar)} .bar.chosen{fill:var(--chosen)} .ci{stroke:var(--ci);stroke-width:1.5;opacity:.55}
+g:hover .bar{opacity:.85} table{border-collapse:collapse;width:100%;font-size:13px} th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--grid)}
+th{color:var(--ink2);font-weight:600} .wrap{overflow-x:auto}
+</style></head><body><main>
+<h1>Which retrieval setup finds the right report passage?</h1>
+<p>34 golden report questions, each with a verbatim evidence sentence. A hit means a returned chunk holds that sentence.
+Dark blue = recommended setup (E). Lines show 95% bootstrap intervals; with 34 questions, differences under ~15 points are not reliable.</p>
+<figure><figcaption>Right passage in the top 5 (Hit@5)</figcaption><svg viewBox="0 0 660 268" role="img" aria-label="Right passage in the top 5 (Hit@5)">
+<line class="grid" x1="300" x2="300" y1="0" y2="246"/><text class="tick" x="300" y="262">0%</text>
+<line class="grid" x1="375.0" x2="375.0" y1="0" y2="246"/><text class="tick" x="375.0" y="262">25%</text>
+<line class="grid" x1="450.0" x2="450.0" y1="0" y2="246"/><text class="tick" x="450.0" y="262">50%</text>
+<line class="grid" x1="525.0" x2="525.0" y1="0" y2="246"/><text class="tick" x="525.0" y="262">75%</text>
+<line class="grid" x1="600" x2="600" y1="0" y2="246"/><text class="tick" x="600" y="262">100%</text>
+<g><title>A: Fixed chunks, vector search (current core)
+HIT5 0.21 (95% CI 0.09 to 0.35)</title><text class="lab" x="290" y="21.0">A · Fixed chunks, vector search (current core)</text><path class="bar" d="M300,8.0 h57.76470587 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-57.76470587 z"/>
+<line class="ci" x1="326.47058823" x2="405.88235295" y1="17.0" y2="17.0"/>
+<text class="val" x="413.88235295" y="21.0">21%</text></g>
+<g><title>A2: A + time/district filter (current app)
+HIT5 0.35 (95% CI 0.21 to 0.53)</title><text class="lab" x="290" y="55.0">A2 · A + time/district filter (current app)</text><path class="bar" d="M300,42.0 h101.88235295 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-101.88235295 z"/>
+<line class="ci" x1="361.76470587" x2="458.82352941" y1="51.0" y2="51.0"/>
+<text class="val" x="466.82352941" y="55.0">35%</text></g>
+<g><title>B: Fixed chunks, keyword search (BM25)
+HIT5 0.21 (95% CI 0.09 to 0.35)</title><text class="lab" x="290" y="89.0">B · Fixed chunks, keyword search (BM25)</text><path class="bar" d="M300,76.0 h57.76470587 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-57.76470587 z"/>
+<line class="ci" x1="326.47058823" x2="405.88235295" y1="85.0" y2="85.0"/>
+<text class="val" x="413.88235295" y="89.0">21%</text></g>
+<g><title>C: Fixed chunks, hybrid (vector + BM25)
+HIT5 0.35 (95% CI 0.21 to 0.53)</title><text class="lab" x="290" y="123.0">C · Fixed chunks, hybrid (vector + BM25)</text><path class="bar" d="M300,110.0 h101.88235295 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-101.88235295 z"/>
+<line class="ci" x1="361.76470587" x2="458.82352941" y1="119.0" y2="119.0"/>
+<text class="val" x="466.82352941" y="123.0">35%</text></g>
+<g><title>D: Section chunks + header, hybrid
+HIT5 0.68 (95% CI 0.53 to 0.82)</title><text class="lab" x="290" y="157.0">D · Section chunks + header, hybrid</text><path class="bar" d="M300,144.0 h198.94117645999998 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-198.94117645999998 z"/>
+<line class="ci" x1="458.82352941" x2="547.05882354" y1="153.0" y2="153.0"/>
+<text class="val" x="555.05882354" y="157.0">68%</text></g>
+<g><title>E: D + time/district filter
+HIT5 0.88 (95% CI 0.76 to 0.97)</title><text class="lab" x="290" y="191.0">E · D + time/district filter</text><path class="bar chosen" d="M300,178.0 h260.70588236 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-260.70588236 z"/>
+<line class="ci" x1="529.4117647200001" x2="591.17647059" y1="187.0" y2="187.0"/>
+<text class="val" x="599.17647059" y="191.0">88%</text></g>
+<g><title>F: E + cross-encoder reranker
+HIT5 0.88 (95% CI 0.76 to 0.97)</title><text class="lab" x="290" y="225.0">F · E + cross-encoder reranker</text><path class="bar" d="M300,212.0 h260.70588236 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-260.70588236 z"/>
+<line class="ci" x1="529.4117647200001" x2="591.17647059" y1="221.0" y2="221.0"/>
+<text class="val" x="599.17647059" y="225.0">88%</text></g></svg></figure>
+<figure><figcaption>How high the right passage ranks (MRR, 1 = always first)</figcaption><svg viewBox="0 0 660 268" role="img" aria-label="How high the right passage ranks (MRR, 1 = always first)">
+<line class="grid" x1="300" x2="300" y1="0" y2="246"/><text class="tick" x="300" y="262">0.00</text>
+<line class="grid" x1="375.0" x2="375.0" y1="0" y2="246"/><text class="tick" x="375.0" y="262">0.25</text>
+<line class="grid" x1="450.0" x2="450.0" y1="0" y2="246"/><text class="tick" x="450.0" y="262">0.50</text>
+<line class="grid" x1="525.0" x2="525.0" y1="0" y2="246"/><text class="tick" x="525.0" y="262">0.75</text>
+<line class="grid" x1="600" x2="600" y1="0" y2="246"/><text class="tick" x="600" y="262">1.00</text>
+<g><title>A: Fixed chunks, vector search (current core)
+MRR 0.16 (95% CI 0.06 to 0.26)</title><text class="lab" x="290" y="21.0">A · Fixed chunks, vector search (current core)</text><path class="bar" d="M300,8.0 h43.00630253 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-43.00630253 z"/>
+<line class="ci" x1="319.26995799" x2="378.7815126" y1="17.0" y2="17.0"/>
+<text class="val" x="386.7815126" y="21.0">0.16</text></g>
+<g><title>A2: A + time/district filter (current app)
+MRR 0.26 (95% CI 0.14 to 0.40)</title><text class="lab" x="290" y="55.0">A2 · A + time/district filter (current app)</text><path class="bar" d="M300,42.0 h74.46638654 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-74.46638654 z"/>
+<line class="ci" x1="343.38235293" x2="420.37815126" y1="51.0" y2="51.0"/>
+<text class="val" x="428.37815126" y="55.0">0.26</text></g>
+<g><title>B: Fixed chunks, keyword search (BM25)
+MRR 0.18 (95% CI 0.08 to 0.29)</title><text class="lab" x="290" y="89.0">B · Fixed chunks, keyword search (BM25)</text><path class="bar" d="M300,76.0 h48.90266105 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-48.90266105 z"/>
+<line class="ci" x1="324.33237045" x2="386.32440477" y1="85.0" y2="85.0"/>
+<text class="val" x="394.32440477" y="89.0">0.18</text></g>
+<g><title>C: Fixed chunks, hybrid (vector + BM25)
+MRR 0.22 (95% CI 0.11 to 0.35)</title><text class="lab" x="290" y="123.0">C · Fixed chunks, hybrid (vector + BM25)</text><path class="bar" d="M300,110.0 h63.132352940000004 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-63.132352940000004 z"/>
+<line class="ci" x1="334.41176472" x2="405.00367647" y1="119.0" y2="119.0"/>
+<text class="val" x="413.00367647" y="123.0">0.22</text></g>
+<g><title>D: Section chunks + header, hybrid
+MRR 0.45 (95% CI 0.33 to 0.59)</title><text class="lab" x="290" y="157.0">D · Section chunks + header, hybrid</text><path class="bar" d="M300,144.0 h130.21218488 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-130.21218488 z"/>
+<line class="ci" x1="398.17883402999996" x2="476.28282564" y1="153.0" y2="153.0"/>
+<text class="val" x="484.28282564" y="157.0">0.45</text></g>
+<g><title>E: D + time/district filter
+MRR 0.60 (95% CI 0.47 to 0.73)</title><text class="lab" x="290" y="191.0">E · D + time/district filter</text><path class="bar chosen" d="M300,178.0 h175.85294116999998 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-175.85294116999998 z"/>
+<line class="ci" x1="440.88235293" x2="520.00367646" y1="187.0" y2="187.0"/>
+<text class="val" x="528.00367646" y="191.0">0.60</text></g>
+<g><title>F: E + cross-encoder reranker
+MRR 0.75 (95% CI 0.63 to 0.87)</title><text class="lab" x="290" y="225.0">F · E + cross-encoder reranker</text><path class="bar" d="M300,212.0 h222.39705881 a4,4 0 0 1 4,4 v10 a4,4 0 0 1 -4,4 h-222.39705881 z"/>
+<line class="ci" x1="489.92463234" x2="560.89522059" y1="221.0" y2="221.0"/>
+<text class="val" x="568.89522059" y="225.0">0.75</text></g></svg></figure>
+<div class="wrap"><table><thead><tr><th>Variant</th><th>Setup</th><th>Hit@1</th><th>Hit@5</th><th>MRR</th><th>Answer correct</th><th>Faithful</th><th>Said 'not in sources'</th><th>Search ms</th></tr></thead><tbody><tr><td>A</td><td>Fixed chunks, vector search (current core)</td><td>9%</td><td>21%</td><td>0.16</td><td>–</td><td>–</td><td>–</td><td>115</td></tr><tr><td>A2</td><td>A + time/district filter (current app)</td><td>18%</td><td>35%</td><td>0.26</td><td>64%</td><td>97%</td><td>3/3</td><td>142</td></tr><tr><td>B</td><td>Fixed chunks, keyword search (BM25)</td><td>12%</td><td>21%</td><td>0.18</td><td>–</td><td>–</td><td>–</td><td>5</td></tr><tr><td>C</td><td>Fixed chunks, hybrid (vector + BM25)</td><td>15%</td><td>35%</td><td>0.22</td><td>–</td><td>–</td><td>–</td><td>145</td></tr><tr><td>D</td><td>Section chunks + header, hybrid</td><td>29%</td><td>68%</td><td>0.45</td><td>–</td><td>–</td><td>–</td><td>128</td></tr><tr><td>E</td><td>D + time/district filter</td><td>44%</td><td>88%</td><td>0.60</td><td>88%</td><td>100%</td><td>3/3</td><td>151</td></tr><tr><td>F</td><td>E + cross-encoder reranker</td><td>65%</td><td>88%</td><td>0.75</td><td>84%</td><td>100%</td><td>3/3</td><td>1,230</td></tr></tbody></table></div>
+</main></body></html>

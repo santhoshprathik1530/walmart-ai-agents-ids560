@@ -1,0 +1,111 @@
+setup,id,unanswerable,haiku_correct,sonnet_correct,haiku_faithful,sonnet_faithful,sonnet_why
+A2,R01,False,1.0,1.0,1,1.0,"Candidate states 2.2 percent for the 13 weeks ended July 27, 2012, matching passage 2; it omits ticket/traffic detail but the key figure is correct."
+A2,R03,False,0.0,0.0,1,1.0,"The reference gives ticket +1.4% and traffic +0.1%; the candidate declines, and the passages indeed lack these figures, but the question was answerable."
+A2,R04,False,1.0,1.0,1,1.0,"Candidate states 1.0 to 3.0 percent for the 4-5-4 period July 28 to October 26, matching passage 3 and the reference."
+A2,R05,False,1.0,1.0,1,1.0,"Candidate gives the 7.0 percent season-to-date figure, and passage 1 supports it, including the Aug 16, 2012 Q2 FY13 call."
+A2,R08,False,0.0,0.0,1,1.0,"Candidate declines to answer, but the reference gives a specific answer (brand-to-generic conversions such as Lipitor). A refusal counts as faithful."
+A2,R10,False,1.0,1.0,1,1.0,"Candidate matches the reference (fuel up ~6%, customers consolidating trips) and is supported by passages 1 and 4."
+A2,R12,False,0.0,,1,,no usable reply (None)
+A2,R14,False,0.0,0.0,1,1.0,"The reference gives a low single-digit positive comp with strong college essentials. The candidate declines, though the question is answerable. The refusal is consistent with the passages."
+A2,R15,False,1.0,1.0,1,1.0,Candidate matches the reference (severe drought's potential effect on food prices) and is directly supported by passage 1.
+A2,R16,False,1.0,0.0,1,1.0,"Candidate declines to answer, though the reference gives a low single-digit positive comp for grocery; the refusal is faithful to the passages."
+A2,B01,False,1.0,0.0,1,1.0,"The reference gives Boston, Cleveland and New York; the candidate declines, and none of the passages cover the July 18, 2012 report."
+A2,B02,False,0.0,0.0,1,1.0,"The reference lists accessories, cosmetics, and women's and children's apparel; the candidate declines, though the question is answerable. A refusal counts as faithful."
+A2,B03,False,0.0,0.0,1,1.0,"The question is answerable per the reference (gasoline fell about 40 cents), but the candidate declined; the refusal is consistent with the passages."
+A2,B04,False,0.0,0.0,1,1.0,The reference says diesel and gasoline rose about 30 cents; the candidate declines to answer. A refusal is faithful.
+A2,B05,False,1.0,0.0,1,1.0,"The question is answerable per the reference (soft grocery spending, shift to cheaper products), but the candidate declined; the refusal is faithful to the passages."
+A2,B06,False,1.0,0.0,1,1.0,"The reference gives a specific answer (television sales declined), but the candidate declines to answer. The passages do not contain it, so the refusal is faithful."
+A2,B08,False,0.5,0.5,1,1.0,Candidate matches the weather comparison with last year but omits the retailer's strongest Labor Day weekend in years; passage supports its claims.
+A2,B10,False,1.0,1.0,1,1.0,"Candidate matches reference and passage 1: brief precautionary shutdowns, full restoration, very little damage."
+A2,B11,False,0.5,0.5,1,1.0,Captures slower sales but omits that discount stores outperformed department stores; claims are supported by passages 3 and 5.
+A2,B12,False,1.0,0.0,1,1.0,"The reference answer gives specific categories (furniture and electronics), but the candidate declines. The question is answerable, so this counts as wrong; the refusal is faithful."
+A2,W02,False,1.0,1.0,1,1.0,"Candidate matches the reference dates and nationwide availability, both supported by passages 1 and 5."
+A2,W03,False,1.0,1.0,1,1.0,"Matches reference: fee cut from $15 to $5, refunded on a Walmart gift card after final payment; date supported by passages."
+A2,N01,True,1.0,1.0,1,1.0,"The question is unanswerable, and the candidate correctly says the sources do not contain it; the passages never mention optical sales."
+A2,N02,True,1.0,1.0,1,1.0,"The question is unanswerable, and the candidate correctly says the sources don't contain it; passages show no store-level stockout information."
+A2,N03,True,1.0,1.0,1,1.0,Candidate correctly says the sources lack Texas August 2012 comps; passages contain only national/segment figures.
+A2,R02,False,1.0,1.0,1,1.0,"Candidate states 1.5 percent, matching the reference; the 1.3 percent prior-year comp and Bill Simon attribution are supported by passage 3."
+A2,R06,False,0.5,0.5,1,1.0,"Gives the deflation reason, supported by passage 1, but omits the low single-digit negative comp, and says no figure is given."
+A2,R07,False,0.0,0.0,1,1.0,"The reference gives a low single-digit negative comp from industry deflation; the candidate declines, though the question is answerable. The refusal is faithful to the passages."
+A2,R09,False,1.0,1.0,0,0.0,"Dates, Q4 recognition and $300M figure match sources, but 'most' is dropped, and $300M is described as the Q3 total, a slight distortion."
+A2,R11,False,1.0,0.0,1,1.0,"The reference answer is answerable (warm October affected apparel), but the candidate declines; the refusal is faithful."
+A2,R13,False,0.0,0.0,1,1.0,"The question is answerable per the reference (Labor Day, back-to-school, Halloween), but the candidate declined, so it is wrong; the refusal is faithful."
+A2,B07,False,0.5,0.5,1,1.0,Gives the mild-weather cause but omits that sales were sluggish and well below 2011 levels; the 'no full explanation' claim is a reasonable inference.
+A2,B13,False,0.0,0.0,1,1.0,"The reference lists specific factors, but the candidate declines to answer, so it gets none of the key facts."
+A2,B14,False,1.0,1.0,1,1.0,"Matches the reference: delayed deep discounting of back-to-school items; the extra details (first decline since 2007, not necessarily negative) are supported by passage 2."
+A2,W01,False,1.0,1.0,1,1.0,"Candidate gives 3.6% growth and 1.5% comp sales driver; extra details ($2.3B, 2.1% square feet, ticket/traffic) are supported by passages 1 and 4."
+A2,W04,False,1.0,0.0,1,1.0,"The candidate does not identify the expanded immunizations in 2,700+ stores, and instead offers a website redesign; its claims match passage 1."
+E,R01,False,1.0,1.0,1,1.0,"Candidate matches the reference: 2.2 percent with positive ticket and traffic, directly supported by passage 4."
+E,R02,False,1.0,1.0,1,1.0,"Candidate states a 1.5 percent increase for the 13 weeks ended Oct. 26, 2012, matching the reference and passage 5."
+E,R03,False,1.0,1.0,1,1.0,"Candidate matches reference figures (ticket +1.4%, traffic +0.1%) and is supported by passage 1."
+E,R04,False,1.0,1.0,1,1.0,"Candidate states 1.0 to 3.0 percent for July 28 to October 26, matching the reference and passage 1."
+E,R05,False,1.0,1.0,1,1.0,"Matches the reference 7.0 percent season-to-date figure; the Q2 FY13 call on Aug 16, 2012 is supported by passage 1."
+E,R10,False,1.0,1.0,1,1.0,"Candidate matches reference: fuel prices up ~6% year over year and some customers consolidating trips, supported by passage 1."
+E,R11,False,1.0,1.0,1,1.0,Candidate matches the warm October effect on apparel and is supported by passage 1 including the low single-digit comp.
+E,R13,False,1.0,1.0,1,1.0,"Candidate lists Labor Day, back-to-school, and Halloween, matching the reference and passage 1."
+E,R15,False,1.0,0.0,1,1.0,"The reference answer is the drought's effect on food prices; the candidate declines to answer, so it is wrong, though the refusal is faithful."
+E,R16,False,1.0,1.0,1,1.0,"Candidate states low single-digit positive comp, matching the reference; the added inflation figures (50 bps vs 400 bps) are supported by passage 1."
+E,B01,False,1.0,1.0,1,1.0,"Matches reference: Boston and Cleveland flat, New York softened; supported by passage 5."
+E,B02,False,1.0,1.0,1,1.0,Candidate matches the reference categories exactly and is supported by passage 3.
+E,B03,False,1.0,1.0,1,1.0,"Matches passage 5: gasoline price declined about 40 cents over the reporting period in the July 18, 2012 Dallas report."
+E,B04,False,1.0,1.0,1,1.0,Candidate matches the reference (diesel and gasoline up about 30 cents) and is supported by passage 2.
+E,B05,False,1.0,1.0,1,1.0,Matches reference and passage [3]: grocery spending soft as shoppers shifted to cheaper products.
+E,B06,False,1.0,1.0,1,1.0,"Candidate matches reference: TV declines offset flooring/appliance gains, leaving home furnishings and major appliances flat; supported by passage 1."
+E,B10,False,1.0,1.0,1,1.0,"Candidate matches reference: precautionary brief shutdowns, full restoration, very little damage, supported by passage 1."
+E,W02,False,1.0,1.0,1,1.0,"Candidate matches the reference dates (nationwide, Sept. 16 through Dec. 14, 2012), supported by passages 1 and 5."
+E,W03,False,1.0,1.0,1,1.0,"Matches reference: $15 to $5 open fee cut, $5 refunded on a Walmart gift card after final payment; supported by passage 1."
+E,N01,True,1.0,1.0,1,1.0,"The passages say nothing about optical department sales, and the candidate correctly says the sources don't contain it."
+E,N02,True,1.0,1.0,1,1.0,The candidate correctly says the sources don't contain this; passages have no store-level stockout information.
+E,N03,True,1.0,1.0,1,1.0,"The question is unanswerable, and the candidate correctly says the sources do not contain it; the passages have no Texas data."
+E,R06,False,1.0,1.0,1,1.0,Candidate gives low single-digit negative comp and electronics deflation; extra details on tablets and Straight Talk are supported by passage 4.
+E,R07,False,0.5,0.5,1,1.0,"Candidate cites the reference's low single-digit negative comp and deflation, but frames it as a conflict between sources rather than answering definitively."
+E,R08,False,1.0,1.0,1,1.0,"Candidate matches reference: brand-to-generic conversions pressured sales while Lipitor conversions improved margins, directly supported by passage 2."
+E,R09,False,0.5,1.0,1,1.0,"Gives the Sept. 16 launch (mid-September) and revenue recognized once paid and picked up; both match the passages. It omits the Q4 point, but that is implied."
+E,R12,False,1.0,1.0,1,1.0,Candidate gives 50 bps vs 400 bps matching reference and passage 3; the caveat about Walmart U.S. attribution is accurate.
+E,R14,False,0.5,0.5,1,1.0,"Gives the low single-digit positive comp, but omits the strong college essentials such as bedding and bath."
+E,B07,False,0.5,0.5,1,1.0,Captures the mild weather cause but omits the major chain's sluggish sales well below 2011 levels; claims are supported by passage 2.
+E,B08,False,1.0,1.0,1,1.0,"Matches reference: strongest Labor Day weekend in years from retail, and comparison to last year's severe weather, both supported by passages 1 and 2."
+E,B09,False,1.0,1.0,1,1.0,"Candidate matches the reference: home furnishings, clothing, back-to-school sold well; high-end jewelry weaker, as in passage 1."
+E,B11,False,1.0,1.0,1,1.0,"Candidate matches reference: generally slower sales, discount retailers somewhat better than department stores; supported by passage 3."
+E,B12,False,0.5,0.5,1,1.0,"Gives furniture and electronics slowed (matches), but omits that adult clothing and shoes stayed strong. Claims are supported by passage 5."
+E,B13,False,1.0,1.0,1,1.0,Candidate lists all four factors matching the reference and passage 1 exactly.
+E,B14,False,1.0,1.0,1,1.0,Matches the reference: a possible delay in deep discounting of back-to-school items already discounted the prior year; the extra details are supported by passage 2.
+E,W01,False,0.5,0.5,1,1.0,"Candidate gives the 1.5% comp and drivers supported by passage 3, but omits the 3.6% growth figure, giving $2.3B instead."
+E,W04,False,0.0,0.0,1,1.0,"The candidate declines, but the question is answerable per the reference (expanded immunizations in 2,700+ stores); a refusal is faithful but incorrect."
+F,R01,False,0.5,1.0,1,1.0,"Candidate states 2.2 percent for the 13 weeks ended July 27, 2012, matching passage 2; omits ticket/traffic detail but key figure matches."
+F,R02,False,0.0,0.0,1,1.0,"The reference gives 1.5 percent, but the candidate says the sources lack it, so it declines. The passages do not state the Q3 figure, so the refusal is faithful."
+F,R03,False,1.0,1.0,1,1.0,"Candidate matches reference figures (ticket +1.4%, traffic +0.1%) and is supported by passage 1."
+F,R04,False,1.0,1.0,1,1.0,"Candidate matches the reference range of 1.0 to 3.0 percent, directly supported by passage 1."
+F,R05,False,1.0,1.0,1,1.0,Matches reference: 7.0 percent season to date; supported by the Q2 FY13 earnings call transcript published 2012-08-16.
+F,R10,False,1.0,1.0,1,1.0,Candidate matches reference: fuel prices up about 6% year over year and some customers consolidating trips; supported by passage 1.
+F,R11,False,1.0,1.0,1,1.0,"Candidate states the warm October affected apparel and that a low single-digit comp increase was posted, matching passage [1] and the reference."
+F,R12,False,1.0,1.0,1,1.0,Candidate matches reference figures (~50 bps vs ~400 bps) and passage 1 supports them.
+F,R13,False,1.0,1.0,1,1.0,"Candidate lists Labor Day, back-to-school and Halloween, matching the reference and passage [2] verbatim."
+F,R14,False,1.0,0.5,1,1.0,Candidate gives the low single-digit positive comp but omits the strong college essentials such as bedding and bath; what it states is supported.
+F,R15,False,0.0,0.0,1,1.0,"The reference names the drought and its effect on food prices; the candidate declines to answer, though the refusal is consistent with the passages."
+F,R16,False,1.0,1.0,1,1.0,Candidate matches the reference's low single-digit positive comp and adds inflation figures (50 bps vs 400 bps) that passage 1 supports.
+F,B01,False,1.0,1.0,1,1.0,"Candidate names Boston and Cleveland as flat and New York as softer, matching the reference and passages 1 and 2."
+F,B02,False,1.0,1.0,1,1.0,Candidate matches the reference categories exactly and is supported by passage 1.
+F,B03,False,1.0,1.0,1,1.0,"Candidate matches the reference: gasoline fell about 40 cents, supported by passage 1 for the July 18, 2012 Dallas report."
+F,B04,False,1.0,1.0,1,1.0,"Candidate matches reference: gasoline and diesel rose about 30 cents, supported by passage 1."
+F,B05,False,1.0,1.0,1,1.0,"Candidate matches reference: soft grocery spending as shoppers shift to cheaper products, directly supported by passage 1."
+F,W02,False,1.0,1.0,1,1.0,"Candidate matches the reference dates (nationwide, Sept. 16 through Dec. 14) and is supported by passages 1 and 4."
+F,W03,False,1.0,1.0,1,1.0,"Candidate states the $15 to $5 cut and the gift card refund on final payment, matching the reference and passage 3."
+F,W04,False,1.0,1.0,1,1.0,"Candidate matches expanded immunizations in 2,700+ stores; added details (ten CDC vaccines, Aug. 27–Nov. 15) are supported by passage 2."
+F,N01,True,1.0,1.0,1,1.0,Passages say nothing about optical department sales; candidate correctly states the sources don't contain it.
+F,N02,True,1.0,1.0,1,1.0,"Question is unanswerable; candidate correctly says the sources do not contain it, and the passages have nothing on Store 28."
+F,N03,True,1.0,1.0,1,1.0,Candidate correctly says the sources lack Texas August 2012 comparable sales; passages give only national figures.
+F,R06,False,1.0,1.0,1,1.0,"Gives low single-digit negative comp and electronics deflation; extra details and the noted passage conflict are supported by passages [2], [3], [4]."
+F,R07,False,0.5,0.5,1,1.0,"Includes the reference's low single-digit negative comp, but frames it as a conflict with 'slightly positive' for technology and entertainment combined, which is not a real contradiction."
+F,R08,False,0.5,1.0,1,1.0,Candidate gives brand-to-generic conversions pressuring top-line sales and improving pharmacy margins; the hedge is minor and consistent with the passage.
+F,R09,False,1.0,1.0,1,1.0,"Candidate gives Sept. 16 mid-September launch and recognition in Q4 (quarter ending Jan 31, 2013) when customers pay and pick up; all supported by passages."
+F,B06,False,1.0,1.0,1,1.0,"Candidate matches the reference: television declines offset flooring and appliance gains, leaving home furnishings and major appliances flat, supported by passage 1."
+F,B07,False,0.5,0.5,1,1.0,Gives the mild weather cause but omits the major chain's sluggish sales well below 2011; the claim about no other causes is acceptable.
+F,B08,False,1.0,1.0,1,1.0,"Candidate matches the reference: retailer's strongest Labor Day weekend in years, and the comparison to last year's severe weather; both are supported by passages 1 and 2."
+F,B09,False,0.5,1.0,1,1.0,"Candidate gives home furnishings, clothing, back-to-school items, matching the reference; the added crossover/SUV demand is supported by passage 1. It omits weaker jewelry, which is minor."
+F,B10,False,1.0,1.0,1,1.0,"Candidate matches reference: brief precautionary shutdowns, full restoration with very little damage, supported by passage 1."
+F,B11,False,0.5,0.5,1,1.0,Captures slower sales but omits the discount-versus-department-store comparison; all claims are supported by passage 4.
+F,B12,False,0.5,1.0,1,1.0,"Candidate correctly names furniture and electronics as slowed; the home-sales claim is supported by passage 2. It omits adult clothing and shoes staying strong, which is minor."
+F,B13,False,1.0,1.0,1,1.0,Candidate lists all four factors matching reference and passage 1 exactly.
+F,B14,False,1.0,1.0,1,1.0,"Candidate matches the reference: delayed deep discounting of back-to-school items already discounted the prior year, supported by passage 1."
+F,W01,False,1.0,1.0,1,1.0,"Matches 3.6% growth and 1.5% comp sales; the added $2.3B, $66.1B, back-to-school and layaway details are supported by passages 1 and 3."

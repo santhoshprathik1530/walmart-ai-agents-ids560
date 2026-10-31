@@ -1,0 +1,32 @@
+{
+ "A2": {
+  "haiku_correct": 64,
+  "sonnet_correct": 44,
+  "haiku_faithful": 97,
+  "sonnet_faithful": 97,
+  "sonnet_refused_unanswerable": "3/3",
+  "graders_agree": "28/36"
+ },
+ "E": {
+  "haiku_correct": 88,
+  "sonnet_correct": 87,
+  "haiku_faithful": 100,
+  "sonnet_faithful": 100,
+  "sonnet_refused_unanswerable": "3/3",
+  "graders_agree": "35/37"
+ },
+ "F": {
+  "haiku_correct": 84,
+  "sonnet_correct": 88,
+  "haiku_faithful": 100,
+  "sonnet_faithful": 100,
+  "sonnet_refused_unanswerable": "3/3",
+  "graders_agree": "32/37"
+ },
+ "chat": {
+  "n": 0,
+  "code_number_match": 0,
+  "sonnet_correct": 0.0,
+  "sonnet_full_marks": 0
+ }
+}

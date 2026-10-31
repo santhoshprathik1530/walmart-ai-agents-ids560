@@ -1,0 +1,713 @@
+{
+ "cases": {
+  "EXC-S07-D72-20120824": {
+   "store": 7,
+   "grain": "department_week",
+   "week_ending": "2012-08-24",
+   "dept": 72,
+   "dept_name": "Electronics",
+   "region": "Colorado",
+   "actual": 33957.54,
+   "expected": 45010.06,
+   "deviation_pct": -24.6,
+   "detected_by": "Extra Trees model",
+   "verdict": "Needs review",
+   "status": "Needs review",
+   "confidence": "Medium",
+   "factors": [
+    {
+     "title": "Falling electronics prices",
+     "text": "**Walmart reports:** \u201cWithin entertainment, deflation continues to impact sales growth in electronics.\u201d (Walmart FY13 Q2 earnings call transcript, 2012-08-16). Across all 45 stores, Electronics was \u22120.5% this quarter, so company-wide trends explain only part of this store's \u221212.7%.",
+     "kind": "factor",
+     "tags": [
+      "Walmart",
+      "Data"
+     ]
+    },
+    {
+     "title": "A problem at this store",
+     "text": "**Sales data:** Store 7 Electronics fell \u221212.7% this quarter (down 9 of 13 weeks), while other Colorado stores held up much better: Store 16 \u22123.6%, Store 41 +2.8%, Store 32 +14.2%. Likely the store itself: stock, product range or local competition.",
+     "kind": "factor",
+     "tags": [
+      "Data"
+     ]
+    },
+    {
+     "title": "Fewer promotions during back-to-school",
+     "text": "**Sales data:** Store 7 ran fewer markdowns than usual that week (about 0.6\u00d7 a normal week), while the **Federal Reserve** reported \u201cHome furnishings, clothing and back-to-school items sold well, while sales of high-end jewelry were weaker.\u201d (Kansas City Fed (10th District)).",
+     "kind": "factor",
+     "tags": [
+      "Data",
+      "Regional"
+     ]
+    },
+    {
+     "title": "Ruled out",
+     "text": "No holiday that week, fuel prices barely changed (+2.1%), normal weather, and the rest of the store was only \u22123.3%.",
+     "kind": "ruled_out",
+     "tags": []
+    }
+   ],
+   "bottom_line": "Walmart reported only a small company-wide decline in this category, but Store 7 Electronics fell \u221212.7% this quarter. Falling prices explain a small part; most of the drop is specific to Store 7.",
+   "review": [
+    "Confirm whether Electronics unit volume held (price effect) or fell (demand loss).",
+    "Evaluate whether markdown spend in this period produced any lift for Electronics.",
+    "Compare with other Colorado stores: Store 16 \u221211.1%, Store 41 \u22120.5%."
+   ],
+   "limitations": [
+    "Department and region names are publicly inferred, not confirmed by Walmart.",
+    "The store fell much more than the chain, and public reports only describe company-wide trends, so part of the drop is unexplained.",
+    "No unit or price data, so price deflation and lost volume cannot be separated.",
+    "Markdowns are recorded per store, not per department.",
+    "Reports describe Walmart or the Fed district as a whole, not this store."
+   ],
+   "checks": [
+    {
+     "check": "Number accuracy",
+     "question": "Is every number in the agent's answer correct?",
+     "status": "pass",
+     "result": "5 of 5 key numbers recomputed from the raw sales files; all match."
+    },
+    {
+     "check": "Right time and place",
+     "question": "Is every report from the same quarter and the store's region?",
+     "status": "pass",
+     "result": "6 of 6 passages are from the week's quarter and Kansas City / national."
+    },
+    {
+     "check": "Quote accuracy",
+     "question": "Does every quote really appear in the cited report?",
+     "status": "pass",
+     "result": "2 of 2 quotes found word for word in the original source files."
+    },
+    {
+     "check": "Main factor agreement",
+     "question": "Does the agent pick the same main factor a person would?",
+     "status": "pending",
+     "result": "Agent's main factor: Falling electronics prices. Waiting for two team members to name the main factor independently."
+    },
+    {
+     "check": "Holiday-shift detection",
+     "question": "Does the agent recognize weeks where a holiday moved?",
+     "status": "pass",
+     "result": "Calendar effect expected: no; the agent says \"Needs review\" (correct)."
+    },
+    {
+     "check": "Confidence check",
+     "question": "Does the confidence level match the evidence?",
+     "status": "pending",
+     "result": "Agent says Medium. Waiting for two team members to rate it independently."
+    }
+   ],
+   "rag_stats": {
+    "chunks_in_store": 6560,
+    "chunks_after_filter": 705,
+    "reports_after_filter": 7,
+    "queries": 2,
+    "candidates": 42,
+    "returned": 6,
+    "districts": [
+     "National",
+     "Kansas City"
+    ],
+    "ms": 4110,
+    "reports_in_store": 59
+   },
+   "queries": [
+    {
+     "name": "category",
+     "text": "electronics sales and comp trend, entertainment business, entertainment electronic deflation",
+     "hits": 25,
+     "ms": 95
+    },
+    {
+     "name": "demand",
+     "text": "retail sales and consumer spending, back-to-school",
+     "hits": 25,
+     "ms": 87
+    }
+   ],
+   "passages": [
+    {
+     "doc": "Walmart FY13 Q2 earnings call transcript",
+     "doc_id": "WMT-FY13Q2-CALL",
+     "published": "2012-08-16",
+     "district": "National",
+     "relation": "published just before",
+     "score": 0.832,
+     "quote": "Within entertainment, deflation continues to impact sales growth in electronics.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "Walmart FY13 Q3 earnings call transcript",
+     "doc_id": "WMT-FY13Q3-CALL",
+     "published": "2012-11-15",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.768,
+     "quote": "Comp sales in technology and entertainment, which continued to experience deflation, were slightly positive this quarter.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "Walmart FY13 Q3 earnings call transcript",
+     "doc_id": "WMT-FY13Q3-CALL",
+     "published": "2012-11-15",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.746,
+     "quote": "The combination of inflation and deflation across multiple categories affected comp sales.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "Federal Reserve Beige Book, Aug 29, 2012",
+     "doc_id": "BB-2012-08-29",
+     "published": "2012-08-29",
+     "district": "Kansas City Fed (10th District)",
+     "relation": "covers the week",
+     "score": 0.735,
+     "quote": "Home furnishings, clothing and back-to-school items sold well, while sales of high-end jewelry were weaker.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "doc": "Walmart FY13 Q2 earnings call transcript",
+     "doc_id": "WMT-FY13Q2-CALL",
+     "published": "2012-08-16",
+     "district": "National",
+     "relation": "published just before",
+     "score": 0.707,
+     "quote": "Back-to-school and back-to-college shopping is well under way.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "Federal Reserve Beige Book, Aug 29, 2012",
+     "doc_id": "BB-2012-08-29",
+     "published": "2012-08-29",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.703,
+     "quote": "Consumer Spending and Tourism Most Districts reported that retail spending in July and early August was up compared with the previous Beige Book.",
+     "evidence_type": "Regional / macro context"
+    }
+   ],
+   "explanation": null,
+   "explanation_model": null,
+   "seconds_median": 11.83,
+   "ms_median": {
+    "Anomaly payload": 2,
+    "Orchestrator": 1,
+    "Evidence Agent": 26,
+    "RAG Agent": 4110,
+    "Reasoning Agent": 7677,
+    "Checks": 42
+   }
+  },
+  "EXC-S13-D01-20120420": {
+   "store": 13,
+   "grain": "department_week",
+   "week_ending": "2012-04-20",
+   "dept": 1,
+   "dept_name": "Candy & Tobacco",
+   "region": "Rocky Mountain (PADD 4)",
+   "actual": 30200.67,
+   "expected": 166023.49,
+   "deviation_pct": -81.8,
+   "detected_by": "Baseline (same week last year)",
+   "verdict": "Likely explained: holiday timing",
+   "status": "Likely explained",
+   "confidence": "Medium",
+   "factors": [
+    {
+     "title": "Easter moved earlier",
+     "text": "**Calendar:** Easter was Apr 8 in 2012 vs. Apr 24 in 2011, so this week is compared with last year's pre-Easter rush. **Walmart reports:** \u201cThis year, Easter benefitted the first quarter, but will pressure sales in the second quarter.\u201d (Walmart FY13 Q1 earnings call transcript, 2012-05-17).",
+     "kind": "factor",
+     "tags": [
+      "Calendar",
+      "Walmart"
+     ]
+    },
+    {
+     "title": "Sales happened earlier, not lost",
+     "text": "**Sales data:** the week ending Apr 6, 2012 sold $150.7K vs. $51.9K the same week last year. Over the six weeks around Easter, Candy & Tobacco was only \u22126.4%.",
+     "kind": "factor",
+     "tags": [
+      "Data"
+     ]
+    },
+    {
+     "title": "Every store saw the same dip",
+     "text": "**Sales data:** Candy & Tobacco across all 45 stores was \u221273.4% that week; nearby stores 17 (\u221277.2%), 44 (\u221253.8%) dropped too.",
+     "kind": "factor",
+     "tags": [
+      "Data"
+     ]
+    },
+    {
+     "title": "Ruled out",
+     "text": "A problem at this store: Candy & Tobacco is +1.2% this quarter, and markdowns were active (about 1.3\u00d7 a normal week).",
+     "kind": "ruled_out",
+     "tags": []
+    }
+   ],
+   "bottom_line": "Likely not a real problem. The Easter peak moved two weeks earlier, so the sales happened in an earlier week. No store action needed.",
+   "review": [
+    "No action needed for this week; compare the full holiday season instead of single weeks.",
+    "Ask the detection team to add a holiday-aligned baseline so these weeks are not flagged."
+   ],
+   "limitations": [
+    "A small decline may remain after adjusting for timing; check it if it persists.",
+    "Department and region names are publicly inferred, not confirmed by Walmart."
+   ],
+   "checks": [
+    {
+     "check": "Number accuracy",
+     "question": "Is every number in the agent's answer correct?",
+     "status": "pass",
+     "result": "4 of 4 key numbers recomputed from the raw sales files; all match."
+    },
+    {
+     "check": "Right time and place",
+     "question": "Is every report from the same quarter and the store's region?",
+     "status": "pass",
+     "result": "6 of 6 passages are from the week's quarter and Kansas City, Minneapolis, San Francisco / national."
+    },
+    {
+     "check": "Quote accuracy",
+     "question": "Does every quote really appear in the cited report?",
+     "status": "pass",
+     "result": "1 of 1 quotes found word for word in the original source files."
+    },
+    {
+     "check": "Main factor agreement",
+     "question": "Does the agent pick the same main factor a person would?",
+     "status": "pending",
+     "result": "Agent's main factor: Easter moved earlier. Waiting for two team members to name the main factor independently."
+    },
+    {
+     "check": "Holiday-shift detection",
+     "question": "Does the agent recognize weeks where a holiday moved?",
+     "status": "pass",
+     "result": "Calendar effect expected: yes; the agent says \"Likely explained: holiday timing\" (correct)."
+    },
+    {
+     "check": "Confidence check",
+     "question": "Does the confidence level match the evidence?",
+     "status": "pending",
+     "result": "Agent says Medium. Waiting for two team members to rate it independently."
+    }
+   ],
+   "rag_stats": {
+    "chunks_in_store": 6560,
+    "chunks_after_filter": 621,
+    "reports_after_filter": 6,
+    "queries": 3,
+    "candidates": 49,
+    "returned": 6,
+    "districts": [
+     "National",
+     "Minneapolis",
+     "Kansas City",
+     "San Francisco"
+    ],
+    "ms": 4286,
+    "reports_in_store": 59
+   },
+   "queries": [
+    {
+     "name": "category",
+     "text": "candy & tobacco sales and comp trend, grocery business, grocery food consumables",
+     "hits": 25,
+     "ms": 93
+    },
+    {
+     "name": "demand",
+     "text": "retail sales and consumer spending, Easter spring season",
+     "hits": 25,
+     "ms": 87
+    },
+    {
+     "name": "event",
+     "text": "Easter timing and holiday sales shift",
+     "hits": 25,
+     "ms": 86
+    }
+   ],
+   "passages": [
+    {
+     "doc": "Federal Reserve Beige Book, Jun 06, 2012",
+     "doc_id": "BB-2012-06-06",
+     "published": "2012-06-06",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.818,
+     "quote": "Firms in the Richmond, Chicago, and Minneapolis Districts noted sales increased at a more modest pace than in the previous report, as unseasonably warm weather and an earlier Easter holiday had shifted sales into the previous reporting period.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "doc": "Walmart FY13 Q1 earnings call transcript",
+     "doc_id": "WMT-FY13Q1-CALL",
+     "published": "2012-05-17",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.725,
+     "quote": "This year, Easter benefitted the first quarter, but will pressure sales in the second quarter.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "Federal Reserve Beige Book, Jun 06, 2012",
+     "doc_id": "BB-2012-06-06",
+     "published": "2012-06-06",
+     "district": "San Francisco Fed (12th District)",
+     "relation": "covers the week",
+     "score": 0.695,
+     "quote": "Sales activity improved further for restaurants and other food-service providers.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "doc": "Walmart FY13 Q1 earnings call transcript",
+     "doc_id": "WMT-FY13Q1-CALL",
+     "published": "2012-05-17",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.672,
+     "quote": "We will also manage specific challenges to the business including the brand-to-generic impact in health & wellness, as well as grocery price disinflation.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "Federal Reserve Beige Book, Apr 11, 2012",
+     "doc_id": "BB-2012-04-11",
+     "published": "2012-04-11",
+     "district": "Kansas City Fed (10th District)",
+     "relation": "published just before",
+     "score": 0.664,
+     "quote": "Consumer Spending Consumer spending improved and expectations for the months ahead remained solid.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "doc": "Walmart FY2013 10-K",
+     "doc_id": "WMT-10K-FY2013",
+     "published": "2013-03-26",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.649,
+     "quote": "We also operate restaurant chains and, on a limited basis, consumer finance operations.",
+     "evidence_type": "Walmart-level context"
+    }
+   ],
+   "explanation": "The Candy & Tobacco sales drop at your store was not a real problem but an explained pattern caused by Easter timing. Easter fell on April 8 in 2012 versus April 24 in 2011, so the holiday-driven sales peak shifted into an earlier week, leaving this week's comparison against last year's pre-Easter rush. As Walmart noted on its FY13 Q1 earnings call, \"This year, Easter benefitted the first quarter, but will pressure sales in the second quarter.\" All 45 stores in the region saw similar declines, and Candy & Tobacco is actually up 1.2% this quarter, confirming the dip reflects calendar timing rather than a store-level issue.",
+   "explanation_model": "poolside/laguna-s-2.1:free",
+   "seconds_median": 13.02,
+   "ms_median": {
+    "Anomaly payload": 0,
+    "Orchestrator": 1,
+    "Evidence Agent": 29,
+    "RAG Agent": 4430,
+    "Reasoning Agent": 8427,
+    "Checks": 51
+   }
+  },
+  "EXC-S02-ALL-20120106": {
+   "store": 2,
+   "grain": "store_week",
+   "week_ending": "2012-01-06",
+   "dept": null,
+   "dept_name": "All departments",
+   "region": "Texas",
+   "actual": 1799520.14,
+   "expected": 2455470.54,
+   "deviation_pct": -26.7,
+   "detected_by": "Store-level payload (4-week average + Isolation Forest)",
+   "verdict": "Likely explained: post-holiday seasonality",
+   "status": "Likely explained",
+   "confidence": "High",
+   "factors": [
+    {
+     "title": "Christmas inflated the baseline",
+     "text": "**Sales data:** the expected $2.46M is the average of Dec 9\u201330, which includes Christmas week ($3.22M, 1.8\u00d7 a typical week of $1.84M). Against the same week last year, Store 2 is +2.4% ($1.80M vs. $1.76M), and the same method would have flagged last year's week too (\u221230.9%).",
+     "kind": "factor",
+     "tags": [
+      "Data"
+     ]
+    },
+    {
+     "title": "Every store dropped",
+     "text": "**Sales data:** all 45 stores fell a median \u221225.3% against their own 4-week baseline; Store 2 ranks 20th of 45. The five biggest shortfalls (Toys, Electronics, Media & Gaming, Impulse, Seasonal) all peak in Nov\u2013Dec and are together +2.0% vs. last year's same week.",
+     "kind": "factor",
+     "tags": [
+      "Data"
+     ]
+    },
+    {
+     "title": "Strong season, not a slump",
+     "text": "**Walmart reports:** \u201cWe completed a very successful holiday season, with strong sales during Thanksgiving week and throughout December.\u201d (Walmart FY12 Q4 earnings call transcript, 2012-02-21). **Federal Reserve** (Dallas Fed (11th District)): \u201cJewelry, small electronics and apparel were areas of strength in retail this holiday season.\u201d",
+     "kind": "factor",
+     "tags": [
+      "Walmart",
+      "Regional"
+     ]
+    },
+    {
+     "title": "Still worth a look",
+     "text": "**Sales data:** Toys is \u221213.8% vs. last year's same week. Walmart said layaway lifted toy sales earlier in the quarter, so some demand may have been pulled forward. Possible, not confirmed.",
+     "kind": "factor",
+     "tags": [
+      "Data",
+      "Walmart"
+     ]
+    },
+    {
+     "title": "Ruled out",
+     "text": "A store-specific slump: the next 4 weeks are \u22120.9% vs. last year. Fuel (+6.1%) and weather (47\u00b0F vs. 45\u00b0F) were normal. Markdowns ($53.0K, 1.9\u00d7 an average week) are recorded for the store, not by department, so they cannot explain the gap.",
+     "kind": "ruled_out",
+     "tags": []
+    }
+   ],
+   "bottom_line": "Likely not a real problem. The expected number is inflated by Christmas week; compared with last year Store 2 is +2.4% and every store dropped. The detector's \"structural slump\" flag is not supported. Only Toys is worth a look over the next two weeks.",
+   "review": [
+    "No store action needed for this week; use a same-week-last-year or holiday-aware baseline for January weeks.",
+    "Check Toys over the next two weeks (\u221213.8% vs. last year)."
+   ],
+   "limitations": [
+    "The detector's \"structural slump\" and \"internal merchandising failure\" reading comes from a baseline that is not adjusted for the Christmas peak; last year's comparison does not support it.",
+    "Markdowns are recorded per store, not per department, so the data cannot show whether they lifted sales.",
+    "Department and region names are publicly inferred, not confirmed by Walmart.",
+    "Reports describe Walmart or the Fed district as a whole, not this store.",
+    "No unit, price or inventory data."
+   ],
+   "checks": [
+    {
+     "check": "Number accuracy",
+     "question": "Is every number in the agent's answer correct?",
+     "status": "pass",
+     "result": "5 of 5 key numbers recomputed from the raw sales files; all match."
+    },
+    {
+     "check": "Right time and place",
+     "question": "Is every report from the same quarter and the store's region?",
+     "status": "pass",
+     "result": "6 of 6 passages are from the week's quarter and Dallas / national."
+    },
+    {
+     "check": "Quote accuracy",
+     "question": "Does every quote really appear in the cited report?",
+     "status": "pass",
+     "result": "2 of 2 quotes found word for word in the original source files."
+    },
+    {
+     "check": "Main factor agreement",
+     "question": "Does the agent pick the same main factor a person would?",
+     "status": "pending",
+     "result": "Agent's main factor: Christmas inflated the baseline. Waiting for two team members to name the main factor independently."
+    },
+    {
+     "check": "Holiday-shift detection",
+     "question": "Does the agent recognize weeks where a holiday moved?",
+     "status": "pass",
+     "result": "Calendar effect expected: yes; the agent says \"Likely explained: post-holiday seasonality\" (correct)."
+    },
+    {
+     "check": "Confidence check",
+     "question": "Does the confidence level match the evidence?",
+     "status": "pending",
+     "result": "Agent says High. Waiting for two team members to rate it independently."
+    }
+   ],
+   "rag_stats": {
+    "chunks_in_store": 6560,
+    "chunks_after_filter": 533,
+    "reports_after_filter": 7,
+    "queries": 3,
+    "candidates": 50,
+    "returned": 6,
+    "districts": [
+     "National",
+     "Dallas"
+    ],
+    "ms": 3380,
+    "reports_in_store": 59
+   },
+   "queries": [
+    {
+     "name": "category",
+     "text": "toys, electronics, media & gaming, impulse merchandise sales and comp sales trend; entertainment grocery hardlines business",
+     "hits": 25,
+     "ms": 122
+    },
+    {
+     "name": "demand",
+     "text": "retail sales and consumer spending, holiday season Christmas New Year",
+     "hits": 25,
+     "ms": 86
+    },
+    {
+     "name": "event",
+     "text": "holiday season sales, Christmas and into the New Year, fourth quarter seasonality",
+     "hits": 25,
+     "ms": 87
+    }
+   ],
+   "passages": [
+    {
+     "doc": "Federal Reserve Beige Book, Jan 11, 2012",
+     "doc_id": "BB-2012-01-11",
+     "published": "2012-01-11",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.869,
+     "quote": "Most Districts reported that holiday retail sales were up noticeably over last year's season, with New York and Dallas describing sales as \"brisk\" and \"robust,\" respectively.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "doc": "Federal Reserve Beige Book, Jan 11, 2012",
+     "doc_id": "BB-2012-01-11",
+     "published": "2012-01-11",
+     "district": "Dallas Fed (11th District)",
+     "relation": "covers the week",
+     "score": 0.76,
+     "quote": "Jewelry, small electronics and apparel were areas of strength in retail this holiday season.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "doc": "NRF 2011 holiday sales forecast",
+     "doc_id": "NRF-2011-HOLIDAY",
+     "published": "2011-10-06",
+     "district": "National",
+     "relation": "period just ended",
+     "score": 0.747,
+     "quote": "On the heels of a holiday season that outperformed most analysts' expectations, holiday retail sales* for 2011 are expected to increase 2.8 percent to $465.6 billion, according to the National Retail Federation.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "doc": "Walmart FY12 Q4 earnings call transcript",
+     "doc_id": "WMT-FY12Q4-CALL",
+     "published": "2012-02-21",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.72,
+     "quote": "Continued assortment initiatives, especially in sporting goods and stationery and crafts, drove sales throughout the quarter.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "Walmart FY12 Q4 earnings call transcript",
+     "doc_id": "WMT-FY12Q4-CALL",
+     "published": "2012-02-21",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.712,
+     "quote": "We completed a very successful holiday season, with strong sales during Thanksgiving week and throughout December.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "doc": "NRF 2011 holiday sales forecast",
+     "doc_id": "NRF-2011-HOLIDAY",
+     "published": "2011-10-06",
+     "district": "National",
+     "relation": "period just ended",
+     "score": 0.706,
+     "quote": "Additionally, the substantial year-over-year gains for the 2010 holiday season will create more difficult comparisons for retailers to achieve this year.",
+     "evidence_type": "Regional / macro context"
+    }
+   ],
+   "explanation": "This exception is a seasonal pattern, not a real problem. The expected $2.46M baseline is inflated because it averages December 9\u201330, which includes Christmas week at $3.22M, roughly 1.8\u00d7 a typical week. Compared with last year, Store 2 is actually up +2.4%, and all 45 stores fell a median \u221225.3%, so the drop is system-wide. As Walmart noted, \"We completed a very successful holiday season, with strong sales during Thanksgiving week and throughout December.\" Only Toys is worth watching, since it is \u221213.8% versus last year.",
+   "explanation_model": "poolside/laguna-s-2.1:free",
+   "seconds_median": 11.62,
+   "ms_median": {
+    "Anomaly payload": 2,
+    "Orchestrator": 1,
+    "Evidence Agent": 15,
+    "RAG Agent": 3333,
+    "Reasoning Agent": 8192,
+    "Checks": 35
+   }
+  }
+ },
+ "llm": {
+  "available": true,
+  "provider": "openrouter",
+  "chain": [
+   "google/gemma-4-31b-it:free",
+   "poolside/laguna-s-2.1:free",
+   "google/gemma-4-26b-a4b-it:free",
+   "poolside/laguna-xs-2.1:free"
+  ],
+  "runs": 9,
+  "accepted": 5,
+  "rejected": 0,
+  "no_answer": 4,
+  "models": [
+   "poolside/laguna-s-2.1:free"
+  ],
+  "ms_median": 5606,
+  "tokens_in_median": 1280,
+  "tokens_out_median": 149
+ },
+ "vector_store": {
+  "files": 59,
+  "chunks": 6560,
+  "chunks_before_quality_filter": 6859,
+  "dropped_noise_chunks": 299,
+  "avg_chunk_chars": 814,
+  "avg_chunk_words": 124,
+  "approx_tokens": 1057152,
+  "chunk_target_chars": 900,
+  "overlap_chars": 150,
+  "embedding_model": "all-MiniLM-L6-v2 (ONNX, 384-dim)",
+  "embedding_dim": 384,
+  "index": "HNSW, cosine distance",
+  "collection": "walmart_reports",
+  "vector_store_bytes": 60684380,
+  "vector_store_mb": 60.7,
+  "build_seconds": 132.6,
+  "per_type": {
+   "10k": {
+    "files": 4,
+    "chunks": 585,
+    "avg_chars": 807
+   },
+   "annual_report": {
+    "files": 4,
+    "chunks": 877,
+    "avg_chars": 826
+   },
+   "beige_book": {
+    "files": 24,
+    "chunks": 3706,
+    "avg_chars": 806
+   },
+   "comp_sales": {
+    "files": 2,
+    "chunks": 2,
+    "avg_chars": 577
+   },
+   "earnings_call": {
+    "files": 11,
+    "chunks": 1008,
+    "avg_chars": 835
+   },
+   "earnings_release": {
+    "files": 11,
+    "chunks": 367,
+    "avg_chars": 827
+   },
+   "nrf_forecast": {
+    "files": 3,
+    "chunks": 15,
+    "avg_chars": 762
+   }
+  },
+  "beige_districts": [
+   "Atlanta",
+   "Boston",
+   "Chicago",
+   "Cleveland",
+   "Dallas",
+   "Kansas City",
+   "Minneapolis",
+   "National",
+   "New York",
+   "Philadelphia",
+   "Richmond",
+   "San Francisco",
+   "St. Louis"
+  ]
+ }
+}

@@ -1,0 +1,1518 @@
+[
+ {
+  "id": "R01",
+  "question": "What were Walmart U.S. comparable store sales for the second quarter of FY2013 (13 weeks ended July 27, 2012)?",
+  "answer": "Up 2.2 percent, with both ticket and traffic positive.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-RELEASE",
+    "quote": "Walmart U.S. comparable store sales rose 2.2 percent in the 13-week period ended July 27, with positive ticket and traffic.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "comp sales"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R02",
+  "question": "What were Walmart U.S. comparable store sales for the third quarter of FY2013 (13 weeks ended October 26, 2012)?",
+  "answer": "Up 1.5 percent.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-RELEASE",
+    "quote": "store sales increased 1.5 percent in the 13-week period ended Oct. 26, 2012.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "comp sales"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R03",
+  "question": "In Q3 FY2013, was the Walmart U.S. comp driven by more customers (traffic) or bigger baskets (ticket)?",
+  "answer": "Mostly ticket: average ticket rose 1.4 percent while traffic was up only 0.1 percent.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-RELEASE",
+    "quote": "During the 13-week period, the Walmart U.S. comp was driven by an increase in average ticket of 1.4 percent.",
+    "found_in_source": true
+   },
+   {
+    "doc_id": "WMT-FY13Q3-RELEASE",
+    "quote": "Traffic was positive by 0.1 percent.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "traffic and ticket"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R04",
+  "question": "What comparable sales did Walmart U.S. expect for July 28 to October 26, 2012?",
+  "answer": "Between 1.0 and 3.0 percent.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-RELEASE",
+    "quote": "For the 4-5-4 period from July 28 through October 26, Walmart U.S. expects comparable store sales to range from 1.0 percent to 3.0 percent.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "guidance"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R05",
+  "question": "How were Walmart's back-to-school apparel categories doing by mid-August 2012?",
+  "answer": "Key back-to-school apparel categories were up 7.0 percent season to date.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Season to date, key back-to-school apparel categories are up 7.0 percent.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "back to school",
+   "unit": "Apparel"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R06",
+  "question": "How did Walmart U.S. entertainment (electronics) perform in Q2 FY2013, and why?",
+  "answer": "Low single-digit negative comp; deflation in electronics held back sales growth.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Our entertainment business had a low single-digit negative comp.",
+    "found_in_source": true
+   },
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Within entertainment, deflation continues to impact sales growth in electronics.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "category",
+   "unit": "Entertainment"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R07",
+  "question": "How did Walmart U.S. entertainment perform in Q3 FY2013?",
+  "answer": "Low single-digit negative comp, because of continued strong industry deflation.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "The continued strong industry deflation led to a low single-digit negative comp for entertainment.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "category",
+   "unit": "Entertainment"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R08",
+  "question": "What did Walmart say was pressuring pharmacy sales in Q3 FY2013?",
+  "answer": "Brand-to-generic drug conversions (such as Lipitor) pressured top-line pharmacy sales, although they improved pharmacy margins.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "As expected, brand to generic conversions continued to pressure top-line sales, but conversions of Lipitor and other brands continue to improve pharmacy margins.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "category",
+   "unit": "Health & Wellness"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R09",
+  "question": "When did Walmart launch layaway in 2012, and when are layaway sales counted?",
+  "answer": "Layaway launched in mid-September 2012; most third-quarter layaway transactions are recognized in the fourth quarter, when customers pay and pick up.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Back to school activities drove sales early in the quarter, and the mid-September launch of layaway was important in helping customers.",
+    "found_in_source": true
+   },
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Therefore, the vast majority of third quarter layaway transactions will be recognized in the fourth quarter.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "layaway"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R10",
+  "question": "What did Walmart say higher fuel prices were doing to shopping behaviour in Q3 FY2013?",
+  "answer": "Average fuel prices were up about 6 percent versus last year and some customers were consolidating shopping trips.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "With average fuel prices up approximately 6 percent versus this time last year, some customers are consolidating their shopping trips.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "fuel"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R11",
+  "question": "What weather effect on apparel did Walmart mention for Q3 FY2013?",
+  "answer": "A warm October across much of the country affected apparel, though basics still drove growth.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "despite the impact of a warm October across much of the country.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "weather",
+   "unit": "Apparel"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R12",
+  "question": "How much grocery inflation did Walmart U.S. report in Q3 FY2013 compared with a year earlier?",
+  "answer": "About 50 basis points, versus about 400 basis points the year before.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Overall grocery inflation continued to moderate and was approximately 50 basis points, versus approximately 400 basis points last year.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "inflation",
+   "unit": "Grocery"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R13",
+  "question": "Which seasonal events did Walmart say its food business did well in during Q3 FY2013?",
+  "answer": "Labor Day, back-to-school and Halloween.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "our food business also delivered strong performance across the key seasonal events, including Labor Day",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "seasonal events",
+   "unit": "Grocery"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R14",
+  "question": "How did Walmart U.S. home (including seasonal) perform in Q2 FY2013?",
+  "answer": "Low single-digit positive comp, with strong college essentials such as bedding and bath.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Home, including seasonal categories, had a low single-digit positive comp.",
+    "found_in_source": true
+   },
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Within home, we're seeing strong performance in college essentials like bedding and bath.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "category",
+   "unit": "Home"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R15",
+  "question": "What risk to food prices was Walmart watching in August 2012?",
+  "answer": "The severe drought across parts of the country and its possible effect on food prices.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "We are also monitoring key commodities and the severe drought across parts of the country to gauge potential impact on food prices throughout the remainder of the year.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "drought",
+   "unit": "Grocery"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "R16",
+  "question": "How did Walmart U.S. grocery perform in Q3 FY2013?",
+  "answer": "Low single-digit positive comp (grocery includes food and consumables).",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Our grocery business, which includes food and consumables, delivered a low single-digit positive comp.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "category",
+   "unit": "Grocery"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B01",
+  "question": "According to the July 18, 2012 Beige Book, which Districts did not see retail sales increase?",
+  "answer": "Boston and Cleveland (flat) and New York (softened); all other reporting Districts increased slightly.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "Retail sales increased slightly in all reporting Districts except Boston and Cleveland, where sales were categorized as flat, and New York, where sales softened.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "retail",
+   "district": "National"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B02",
+  "question": "Which categories sold strongly in the Dallas District (Texas) in the August 29, 2012 Beige Book?",
+  "answer": "Accessories, cosmetics, and women's and children's apparel.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "Particular strength was seen in sales of accessories, cosmetics and women's and children's apparel.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "retail",
+   "district": "Dallas"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B03",
+  "question": "What happened to gasoline prices in the Dallas District in the July 18, 2012 Beige Book?",
+  "answer": "They fell about 40 cents over the reporting period.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "The price of gasoline declined about 40 cents over the reporting period.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "fuel",
+   "district": "Dallas"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B04",
+  "question": "What happened to gasoline prices in the Dallas District in the August 29, 2012 Beige Book?",
+  "answer": "Diesel and gasoline rose about 30 cents.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "The price of diesel and gasoline climbed about 30 cents",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "fuel",
+   "district": "Dallas"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B05",
+  "question": "What did the October 10, 2012 Beige Book say about grocery spending in the San Francisco District (West Coast)?",
+  "answer": "Grocery spending was soft as shoppers kept shifting to cheaper products.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "At grocery stores, consumer spending was soft as shoppers continued to shift their purchasing decisions in favor of cheaper products.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "grocery",
+   "district": "San Francisco"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B06",
+  "question": "What did West Coast retailers report about television sales in the July 18, 2012 Beige Book?",
+  "answer": "Television sales declined, offsetting gains in flooring and appliances, so home furnishings and major appliances were largely flat.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "Demand remained largely flat for retailers of home furnishings and major appliances, as declines in television sales offset increases for flooring and appliances.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "electronics",
+   "district": "San Francisco"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B07",
+  "question": "Why were New York District retail sales weak in August and September 2012?",
+  "answer": "A major chain reported sluggish sales well below 2011; part of the weakness was unseasonably mild weather hurting seasonal merchandise.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "Some of the weakness is attributed to unseasonably mild weather, which dampened sales of seasonal merchandise.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "weather",
+   "district": "New York"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B08",
+  "question": "How was Labor Day weekend 2012 described in the Philadelphia District?",
+  "answer": "One retailer had its strongest Labor Day weekend in years; sunny weather helped compared with last year's storms.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "one contact stated that his store experienced the strongest Labor Day weekend in years.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "Labor Day",
+   "district": "Philadelphia"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B09",
+  "question": "Which items sold well in the Kansas City District in July and early August 2012?",
+  "answer": "Home furnishings, clothing and back-to-school items; high-end jewelry was weaker.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "Home furnishings, clothing and back-to-school items sold well, while sales of high-end jewelry were weaker.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "back to school",
+   "district": "Kansas City"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B10",
+  "question": "Did Hurricane Isaac damage Gulf Coast refining according to the October 10, 2012 Beige Book (Atlanta District)?",
+  "answer": "No; refiners shut down briefly as a precaution and restored operations with very little damage.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "After brief, precautionary shut downs related to Hurricane Isaac, regional refiners fully restored operations with very little damage from the storm.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "hurricane",
+   "district": "Atlanta"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B11",
+  "question": "How were retail sales in the Atlanta District in the August 29, 2012 Beige Book?",
+  "answer": "Generally slower; discount stores did somewhat better than department stores.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "Most contacts in the retail sector reported generally slower sales.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "retail",
+   "district": "Atlanta"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B12",
+  "question": "Which categories slowed in New England (Boston District) in the July 18, 2012 Beige Book?",
+  "answer": "Furniture and electronics slowed; adult clothing and shoes stayed strong.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "Consumer spending continues to be strong for adult clothing and shoes, but spending on furniture and electronics has recently slowed relative to the pace earlier in the year.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "retail",
+   "district": "Boston"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B13",
+  "question": "What factors affecting retail sales did the October 10, 2012 Beige Book list nationally?",
+  "answer": "Rising gasoline prices, political uncertainty, concerns about the fiscal cliff, and weather.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "A number of reports noted various factors affecting sales, such as rising gasoline prices, political uncertainty, concerns about the \"fiscal cliff\" and weather.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "retail",
+   "district": "National"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "B14",
+  "question": "Why were children's clothing sales down at Philadelphia-area outlet centers in mid-2012?",
+  "answer": "Possibly a delay in deep discounting of back-to-school items, which had already been discounted by that time the year before.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "this time it may reflect a delay in deep discounting of back-to-school items that had already been discounted by this time last year.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "back to school",
+   "district": "Philadelphia"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "W01",
+  "question": "By how much did Walmart U.S. segment net sales grow in the third quarter of FY2013, and what drove it?",
+  "answer": "Up 3.6% for the quarter (4.4% for nine months), driven by comparable store sales up 1.5% (2.5% for nine months).",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-10Q",
+    "quote": "Net sales for the Walmart U.S. segment increased 3.6% and 4.4% for the three and nine months ended October 31, 2012, respectively, when compared to the same periods in the previous year.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "net sales",
+   "source": "10-Q"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "W02",
+  "question": "When was Walmart's 2012 Christmas layaway program available?",
+  "answer": "Nationwide from September 16 through December 14, 2012.",
+  "evidence": [
+   {
+    "doc_id": "WMT-NEWS-2012-08-20-holiday_layaway_returns",
+    "quote": "Available nationwide Sept. 16 through Dec. 14, layaway at Walmart will give families an extra month to shop and stretch their paychecks further this holiday season.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-09",
+   "topic": "layaway",
+   "source": "news release"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "W03",
+  "question": "What change did Walmart make to its layaway fee in September 2012?",
+  "answer": "It cut the Christmas layaway open fee from $15 to $5 (refunded as a gift card on final payment).",
+  "evidence": [
+   {
+    "doc_id": "WMT-NEWS-2012-09-04-layaway_fee_rollback",
+    "quote": "Today, I'm excited to announce that we're rolling back our Christmas Layaway open fee from $15 to $5.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-09",
+   "topic": "layaway",
+   "source": "news release"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "W04",
+  "question": "What pharmacy service did Walmart expand in late August 2012?",
+  "answer": "Expanded immunizations (given by nurses) in more than 2,700 Walmart stores.",
+  "evidence": [
+   {
+    "doc_id": "WMT-NEWS-2012-08-23-pharmacy_immunizations",
+    "quote": "Walmart announced today the launch of expanded immunizations in more than 2,700 Walmart stores.",
+    "found_in_source": true
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "pharmacy",
+   "unit": "Health & Wellness",
+   "source": "news release"
+  },
+  "type": "report",
+  "unanswerable": false,
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "N01",
+  "question": "What did Walmart say about optical department sales in its Q2 or Q3 FY2013 earnings?",
+  "answer": "NOT IN SOURCES. The FY2013 Q2 and Q3 releases and calls do not discuss optical.",
+  "evidence": [],
+  "unanswerable": true,
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "negative",
+   "unit": "Health & Wellness"
+  },
+  "type": "report",
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "N02",
+  "question": "Do the reports mention a stockout or supply problem at Walmart Store 28 in August 2012?",
+  "answer": "NOT IN SOURCES. The reports are company-, segment- or district-level; none names individual stores.",
+  "evidence": [],
+  "unanswerable": true,
+  "tags": {
+   "period": "2012-08",
+   "topic": "negative"
+  },
+  "type": "report",
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "N03",
+  "question": "What were Walmart's comparable sales in Texas in August 2012?",
+  "answer": "NOT IN SOURCES. Walmart reports comps for Walmart U.S. as a whole (and by its three geographic business units), not by state or month.",
+  "evidence": [],
+  "unanswerable": true,
+  "tags": {
+   "period": "2012-08",
+   "topic": "negative",
+   "district": "Dallas"
+  },
+  "type": "report",
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C01",
+  "type": "case",
+  "case_id": "Store_39_2012-09-07",
+  "question": "Which flagged department has the largest modeled shortfall at Store 39 in the week ending Sep 7, 2012, and how large is it?",
+  "answer": "Dept 3 Stationery: $48,611 below the Extra Trees expectation (63.5%).",
+  "evidence": [],
+  "source_fields": "sales_evidence.global_mad_flagged_departments.departments[].modeled_dollar_shortfall",
+  "tags": {
+   "kind": "largest_dept",
+   "store": 39,
+   "date": "2012-09-07",
+   "dept": 3
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C02",
+  "type": "case",
+  "case_id": "Store_28_2012-08-31",
+  "question": "Which flagged department has the largest modeled shortfall at Store 28 in the week ending Aug 31, 2012, and how large is it?",
+  "answer": "Dept 92 Dry Grocery: $25,828 below the Extra Trees expectation (24.5%).",
+  "evidence": [],
+  "source_fields": "sales_evidence.global_mad_flagged_departments.departments[].modeled_dollar_shortfall",
+  "tags": {
+   "kind": "largest_dept",
+   "store": 28,
+   "date": "2012-08-31",
+   "dept": 92
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C03",
+  "type": "case",
+  "case_id": "Store_10_2012-08-10",
+  "question": "Which flagged department has the largest modeled shortfall at Store 10 in the week ending Aug 10, 2012, and how large is it?",
+  "answer": "Dept 24 Boyswear: $16,323 below the Extra Trees expectation (41.1%).",
+  "evidence": [],
+  "source_fields": "sales_evidence.global_mad_flagged_departments.departments[].modeled_dollar_shortfall",
+  "tags": {
+   "kind": "largest_dept",
+   "store": 10,
+   "date": "2012-08-10",
+   "dept": 24
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C04",
+  "type": "case",
+  "case_id": "Store_28_2012-09-14",
+  "question": "Which flagged department has the largest modeled shortfall at Store 28 in the week ending Sep 14, 2012, and how large is it?",
+  "answer": "Dept 3 Stationery: $6,116 below the Extra Trees expectation (31.8%).",
+  "evidence": [],
+  "source_fields": "sales_evidence.global_mad_flagged_departments.departments[].modeled_dollar_shortfall",
+  "tags": {
+   "kind": "largest_dept",
+   "store": 28,
+   "date": "2012-09-14",
+   "dept": 3
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C05",
+  "type": "case",
+  "case_id": "Store_28_2012-08-31",
+  "question": "What were expected and actual sales for Dry Grocery (Dept 92) at Store 28 in the week ending Aug 31, 2012?",
+  "answer": "Expected $105,389, actual $79,561.",
+  "evidence": [],
+  "source_fields": "expected_weekly_sales_extra_trees, actual_weekly_sales",
+  "tags": {
+   "kind": "expected_vs_actual",
+   "store": 28,
+   "date": "2012-08-31",
+   "dept": 92
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C06",
+  "type": "case",
+  "case_id": "Store_11_2012-08-31",
+  "question": "What were expected and actual sales for Hardware (Dept 11) at Store 11 in the week ending Aug 31, 2012?",
+  "answer": "Expected $20,453, actual $15,796.",
+  "evidence": [],
+  "source_fields": "expected_weekly_sales_extra_trees, actual_weekly_sales",
+  "tags": {
+   "kind": "expected_vs_actual",
+   "store": 11,
+   "date": "2012-08-31",
+   "dept": 11
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C07",
+  "type": "case",
+  "case_id": "Store_11_2012-08-03",
+  "question": "What were expected and actual sales for Shoes (Dept 25) at Store 11 in the week ending Aug 3, 2012?",
+  "answer": "Expected $13,919, actual $10,912.",
+  "evidence": [],
+  "source_fields": "expected_weekly_sales_extra_trees, actual_weekly_sales",
+  "tags": {
+   "kind": "expected_vs_actual",
+   "store": 11,
+   "date": "2012-08-03",
+   "dept": 25
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C08",
+  "type": "case",
+  "case_id": "Store_6_2012-09-14",
+  "question": "How many departments were flagged at Store 6 in the week ending Sep 14, 2012, and what is their total modeled shortfall?",
+  "answer": "17 departments, $60,858 in total.",
+  "evidence": [],
+  "source_fields": "global_mad_flagged_departments.count, sum_positive_modeled_shortfalls",
+  "tags": {
+   "kind": "dept_count",
+   "store": 6,
+   "date": "2012-09-14",
+   "dept": null
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C09",
+  "type": "case",
+  "case_id": "Store_4_2012-09-07",
+  "question": "How many departments were flagged at Store 4 in the week ending Sep 7, 2012, and what is their total modeled shortfall?",
+  "answer": "16 departments, $30,730 in total.",
+  "evidence": [],
+  "source_fields": "global_mad_flagged_departments.count, sum_positive_modeled_shortfalls",
+  "tags": {
+   "kind": "dept_count",
+   "store": 4,
+   "date": "2012-09-07",
+   "dept": null
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C10",
+  "type": "case",
+  "case_id": "Store_39_2012-09-07",
+  "question": "How did Stationery sales at Store 39 in the week ending Sep 7, 2012 compare with the same week in earlier years?",
+  "answer": "Actual $27,998 vs a same-season median of $21,905 (+27.8%).",
+  "evidence": [],
+  "source_fields": "historical_validation.same_season_previous_years",
+  "tags": {
+   "kind": "vs_last_year",
+   "store": 39,
+   "date": "2012-09-07",
+   "dept": 3
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C11",
+  "type": "case",
+  "case_id": "Store_10_2012-08-10",
+  "question": "How did Boyswear sales at Store 10 in the week ending Aug 10, 2012 compare with the same week in earlier years?",
+  "answer": "Actual $23,342 vs a same-season median of $30,836 (-24.3%).",
+  "evidence": [],
+  "source_fields": "historical_validation.same_season_previous_years",
+  "tags": {
+   "kind": "vs_last_year",
+   "store": 10,
+   "date": "2012-08-10",
+   "dept": 24
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C12",
+  "type": "case",
+  "case_id": "Store_28_2012-08-31",
+  "question": "How did Dry Grocery do at the other stores that week, compared with Store 28 in the week ending Aug 31, 2012?",
+  "answer": "31 of 44 other stores were below the ML forecast (median -4.1%); 0 were also flagged; this store -24.5%.",
+  "evidence": [],
+  "source_fields": "ML department-week file (per_store_mad_department_flags.csv), via agents/support.py",
+  "tags": {
+   "kind": "other_stores",
+   "store": 28,
+   "date": "2012-08-31",
+   "dept": 92
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C13",
+  "type": "case",
+  "case_id": "Store_21_2012-08-03",
+  "question": "How did Pharmacy (Rx) do at the other stores that week, compared with Store 21 in the week ending Aug 3, 2012?",
+  "answer": "20 of 44 other stores were below the ML forecast (median +2.0%); 0 were also flagged; this store -26.2%.",
+  "evidence": [],
+  "source_fields": "ML department-week file (per_store_mad_department_flags.csv), via agents/support.py",
+  "tags": {
+   "kind": "other_stores",
+   "store": 21,
+   "date": "2012-08-03",
+   "dept": 38
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C14",
+  "type": "case",
+  "case_id": "Store_39_2012-09-07",
+  "question": "At Store 39 in the week ending Sep 7, 2012, in what share of other stores did the model also overpredict Stationery?",
+  "answer": "81.8% of the other stores compared.",
+  "evidence": [],
+  "source_fields": "cross_store_validation.overprediction_rate_pct",
+  "tags": {
+   "kind": "chain_overprediction",
+   "store": 39,
+   "date": "2012-09-07",
+   "dept": 3
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C15",
+  "type": "case",
+  "case_id": "Store_6_2012-09-14",
+  "question": "At Store 6 in the week ending Sep 14, 2012, in what share of other stores did the model also overpredict Sporting Goods?",
+  "answer": "86.4% of the other stores compared.",
+  "evidence": [],
+  "source_fields": "cross_store_validation.overprediction_rate_pct",
+  "tags": {
+   "kind": "chain_overprediction",
+   "store": 6,
+   "date": "2012-09-14",
+   "dept": 9
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C16",
+  "type": "case",
+  "case_id": "Store_39_2012-09-07",
+  "question": "What markdowns were recorded at Store 39 in the week ending Sep 7, 2012, and do they explain the shortfall?",
+  "answer": "5 markdown fields recorded, $35,329 in total. They are store-week amounts and do not prove any department was discounted or caused the shortfall.",
+  "evidence": [],
+  "source_fields": "markdown_context",
+  "tags": {
+   "kind": "markdowns",
+   "store": 39,
+   "date": "2012-09-07",
+   "dept": null
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C17",
+  "type": "case",
+  "case_id": "Store_8_2012-09-07",
+  "question": "What markdowns were recorded at Store 8 in the week ending Sep 7, 2012, and do they explain the shortfall?",
+  "answer": "5 markdown fields recorded, $15,595 in total. They are store-week amounts and do not prove any department was discounted or caused the shortfall.",
+  "evidence": [],
+  "source_fields": "markdown_context",
+  "tags": {
+   "kind": "markdowns",
+   "store": 8,
+   "date": "2012-09-07",
+   "dept": null
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C18",
+  "type": "case",
+  "case_id": "Store_31_2012-08-31",
+  "question": "Which Walmart fiscal quarter does the week ending Aug 31, 2012 fall in, and which earnings report covers it?",
+  "answer": "FY2013 Q3; covered by the Walmart FY13 Q3 earnings release and call.",
+  "evidence": [],
+  "source_fields": "data/fiscal_calendar.csv",
+  "tags": {
+   "kind": "fiscal_link",
+   "store": 31,
+   "date": "2012-08-31",
+   "dept": null
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C19",
+  "type": "case",
+  "case_id": "Store_6_2012-08-31",
+  "question": "Which Walmart fiscal quarter does the week ending Aug 31, 2012 fall in, and which earnings report covers it?",
+  "answer": "FY2013 Q3; covered by the Walmart FY13 Q3 earnings release and call.",
+  "evidence": [],
+  "source_fields": "data/fiscal_calendar.csv",
+  "tags": {
+   "kind": "fiscal_link",
+   "store": 6,
+   "date": "2012-08-31",
+   "dept": null
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "C20",
+  "type": "case",
+  "case_id": "Store_39_2012-09-07",
+  "question": "Is the week ending Sep 7, 2012 a holiday week?",
+  "answer": "Yes, it is the Labor Day week.",
+  "evidence": [],
+  "source_fields": "data/fiscal_calendar.csv (Holiday Week)",
+  "tags": {
+   "kind": "holiday",
+   "store": 39,
+   "date": "2012-09-07",
+   "dept": null
+  },
+  "review_status": "approved (Santhosh Kasam, 2026-10-31)"
+ },
+ {
+  "id": "J01",
+  "type": "judgment",
+  "case_id": "Store_39_2012-09-07",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 1,
+   "store": 39,
+   "date": "2012-09-07"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J02",
+  "type": "judgment",
+  "case_id": "Store_39_2012-09-07",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 1,
+   "store": 39,
+   "date": "2012-09-07"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J03",
+  "type": "judgment",
+  "case_id": "Store_28_2012-08-31",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 2,
+   "store": 28,
+   "date": "2012-08-31"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J04",
+  "type": "judgment",
+  "case_id": "Store_28_2012-08-31",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 2,
+   "store": 28,
+   "date": "2012-08-31"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J05",
+  "type": "judgment",
+  "case_id": "Store_8_2012-09-07",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 6,
+   "store": 8,
+   "date": "2012-09-07"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J06",
+  "type": "judgment",
+  "case_id": "Store_8_2012-09-07",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 6,
+   "store": 8,
+   "date": "2012-09-07"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J07",
+  "type": "judgment",
+  "case_id": "Store_10_2012-08-31",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 7,
+   "store": 10,
+   "date": "2012-08-31"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J08",
+  "type": "judgment",
+  "case_id": "Store_10_2012-08-31",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 7,
+   "store": 10,
+   "date": "2012-08-31"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J09",
+  "type": "judgment",
+  "case_id": "Store_10_2012-08-10",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 8,
+   "store": 10,
+   "date": "2012-08-10"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J10",
+  "type": "judgment",
+  "case_id": "Store_10_2012-08-10",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 8,
+   "store": 10,
+   "date": "2012-08-10"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J11",
+  "type": "judgment",
+  "case_id": "Store_11_2012-08-31",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 12,
+   "store": 11,
+   "date": "2012-08-31"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J12",
+  "type": "judgment",
+  "case_id": "Store_11_2012-08-31",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 12,
+   "store": 11,
+   "date": "2012-08-31"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J13",
+  "type": "judgment",
+  "case_id": "Store_28_2012-09-14",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 15,
+   "store": 28,
+   "date": "2012-09-14"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J14",
+  "type": "judgment",
+  "case_id": "Store_28_2012-09-14",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 15,
+   "store": 28,
+   "date": "2012-09-14"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J15",
+  "type": "judgment",
+  "case_id": "Store_6_2012-07-27",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 19,
+   "store": 6,
+   "date": "2012-07-27"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J16",
+  "type": "judgment",
+  "case_id": "Store_6_2012-07-27",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 19,
+   "store": 6,
+   "date": "2012-07-27"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J17",
+  "type": "judgment",
+  "case_id": "Store_27_2012-08-03",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 21,
+   "store": 27,
+   "date": "2012-08-03"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J18",
+  "type": "judgment",
+  "case_id": "Store_27_2012-08-03",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 21,
+   "store": 27,
+   "date": "2012-08-03"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J19",
+  "type": "judgment",
+  "case_id": "Store_11_2012-08-03",
+  "question": "What is the main evidence that supports the ML team's flag?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Shared by many stores: the same department was below the ML forecast at most stores, or Walmart overall was down",
+   "Shared by the region: the same department was below the ML forecast at the stores in the same region",
+   "Store-wide: most of this store's departments were below the ML forecast that week",
+   "Only here: the department was down at this store but not at most other stores (points to a local cause)",
+   "A Walmart or Federal Reserve report (category trend, prices, economy, weather)",
+   "Holiday or calendar timing",
+   "No supporting evidence found"
+  ],
+  "tags": {
+   "kind": "main_evidence",
+   "rank": 25,
+   "store": 11,
+   "date": "2012-08-03"
+  },
+  "review_status": "draft"
+ },
+ {
+  "id": "J20",
+  "type": "judgment",
+  "case_id": "Store_11_2012-08-03",
+  "question": "How much supporting evidence is there?",
+  "answer": "",
+  "answer_source": "to be filled with the agreed label of the two blind labellers",
+  "evidence": [],
+  "options": [
+   "Strong",
+   "Some",
+   "Little"
+  ],
+  "tags": {
+   "kind": "strength",
+   "rank": 25,
+   "store": 11,
+   "date": "2012-08-03"
+  },
+  "review_status": "draft"
+ }
+]

@@ -1,0 +1,592 @@
+[
+ {
+  "id": "R01",
+  "question": "What were Walmart U.S. comparable store sales for the second quarter of FY2013 (13 weeks ended July 27, 2012)?",
+  "answer": "Up 2.2 percent, with both ticket and traffic positive.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-RELEASE",
+    "quote": "Walmart U.S. comparable store sales rose 2.2 percent in the 13-week period ended July 27, with positive ticket and traffic."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "comp sales"
+  }
+ },
+ {
+  "id": "R02",
+  "question": "What were Walmart U.S. comparable store sales for the third quarter of FY2013 (13 weeks ended October 26, 2012)?",
+  "answer": "Up 1.5 percent.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-RELEASE",
+    "quote": "store sales increased 1.5 percent in the 13-week period ended Oct. 26, 2012."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "comp sales"
+  }
+ },
+ {
+  "id": "R03",
+  "question": "In Q3 FY2013, was the Walmart U.S. comp driven by more customers (traffic) or bigger baskets (ticket)?",
+  "answer": "Mostly ticket: average ticket rose 1.4 percent while traffic was up only 0.1 percent.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-RELEASE",
+    "quote": "During the 13-week period, the Walmart U.S. comp was driven by an increase in average ticket of 1.4 percent."
+   },
+   {
+    "doc_id": "WMT-FY13Q3-RELEASE",
+    "quote": "Traffic was positive by 0.1 percent."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "traffic and ticket"
+  }
+ },
+ {
+  "id": "R04",
+  "question": "What comparable sales did Walmart U.S. expect for July 28 to October 26, 2012?",
+  "answer": "Between 1.0 and 3.0 percent.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-RELEASE",
+    "quote": "For the 4-5-4 period from July 28 through October 26, Walmart U.S. expects comparable store sales to range from 1.0 percent to 3.0 percent."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "guidance"
+  }
+ },
+ {
+  "id": "R05",
+  "question": "How were Walmart's back-to-school apparel categories doing by mid-August 2012?",
+  "answer": "Key back-to-school apparel categories were up 7.0 percent season to date.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Season to date, key back-to-school apparel categories are up 7.0 percent."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "back to school",
+   "unit": "Apparel"
+  }
+ },
+ {
+  "id": "R06",
+  "question": "How did Walmart U.S. entertainment (electronics) perform in Q2 FY2013, and why?",
+  "answer": "Low single-digit negative comp; deflation in electronics held back sales growth.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Our entertainment business had a low single-digit negative comp."
+   },
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Within entertainment, deflation continues to impact sales growth in electronics."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "category",
+   "unit": "Entertainment"
+  }
+ },
+ {
+  "id": "R07",
+  "question": "How did Walmart U.S. entertainment perform in Q3 FY2013?",
+  "answer": "Low single-digit negative comp, because of continued strong industry deflation.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "The continued strong industry deflation led to a low single-digit negative comp for entertainment."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "category",
+   "unit": "Entertainment"
+  }
+ },
+ {
+  "id": "R08",
+  "question": "What did Walmart say was pressuring pharmacy sales in Q3 FY2013?",
+  "answer": "Brand-to-generic drug conversions (such as Lipitor) pressured top-line pharmacy sales, although they improved pharmacy margins.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "As expected, brand to generic conversions continued to pressure top-line sales, but conversions of Lipitor and other brands continue to improve pharmacy margins."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "category",
+   "unit": "Health & Wellness"
+  }
+ },
+ {
+  "id": "R09",
+  "question": "When did Walmart launch layaway in 2012, and when are layaway sales counted?",
+  "answer": "Layaway launched in mid-September 2012; most third-quarter layaway transactions are recognized in the fourth quarter, when customers pay and pick up.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Back to school activities drove sales early in the quarter, and the mid-September launch of layaway was important in helping customers."
+   },
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Therefore, the vast majority of third quarter layaway transactions will be recognized in the fourth quarter."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "layaway"
+  }
+ },
+ {
+  "id": "R10",
+  "question": "What did Walmart say higher fuel prices were doing to shopping behaviour in Q3 FY2013?",
+  "answer": "Average fuel prices were up about 6 percent versus last year and some customers were consolidating shopping trips.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "With average fuel prices up approximately 6 percent versus this time last year, some customers are consolidating their shopping trips."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "fuel"
+  }
+ },
+ {
+  "id": "R11",
+  "question": "What weather effect on apparel did Walmart mention for Q3 FY2013?",
+  "answer": "A warm October across much of the country affected apparel, though basics still drove growth.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "despite the impact of a warm October across much of the country."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "weather",
+   "unit": "Apparel"
+  }
+ },
+ {
+  "id": "R12",
+  "question": "How much grocery inflation did Walmart U.S. report in Q3 FY2013 compared with a year earlier?",
+  "answer": "About 50 basis points, versus about 400 basis points the year before.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Overall grocery inflation continued to moderate and was approximately 50 basis points, versus approximately 400 basis points last year."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "inflation",
+   "unit": "Grocery"
+  }
+ },
+ {
+  "id": "R13",
+  "question": "Which seasonal events did Walmart say its food business did well in during Q3 FY2013?",
+  "answer": "Labor Day, back-to-school and Halloween.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "our food business also delivered strong performance across the key seasonal events, including Labor Day"
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "seasonal events",
+   "unit": "Grocery"
+  }
+ },
+ {
+  "id": "R14",
+  "question": "How did Walmart U.S. home (including seasonal) perform in Q2 FY2013?",
+  "answer": "Low single-digit positive comp, with strong college essentials such as bedding and bath.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Home, including seasonal categories, had a low single-digit positive comp."
+   },
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "Within home, we're seeing strong performance in college essentials like bedding and bath."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "category",
+   "unit": "Home"
+  }
+ },
+ {
+  "id": "R15",
+  "question": "What risk to food prices was Walmart watching in August 2012?",
+  "answer": "The severe drought across parts of the country and its possible effect on food prices.",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q2-CALL",
+    "quote": "We are also monitoring key commodities and the severe drought across parts of the country to gauge potential impact on food prices throughout the remainder of the year."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q2",
+   "topic": "drought",
+   "unit": "Grocery"
+  }
+ },
+ {
+  "id": "R16",
+  "question": "How did Walmart U.S. grocery perform in Q3 FY2013?",
+  "answer": "Low single-digit positive comp (grocery includes food and consumables).",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-CALL",
+    "quote": "Our grocery business, which includes food and consumables, delivered a low single-digit positive comp."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "category",
+   "unit": "Grocery"
+  }
+ },
+ {
+  "id": "B01",
+  "question": "According to the July 18, 2012 Beige Book, which Districts did not see retail sales increase?",
+  "answer": "Boston and Cleveland (flat) and New York (softened); all other reporting Districts increased slightly.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "Retail sales increased slightly in all reporting Districts except Boston and Cleveland, where sales were categorized as flat, and New York, where sales softened."
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "retail",
+   "district": "National"
+  }
+ },
+ {
+  "id": "B02",
+  "question": "Which categories sold strongly in the Dallas District (Texas) in the August 29, 2012 Beige Book?",
+  "answer": "Accessories, cosmetics, and women's and children's apparel.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "Particular strength was seen in sales of accessories, cosmetics and women's and children's apparel."
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "retail",
+   "district": "Dallas"
+  }
+ },
+ {
+  "id": "B03",
+  "question": "What happened to gasoline prices in the Dallas District in the July 18, 2012 Beige Book?",
+  "answer": "They fell about 40 cents over the reporting period.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "The price of gasoline declined about 40 cents over the reporting period."
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "fuel",
+   "district": "Dallas"
+  }
+ },
+ {
+  "id": "B04",
+  "question": "What happened to gasoline prices in the Dallas District in the August 29, 2012 Beige Book?",
+  "answer": "Diesel and gasoline rose about 30 cents.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "The price of diesel and gasoline climbed about 30 cents"
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "fuel",
+   "district": "Dallas"
+  }
+ },
+ {
+  "id": "B05",
+  "question": "What did the October 10, 2012 Beige Book say about grocery spending in the San Francisco District (West Coast)?",
+  "answer": "Grocery spending was soft as shoppers kept shifting to cheaper products.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "At grocery stores, consumer spending was soft as shoppers continued to shift their purchasing decisions in favor of cheaper products."
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "grocery",
+   "district": "San Francisco"
+  }
+ },
+ {
+  "id": "B06",
+  "question": "What did West Coast retailers report about television sales in the July 18, 2012 Beige Book?",
+  "answer": "Television sales declined, offsetting gains in flooring and appliances, so home furnishings and major appliances were largely flat.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "Demand remained largely flat for retailers of home furnishings and major appliances, as declines in television sales offset increases for flooring and appliances."
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "electronics",
+   "district": "San Francisco"
+  }
+ },
+ {
+  "id": "B07",
+  "question": "Why were New York District retail sales weak in August and September 2012?",
+  "answer": "A major chain reported sluggish sales well below 2011; part of the weakness was unseasonably mild weather hurting seasonal merchandise.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "Some of the weakness is attributed to unseasonably mild weather, which dampened sales of seasonal merchandise."
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "weather",
+   "district": "New York"
+  }
+ },
+ {
+  "id": "B08",
+  "question": "How was Labor Day weekend 2012 described in the Philadelphia District?",
+  "answer": "One retailer had its strongest Labor Day weekend in years; sunny weather helped compared with last year's storms.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "one contact stated that his store experienced the strongest Labor Day weekend in years."
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "Labor Day",
+   "district": "Philadelphia"
+  }
+ },
+ {
+  "id": "B09",
+  "question": "Which items sold well in the Kansas City District in July and early August 2012?",
+  "answer": "Home furnishings, clothing and back-to-school items; high-end jewelry was weaker.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "Home furnishings, clothing and back-to-school items sold well, while sales of high-end jewelry were weaker."
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "back to school",
+   "district": "Kansas City"
+  }
+ },
+ {
+  "id": "B10",
+  "question": "Did Hurricane Isaac damage Gulf Coast refining according to the October 10, 2012 Beige Book (Atlanta District)?",
+  "answer": "No; refiners shut down briefly as a precaution and restored operations with very little damage.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "After brief, precautionary shut downs related to Hurricane Isaac, regional refiners fully restored operations with very little damage from the storm."
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "hurricane",
+   "district": "Atlanta"
+  }
+ },
+ {
+  "id": "B11",
+  "question": "How were retail sales in the Atlanta District in the August 29, 2012 Beige Book?",
+  "answer": "Generally slower; discount stores did somewhat better than department stores.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-08-29",
+    "quote": "Most contacts in the retail sector reported generally slower sales."
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "retail",
+   "district": "Atlanta"
+  }
+ },
+ {
+  "id": "B12",
+  "question": "Which categories slowed in New England (Boston District) in the July 18, 2012 Beige Book?",
+  "answer": "Furniture and electronics slowed; adult clothing and shoes stayed strong.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "Consumer spending continues to be strong for adult clothing and shoes, but spending on furniture and electronics has recently slowed relative to the pace earlier in the year."
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "retail",
+   "district": "Boston"
+  }
+ },
+ {
+  "id": "B13",
+  "question": "What factors affecting retail sales did the October 10, 2012 Beige Book list nationally?",
+  "answer": "Rising gasoline prices, political uncertainty, concerns about the fiscal cliff, and weather.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-10-10",
+    "quote": "A number of reports noted various factors affecting sales, such as rising gasoline prices, political uncertainty, concerns about the \"fiscal cliff\" and weather."
+   }
+  ],
+  "tags": {
+   "period": "2012-10",
+   "topic": "retail",
+   "district": "National"
+  }
+ },
+ {
+  "id": "B14",
+  "question": "Why were children's clothing sales down at Philadelphia-area outlet centers in mid-2012?",
+  "answer": "Possibly a delay in deep discounting of back-to-school items, which had already been discounted by that time the year before.",
+  "evidence": [
+   {
+    "doc_id": "BB-2012-07-18",
+    "quote": "this time it may reflect a delay in deep discounting of back-to-school items that had already been discounted by this time last year."
+   }
+  ],
+  "tags": {
+   "period": "2012-07",
+   "topic": "back to school",
+   "district": "Philadelphia"
+  }
+ },
+ {
+  "id": "W01",
+  "question": "By how much did Walmart U.S. segment net sales grow in the third quarter of FY2013, and what drove it?",
+  "answer": "Up 3.6% for the quarter (4.4% for nine months), driven by comparable store sales up 1.5% (2.5% for nine months).",
+  "evidence": [
+   {
+    "doc_id": "WMT-FY13Q3-10Q",
+    "quote": "Net sales for the Walmart U.S. segment increased 3.6% and 4.4% for the three and nine months ended October 31, 2012, respectively, when compared to the same periods in the previous year."
+   }
+  ],
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "net sales",
+   "source": "10-Q"
+  }
+ },
+ {
+  "id": "W02",
+  "question": "When was Walmart's 2012 Christmas layaway program available?",
+  "answer": "Nationwide from September 16 through December 14, 2012.",
+  "evidence": [
+   {
+    "doc_id": "WMT-NEWS-2012-08-20-holiday_layaway_returns",
+    "quote": "Available nationwide Sept. 16 through Dec. 14, layaway at Walmart will give families an extra month to shop and stretch their paychecks further this holiday season."
+   }
+  ],
+  "tags": {
+   "period": "2012-09",
+   "topic": "layaway",
+   "source": "news release"
+  }
+ },
+ {
+  "id": "W03",
+  "question": "What change did Walmart make to its layaway fee in September 2012?",
+  "answer": "It cut the Christmas layaway open fee from $15 to $5 (refunded as a gift card on final payment).",
+  "evidence": [
+   {
+    "doc_id": "WMT-NEWS-2012-09-04-layaway_fee_rollback",
+    "quote": "Today, I'm excited to announce that we're rolling back our Christmas Layaway open fee from $15 to $5."
+   }
+  ],
+  "tags": {
+   "period": "2012-09",
+   "topic": "layaway",
+   "source": "news release"
+  }
+ },
+ {
+  "id": "W04",
+  "question": "What pharmacy service did Walmart expand in late August 2012?",
+  "answer": "Expanded immunizations (given by nurses) in more than 2,700 Walmart stores.",
+  "evidence": [
+   {
+    "doc_id": "WMT-NEWS-2012-08-23-pharmacy_immunizations",
+    "quote": "Walmart announced today the launch of expanded immunizations in more than 2,700 Walmart stores."
+   }
+  ],
+  "tags": {
+   "period": "2012-08",
+   "topic": "pharmacy",
+   "unit": "Health & Wellness",
+   "source": "news release"
+  }
+ },
+ {
+  "id": "N01",
+  "question": "What did Walmart say about optical department sales in its Q2 or Q3 FY2013 earnings?",
+  "answer": "NOT IN SOURCES. The FY2013 Q2 and Q3 releases and calls do not discuss optical.",
+  "evidence": [],
+  "unanswerable": true,
+  "tags": {
+   "period": "FY2013 Q3",
+   "topic": "negative",
+   "unit": "Health & Wellness"
+  }
+ },
+ {
+  "id": "N02",
+  "question": "Do the reports mention a stockout or supply problem at Walmart Store 28 in August 2012?",
+  "answer": "NOT IN SOURCES. The reports are company-, segment- or district-level; none names individual stores.",
+  "evidence": [],
+  "unanswerable": true,
+  "tags": {
+   "period": "2012-08",
+   "topic": "negative"
+  }
+ },
+ {
+  "id": "N03",
+  "question": "What were Walmart's comparable sales in Texas in August 2012?",
+  "answer": "NOT IN SOURCES. Walmart reports comps for Walmart U.S. as a whole (and by its three geographic business units), not by state or month.",
+  "evidence": [],
+  "unanswerable": true,
+  "tags": {
+   "period": "2012-08",
+   "topic": "negative",
+   "district": "Dallas"
+  }
+ }
+]

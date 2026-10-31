@@ -1,0 +1,41 @@
+case_id,rank,store,week,code_status,llm_status,shown,passed,failed,factors,n_data,n_report,n_model,passages,seconds,tokens
+Store_39_2012-09-07,1,39,"Sep 7, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,22.8,12126
+Store_28_2012-08-31,2,28,"Aug 31, 2012",Action needed,Action needed,Action needed,True,,4,2,1,1,6,17.3,12160
+Store_12_2012-09-07,3,12,"Sep 7, 2012",No action needed,No action needed,No action needed,True,,5,3,1,1,6,45.5,10217
+Store_6_2012-09-14,4,6,"Sep 14, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,41.2,10723
+Store_4_2012-08-24,5,4,"Aug 24, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,18.7,13977
+Store_8_2012-09-07,6,8,"Sep 7, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,20.8,15161
+Store_10_2012-08-31,7,10,"Aug 31, 2012",Action needed,Action needed,Action needed,True,,4,3,0,1,6,23.4,13165
+Store_10_2012-08-10,8,10,"Aug 10, 2012",Action needed,Action needed,Action needed,True,,5,2,1,2,6,16.2,11387
+Store_4_2012-08-31,9,4,"Aug 31, 2012",No action needed,No action needed,No action needed,True,,4,3,0,1,6,18.5,13235
+Store_4_2012-09-07,10,4,"Sep 7, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,17.2,15289
+Store_2_2012-08-31,11,2,"Aug 31, 2012",Action needed,Action needed,Action needed,True,,5,3,1,1,6,20.3,11927
+Store_11_2012-08-31,12,11,"Aug 31, 2012",No action needed,No action needed,No action needed,True,,5,3,1,1,6,42.4,9882
+Store_4_2012-09-28,13,4,"Sep 28, 2012",Action needed,Action needed,Action needed,True,,5,3,1,1,6,20.2,15389
+Store_6_2012-08-31,14,6,"Aug 31, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,22.0,13120
+Store_28_2012-09-14,15,28,"Sep 14, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,17.1,12035
+Store_27_2012-09-28,16,27,"Sep 28, 2012",No action needed,No action needed,No action needed,True,,4,3,0,1,6,17.8,11078
+Store_4_2012-10-12,17,4,"Oct 12, 2012",Action needed,Action needed,Action needed,True,,4,2,1,1,6,20.9,10796
+Store_31_2012-08-31,18,31,"Aug 31, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,19.2,13315
+Store_6_2012-07-27,19,6,"Jul 27, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,17.3,10157
+Store_6_2012-08-03,20,6,"Aug 3, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,19.4,11824
+Store_27_2012-08-03,21,27,"Aug 3, 2012",Action needed,Action needed,Action needed,True,,4,2,1,1,6,18.2,11557
+Store_21_2012-08-03,22,21,"Aug 3, 2012",Action needed,Action needed,Action needed,True,,4,2,1,1,6,16.2,12550
+Store_4_2012-07-27,23,4,"Jul 27, 2012",Action needed,Action needed,Action needed,True,,4,2,1,1,6,18.3,10649
+Store_12_2012-07-27,24,12,"Jul 27, 2012",No action needed,No action needed,No action needed,True,,3,1,1,1,6,13.4,8743
+Store_11_2012-08-03,25,11,"Aug 3, 2012",Action needed,Action needed,Action needed,True,,4,2,1,1,6,18.4,11282
+Store_35_2012-08-03,26,35,"Aug 3, 2012",Action needed,Action needed,Action needed,True,,4,2,1,1,6,18.6,11130
+Store_4_2012-09-14,27,4,"Sep 14, 2012",No action needed,No action needed,No action needed,True,,4,1,1,2,6,18.7,10459
+Store_23_2012-08-10,28,23,"Aug 10, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,14.9,9336
+Store_12_2012-08-03,29,12,"Aug 3, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,21.2,13248
+Store_8_2012-08-03,30,8,"Aug 3, 2012",Check before acting,Check before acting,Check before acting,True,,5,3,1,1,6,17.3,11351
+Store_13_2012-08-31,31,13,"Aug 31, 2012",No action needed,No action needed,No action needed,True,,5,2,2,1,6,20.2,10616
+Store_4_2012-08-03,32,4,"Aug 3, 2012",Action needed,Action needed,Action needed,True,,5,3,1,1,6,19.4,10755
+Store_22_2012-08-31,33,22,"Aug 31, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,16.5,9319
+Store_20_2012-08-03,34,20,"Aug 3, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,22.2,11918
+Store_12_2012-09-21,35,12,"Sep 21, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,18.5,11300
+Store_13_2012-08-03,36,13,"Aug 3, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,16.7,10342
+Store_28_2012-09-21,37,28,"Sep 21, 2012",Check before acting,Check before acting,Check before acting,True,,5,3,1,1,6,17.1,10218
+Store_28_2012-08-17,38,28,"Aug 17, 2012",Check before acting,Check before acting,Check before acting,True,,5,3,1,1,6,21.1,11927
+Store_24_2012-08-31,39,24,"Aug 31, 2012",Check before acting,Check before acting,Check before acting,False,Numbers match the evidence,3,2,0,1,6,19.4,11203
+Store_31_2012-08-03,40,31,"Aug 3, 2012",No action needed,No action needed,No action needed,True,,4,2,1,1,6,17.0,9901

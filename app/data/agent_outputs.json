@@ -1,0 +1,954 @@
+{
+ "cases": {
+  "EXC-S07-D72-20120824": {
+   "store": 7,
+   "grain": "department_week",
+   "week_ending": "2012-08-24",
+   "dept": 72,
+   "dept_name": "Electronics",
+   "region": "Colorado",
+   "actual": 33957.54,
+   "expected": 45010.06,
+   "deviation_pct": -24.6,
+   "detected_by": "Extra Trees model",
+   "runs": 2,
+   "errors": [
+    "The orchestrator LLM did not return a plan (poolside/laguna-xs-2.1:free: HTTP 429)."
+   ],
+   "seconds": 30.8,
+   "ms": {
+    "Anomaly payload": 29,
+    "Orchestrator": 9900,
+    "Evidence Agent": 156,
+    "RAG Agent": 4213,
+    "Reasoning Agent": 16594,
+    "Evaluation": 1
+   },
+   "status": "Likely store issue",
+   "evaluation": {
+    "passed": true,
+    "checks": [
+     {
+      "name": "Numbers match the evidence",
+      "passed": true,
+      "detail": "every number is in the evidence"
+     },
+     {
+      "name": "Quotes are word for word",
+      "passed": true,
+      "detail": "no direct quotes"
+     },
+     {
+      "name": "Every factor cites evidence",
+      "passed": true,
+      "detail": "4 factor(s), all cite real evidence"
+     },
+     {
+      "name": "Answer is complete",
+      "passed": true,
+      "detail": "verdict, confidence, factors, bottom line, next steps"
+     }
+    ]
+   },
+   "report": {
+    "verdict": "Likely store issue",
+    "confidence": "High",
+    "factors": [
+     {
+      "title": "Electronics dept underperforming",
+      "text": "Electronics at this store was down −12.7% for the quarter, while the chain was only down −0.5%, a gap of −12.2 percentage points, indicating a store-specific Electronics problem rather than a broad trend.",
+      "evidence": [
+       "dept_quarter_yoy",
+       "chain_dept_quarter_yoy",
+       "store_vs_chain"
+      ]
+     },
+     {
+      "title": "Peer stores outperforming",
+      "text": "Other Colorado Electronics stores were mixed but stronger this week (Store 16 −11.1%, Store 41 −0.5%, Store 32 +33.5%), showing this store's drop was not shared by comparable locations.",
+      "evidence": [
+       "peers_week",
+       "peers_quarter"
+      ]
+     },
+     {
+      "title": "Weak weekly performance vs last year",
+      "text": "Electronics at this store was below last year in 9 of 13 weeks this quarter, suggesting ongoing execution or inventory issues specific to this location.",
+      "evidence": [
+       "weeks_down"
+      ]
+     },
+     {
+      "title": "No chain-wide Electronics decline",
+      "text": "Walmart reported overall comp sales up 1.5% and Electronics across all 45 stores down only −0.5% this quarter, confirming the issue is isolated to this store.",
+      "evidence": [
+       "chain_dept_quarter_yoy",
+       "chain_week_yoy",
+       "P2",
+       "P3"
+      ]
+     }
+    ],
+    "ruled_out": "A broad chain-wide or regional Electronics downturn is not the cause, since the chain was down only −0.5% and peer Colorado stores were mostly stable or growing.",
+    "bottom_line": "This store's Electronics shortfall is clearly worse than both the chain and comparable Colorado stores, pointing to a store-specific issue rather than a seasonal or macro effect.",
+    "next_steps": [
+     "Review Electronics inventory levels and shelf placement for this store",
+     "Compare staffing and promotional execution against peer stores",
+     "Check for local competition or supply chain disruptions affecting this location"
+    ]
+   },
+   "plan": {
+    "checks": [
+     "store_wide",
+     "persistence",
+     "regional_peers",
+     "chain"
+    ],
+    "skipped": [
+     "promo_macro",
+     "calendar"
+    ],
+    "queries": [
+     {
+      "name": "electronics",
+      "text": "What did Walmart report about Electronics department sales growth or comps in FY2013 Q3 2012?"
+     },
+     {
+      "name": "consumer_spending",
+      "text": "What did the Kansas City Fed Beige Book and NRF report about consumer spending trends in the Rocky Mountain / Colorado region during summer 2012?"
+     },
+     {
+      "name": "holiday",
+      "text": "Did back-to-school or any holiday timing shift affect Electronics sales in August 2012?"
+     },
+     {
+      "name": "prices",
+      "text": "What did Walmart's 10-K or earnings calls say about electronics pricing, markdowns, or promotional activity in Q3 2012?"
+     }
+    ],
+    "why": "These checks isolate whether the drop is store-specific, department-wide, regional, or chain-wide, while the queries test seasonal, macroeconomic, and category-specific explanations.",
+    "llm": {
+     "model": "poolside/laguna-s-2.1:free",
+     "ms": 5912,
+     "tokens_in": 547,
+     "tokens_out": 236,
+     "attempts": 1
+    }
+   },
+   "evidence": [
+    {
+     "id": "store_week_yoy",
+     "label": "Whole Store 7, this week vs. the same week last year",
+     "value": "−3.3%"
+    },
+    {
+     "id": "store_quarter_yoy",
+     "label": "Whole Store 7, this quarter vs. last year",
+     "value": "−1.8%"
+    },
+    {
+     "id": "dept_quarter_yoy",
+     "label": "Electronics at this store, this quarter vs. last year",
+     "value": "−12.7%"
+    },
+    {
+     "id": "weeks_down",
+     "label": "Weeks Electronics at this store was below last year this quarter",
+     "value": "9 of 13"
+    },
+    {
+     "id": "peers_quarter",
+     "label": "Electronics at other Colorado stores, this quarter vs. last year",
+     "value": "Store 16 −3.6%; Store 41 +2.8%; Store 32 +14.2%"
+    },
+    {
+     "id": "peers_week",
+     "label": "Electronics at those stores, this week vs. last year",
+     "value": "Store 16 −11.1%; Store 41 −0.5%; Store 32 +33.5%"
+    },
+    {
+     "id": "chain_dept_quarter_yoy",
+     "label": "Electronics across all 45 stores, this quarter vs. last year",
+     "value": "−0.5%"
+    },
+    {
+     "id": "chain_week_yoy",
+     "label": "Electronics across all 45 stores, this week vs. last year",
+     "value": "−2.5%"
+    },
+    {
+     "id": "store_vs_chain",
+     "label": "This store minus the chain, this quarter",
+     "value": "−12.2 percentage points"
+    }
+   ],
+   "rag_stats": {
+    "chunks_in_store": 6560,
+    "chunks_after_filter": 705,
+    "reports_after_filter": 7,
+    "queries": 4,
+    "candidates": 71,
+    "returned": 6,
+    "districts": [
+     "National",
+     "Kansas City"
+    ],
+    "ms": 3895,
+    "reports_in_store": 59
+   },
+   "passages": [
+    {
+     "id": "P1",
+     "doc": "Walmart FY13 Q3 earnings call transcript",
+     "doc_id": "WMT-FY13Q3-CALL",
+     "published": "2012-11-15",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.747,
+     "quote": "Those forward- looking statements also include statements of management's expectations: for the Walmart U.S. segment's stores being the number one holiday destination in fiscal 2013; that the segment will recognize most of the $300 million of additional layaway sales made in the quarter ended October 31, 2012, in the quarter ending January 31, 2013 when customers pay for and pick up the merchandise; for the number of store openings in the quarter ending January 31, 2013; that certain initiatives will help the segment reach its savings goal in fiscal 2013 and the future; for the segment's plans for Black Friday; for the number of impressions across social media the segment will generate in the fiscal 2013 holiday season; that the segment will have a strong performance through Thanksgiving and Black Friday; and that the segment will continue to deliver consistent core growth.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P2",
+     "doc": "Walmart FY13 Q3 earnings release",
+     "doc_id": "WMT-FY13Q3-RELEASE",
+     "published": "2012-11-15",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.711,
+     "quote": "We expect strong performance through Thanksgiving weekend.\" For the 4-5-4 period from Oct. 27, 2012 through Jan. 25, 2013, Walmart U.S. expects comp store sales to range from 1.0 percent to 3.0 percent.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P3",
+     "doc": "Walmart FY13 Q3 earnings call transcript",
+     "doc_id": "WMT-FY13Q3-CALL",
+     "published": "2012-11-15",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.71,
+     "quote": "Walmart U.S. posted a comp sales increase of 1.5 percent, and delivered approximately $2.3 billion in net sales growth.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P4",
+     "doc": "Walmart FY13 Q3 earnings release",
+     "doc_id": "WMT-FY13Q3-RELEASE",
+     "published": "2012-11-15",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.691,
+     "quote": "(Walmart) reported third quarter diluted earnings per share from continuing operations of $1.08, within guidance of $1.04 to $1.09.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P5",
+     "doc": "Federal Reserve Beige Book, Aug 29, 2012",
+     "doc_id": "BB-2012-08-29",
+     "published": "2012-08-29",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.673,
+     "quote": "Louis Minneapolis Kansas City Dallas San Francisco Full Report Summary of Commentary on Current Economic Conditions by Federal Reserve District Prepared at the Federal Reserve Bank of Boston and based on information collected on or before August 20, 2012.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "id": "P6",
+     "doc": "Walmart FY2013 10-K",
+     "doc_id": "WMT-10K-FY2013",
+     "published": "2013-03-26",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.663,
+     "quote": "(\"Walmart,\" the \"Company\" or \"we\") operates retail stores in various formats under 69 banners around the world and is committed to saving people money so they can live better.",
+     "evidence_type": "Walmart-level context"
+    }
+   ],
+   "reason_llm": {
+    "model": "poolside/laguna-s-2.1:free",
+    "ms": 16592,
+    "tokens_in": 2429,
+    "tokens_out": 518,
+    "attempts": 1
+   }
+  },
+  "EXC-S13-D01-20120420": {
+   "store": 13,
+   "grain": "department_week",
+   "week_ending": "2012-04-20",
+   "dept": 1,
+   "dept_name": "Candy & Tobacco",
+   "region": "Rocky Mountain (PADD 4)",
+   "actual": 30200.67,
+   "expected": 166023.49,
+   "deviation_pct": -81.8,
+   "detected_by": "Baseline (same week last year)",
+   "runs": 3,
+   "errors": [
+    "The orchestrator LLM did not return a plan (poolside/laguna-xs-2.1:free: empty answer).",
+    "The orchestrator LLM did not return a plan (poolside/laguna-xs-2.1:free: HTTP 429)."
+   ],
+   "seconds": 25.6,
+   "ms": {
+    "Anomaly payload": 0,
+    "Orchestrator": 8185,
+    "Evidence Agent": 113,
+    "RAG Agent": 4872,
+    "Reasoning Agent": 12476,
+    "Evaluation": 1
+   },
+   "status": "Likely explained",
+   "evaluation": {
+    "passed": true,
+    "checks": [
+     {
+      "name": "Numbers match the evidence",
+      "passed": true,
+      "detail": "every number is in the evidence"
+     },
+     {
+      "name": "Quotes are word for word",
+      "passed": true,
+      "detail": "no direct quotes"
+     },
+     {
+      "name": "Every factor cites evidence",
+      "passed": true,
+      "detail": "3 factor(s), all cite real evidence"
+     },
+     {
+      "name": "Answer is complete",
+      "passed": true,
+      "detail": "verdict, confidence, factors, bottom line, next steps"
+     }
+    ]
+   },
+   "report": {
+    "verdict": "Likely explained",
+    "confidence": "High",
+    "factors": [
+     {
+      "title": "Easter timing shift",
+      "text": "Easter timing differs from last year, which shifted seasonal candy sales into the prior reporting period. The Federal Reserve Beige Book (Jun 06, 2012) noted that an earlier Easter holiday had shifted sales into the previous reporting period, and Walmart's FY13 Q1 earnings call confirmed strong Easter performance, indicating the drop reflects a calendar shift rather than a store problem.",
+      "evidence": [
+       "calendar_flags",
+       "chain_week_yoy",
+       "peers_week",
+       "P1",
+       "P6"
+      ]
+     },
+     {
+      "title": "Chain-wide seasonal drop",
+      "text": "Candy & Tobacco sales fell across all 45 stores this week at −73.4%, and peer stores in the Rocky Mountain region also dropped sharply (Store 17 −77.2%; Store 44 −53.8%). This indicates the decline was industry-wide and seasonal, not isolated to this store.",
+      "evidence": [
+       "chain_week_yoy",
+       "peers_week",
+       "season_yoy",
+       "P1"
+      ]
+     },
+     {
+      "title": "Warm weather impact",
+      "text": "The Federal Reserve Beige Book (Jun 06, 2012) reported that unseasonably warm weather and an earlier Easter had shifted sales into the previous reporting period, which aligns with the seasonal drop seen across the chain and peer stores.",
+      "evidence": [
+       "temperature",
+       "chain_week_yoy",
+       "peers_week",
+       "P1"
+      ]
+     }
+    ],
+    "ruled_out": "This is not a store-specific issue, as the whole store was only down −7.9% this week and up +6.0% for the quarter, while the Candy & Tobacco department was up +1.2% for the quarter.",
+    "bottom_line": "The sharp drop in Candy & Tobacco sales for this store during the week ending 2012-04-20 is consistent with a calendar and seasonal shift affecting the entire chain and peer stores, not a local store problem.",
+    "next_steps": [
+     "Monitor next week's sales to confirm normalization after the Easter shift",
+     "Compare upcoming weeks to same weeks in the prior year to verify seasonal recovery",
+     "Review markdown activity to ensure promotions are aligned with seasonal demand"
+    ]
+   },
+   "plan": {
+    "checks": [
+     "store_wide",
+     "persistence",
+     "regional_peers",
+     "chain",
+     "calendar",
+     "promo_macro"
+    ],
+    "skipped": [],
+    "queries": [
+     {
+      "name": "easter",
+      "text": "How did the shift in Easter timing between 2011 and 2012 affect candy and tobacco sales in the Rocky Mountain region?"
+     },
+     {
+      "name": "candy",
+      "text": "What commentary exists on seasonal demand swings for candy and tobacco categories in the April 2012 period?"
+     },
+     {
+      "name": "spending",
+      "text": "What did Federal Reserve Beige Book reports say about consumer spending patterns in PADD 4 during early 2012?"
+     },
+     {
+      "name": "weather",
+      "text": "How did weather conditions in the Rocky Mountain region during April 2012 compare to prior years and impact grocery unit sales?"
+     }
+    ],
+    "why": "These checks and queries isolate whether the drop is store-specific, regional, chain-wide, seasonal, or macroeconomic before any explanation is given.",
+    "llm": {
+     "model": "poolside/laguna-s-2.1:free",
+     "ms": 8171,
+     "tokens_in": 563,
+     "tokens_out": 236,
+     "attempts": 1
+    }
+   },
+   "evidence": [
+    {
+     "id": "markdown_ratio",
+     "label": "Store markdowns that week vs. the store's average week",
+     "value": "1.3× ($39.6K vs. $31.4K)"
+    },
+    {
+     "id": "fuel",
+     "label": "Fuel price vs. same week last year",
+     "value": "$3.85 vs. $3.65 (+5.2%)"
+    },
+    {
+     "id": "temperature",
+     "label": "Temperature vs. same week last year",
+     "value": "50°F vs. 48°F"
+    },
+    {
+     "id": "store_week_yoy",
+     "label": "Whole Store 13, this week vs. the same week last year",
+     "value": "−7.9%"
+    },
+    {
+     "id": "store_quarter_yoy",
+     "label": "Whole Store 13, this quarter vs. last year",
+     "value": "+6.0%"
+    },
+    {
+     "id": "dept_quarter_yoy",
+     "label": "Candy & Tobacco at this store, this quarter vs. last year",
+     "value": "+1.2%"
+    },
+    {
+     "id": "weeks_down",
+     "label": "Weeks Candy & Tobacco at this store was below last year this quarter",
+     "value": "4 of 13"
+    },
+    {
+     "id": "peers_quarter",
+     "label": "Candy & Tobacco at other Rocky Mountain stores, this quarter vs. last year",
+     "value": "Store 44 +5.2%; Store 17 +8.7%"
+    },
+    {
+     "id": "peers_week",
+     "label": "Candy & Tobacco at those stores, this week vs. last year",
+     "value": "Store 17 −77.2%; Store 44 −53.8%"
+    },
+    {
+     "id": "chain_dept_quarter_yoy",
+     "label": "Candy & Tobacco across all 45 stores, this quarter vs. last year",
+     "value": "+4.3%"
+    },
+    {
+     "id": "chain_week_yoy",
+     "label": "Candy & Tobacco across all 45 stores, this week vs. last year",
+     "value": "−73.4%"
+    },
+    {
+     "id": "store_vs_chain",
+     "label": "This store minus the chain, this quarter",
+     "value": "−3.1 percentage points"
+    },
+    {
+     "id": "calendar_flags",
+     "label": "Holiday or holiday shift vs. last year",
+     "value": "Easter timing differs from last year"
+    },
+    {
+     "id": "season_yoy",
+     "label": "Candy & Tobacco, the 6 weeks around this week vs. last year",
+     "value": "−6.4%"
+    }
+   ],
+   "rag_stats": {
+    "chunks_in_store": 6560,
+    "chunks_after_filter": 621,
+    "reports_after_filter": 6,
+    "queries": 4,
+    "candidates": 68,
+    "returned": 6,
+    "districts": [
+     "National",
+     "Minneapolis",
+     "Kansas City",
+     "San Francisco"
+    ],
+    "ms": 4872,
+    "reports_in_store": 59
+   },
+   "passages": [
+    {
+     "id": "P1",
+     "doc": "Federal Reserve Beige Book, Jun 06, 2012",
+     "doc_id": "BB-2012-06-06",
+     "published": "2012-06-06",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.678,
+     "quote": "By contrast, warm spring weather continued to boost traffic and sales for retailers in the Philadelphia and Cleveland Districts.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "id": "P2",
+     "doc": "Federal Reserve Beige Book, Jun 06, 2012",
+     "doc_id": "BB-2012-06-06",
+     "published": "2012-06-06",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.662,
+     "quote": "Louis Minneapolis Kansas City Dallas San Francisco Full Report Summary of Commentary on Current Economic Conditions by Federal Reserve District Prepared at the Federal Reserve Bank of Dallas and based on information collected on or before May 25, 2012.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "id": "P3",
+     "doc": "Federal Reserve Beige Book, Apr 11, 2012",
+     "doc_id": "BB-2012-04-11",
+     "published": "2012-04-11",
+     "district": "Minneapolis Fed (9th District)",
+     "relation": "published just before",
+     "score": 0.648,
+     "quote": "February sales at a Montana mall were up about 10 percent over last year; remodeling activity was strong for new stores and expansions.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "id": "P4",
+     "doc": "Federal Reserve Beige Book, Apr 11, 2012",
+     "doc_id": "BB-2012-04-11",
+     "published": "2012-04-11",
+     "district": "National",
+     "relation": "published just before",
+     "score": 0.647,
+     "quote": "Louis Minneapolis Kansas City Dallas San Francisco Full Report Summary of Commentary on Current Economic Conditions by Federal Reserve District Prepared by the Federal Reserve Bank of Cleveland based on information collected on or before April 2, 2012.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "id": "P5",
+     "doc": "Walmart FY13 Q1 earnings call transcript",
+     "doc_id": "WMT-FY13Q1-CALL",
+     "published": "2012-05-17",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.589,
+     "quote": "Seasonal allergy sales saw strength, as the season got off to an early start this year.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P6",
+     "doc": "Walmart FY13 Q1 earnings call transcript",
+     "doc_id": "WMT-FY13Q1-CALL",
+     "published": "2012-05-17",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.565,
+     "quote": "We also benefitted from the early warm weather, as customers transitioned to outdoor activities earlier this year versus last year.",
+     "evidence_type": "Walmart-level context"
+    }
+   ],
+   "reason_llm": {
+    "model": "poolside/laguna-s-2.1:free",
+    "ms": 12470,
+    "tokens_in": 2434,
+    "tokens_out": 555,
+    "attempts": 1
+   }
+  },
+  "EXC-S02-ALL-20120106": {
+   "store": 2,
+   "grain": "store_week",
+   "week_ending": "2012-01-06",
+   "dept": null,
+   "dept_name": "All departments",
+   "region": "Texas",
+   "actual": 1799520.14,
+   "expected": 2455470.54,
+   "deviation_pct": -26.7,
+   "detected_by": "Store-level payload (4-week average + Isolation Forest)",
+   "runs": 2,
+   "errors": [
+    "The orchestrator LLM did not return a plan (poolside/laguna-xs-2.1:free: HTTP 429)."
+   ],
+   "seconds": 28.7,
+   "ms": {
+    "Anomaly payload": 6,
+    "Orchestrator": 7786,
+    "Evidence Agent": 45,
+    "RAG Agent": 3444,
+    "Reasoning Agent": 17444,
+    "Evaluation": 1
+   },
+   "status": "Likely explained",
+   "evaluation": {
+    "passed": true,
+    "checks": [
+     {
+      "name": "Numbers match the evidence",
+      "passed": true,
+      "detail": "every number is in the evidence"
+     },
+     {
+      "name": "Quotes are word for word",
+      "passed": true,
+      "detail": "no direct quotes"
+     },
+     {
+      "name": "Every factor cites evidence",
+      "passed": true,
+      "detail": "3 factor(s), all cite real evidence"
+     },
+     {
+      "name": "Answer is complete",
+      "passed": true,
+      "detail": "verdict, confidence, factors, bottom line, next steps"
+     }
+    ]
+   },
+   "report": {
+    "verdict": "Likely explained",
+    "confidence": "High",
+    "factors": [
+     {
+      "title": "Post-holiday sales drop",
+      "text": "The week ending 2012-01-06 fell right after the holiday season, and the baseline used for comparison included Christmas week, which was the peak week at $3.22M. Sales naturally dropped after the holidays, and the chain median drop was −25.3%, very close to this store's −26.7% drop.",
+      "evidence": [
+       "baseline_avg",
+       "christmas_in_baseline",
+       "baseline_peak",
+       "chain_median_drop",
+       "store_vs_median",
+       "P3"
+      ]
+     },
+     {
+      "title": "Holiday-season department shortfalls",
+      "text": "All of the shortfall came from departments that peak in November and December, such as Toys, Electronics, and Media & Gaming. These departments normally drive holiday sales but returned to normal levels after the season ended.",
+      "evidence": [
+       "top_departments",
+       "peak_share",
+       "top_yoy"
+      ]
+     },
+     {
+      "title": "Comparable store performance",
+      "text": "This store ranked 20th out of 45 stores, meaning its drop was close to the chain average. The drop was only 1.4 percentage points more than the median store, indicating a broad post-holiday trend rather than a store-specific issue.",
+      "evidence": [
+       "store_rank",
+       "store_vs_median",
+       "chain_median_drop"
+      ]
+     }
+    ],
+    "ruled_out": "The drop was not caused by unusually warm weather, since temperatures were nearly the same as last year (47°F vs. 45°F), and fuel prices had only a modest impact.",
+    "bottom_line": "The sales shortfall was part of a normal post-holiday decline shared across the chain, driven by the end of the holiday shopping season and the inclusion of Christmas week in the baseline. This store performed similarly to the chain median, so no store-specific issue is evident.",
+    "next_steps": [
+     "Monitor next week's performance to confirm return to normal trends",
+     "Review holiday inventory clearance plans for seasonal departments",
+     "Compare January performance to last year to verify recovery"
+    ]
+   },
+   "plan": {
+    "checks": [
+     "baseline",
+     "last_year",
+     "all_stores",
+     "next_weeks",
+     "departments",
+     "promo_macro"
+    ],
+    "skipped": [],
+    "queries": [
+     {
+      "name": "holiday",
+      "text": "What post-holiday sales trends did Walmart report for the week ending January 6, 2012, particularly in Toys, Electronics, and Seasonal merchandise?"
+     },
+     {
+      "name": "spending",
+      "text": "What did the Federal Reserve Beige Book and NRF report about consumer spending patterns in Texas and the Dallas Fed District during late December 2011 and early January 2012?"
+     },
+     {
+      "name": "prices",
+      "text": "What were the reported fuel prices and general inflation trends affecting consumer purchasing power in the Dallas Fed District during the week ending January 6, 2012?"
+     },
+     {
+      "name": "seasonal",
+      "text": "How did Walmart describe seasonal inventory clearance and markdown activities following the 2011 holiday season in their FY2012 Q4 earnings communications?"
+     }
+    ],
+    "why": "These checks and queries will distinguish whether the drop is a normal post-holiday correction, a store-specific issue, a regional economic effect, or part of a broader sales trend across all locations.",
+    "llm": {
+     "model": "poolside/laguna-s-2.1:free",
+     "ms": 7784,
+     "tokens_in": 585,
+     "tokens_out": 280,
+     "attempts": 1
+    }
+   },
+   "evidence": [
+    {
+     "id": "markdown_ratio",
+     "label": "Store markdowns that week vs. the store's average week",
+     "value": "1.9× ($53.0K vs. $28.0K)"
+    },
+    {
+     "id": "fuel",
+     "label": "Fuel price vs. same week last year",
+     "value": "$3.16 vs. $2.98 (+6.1%)"
+    },
+    {
+     "id": "temperature",
+     "label": "Temperature vs. same week last year",
+     "value": "47°F vs. 45°F"
+    },
+    {
+     "id": "baseline_avg",
+     "label": "Expected sales = average of the 4 weeks before",
+     "value": "$2.46M (weeks ending Dec 9 to Dec 30)"
+    },
+    {
+     "id": "christmas_in_baseline",
+     "label": "Those 4 weeks include Christmas week",
+     "value": "yes"
+    },
+    {
+     "id": "baseline_peak",
+     "label": "Highest of the 4 baseline weeks",
+     "value": "$3.22M, 1.8× a typical week ($1.84M)"
+    },
+    {
+     "id": "yoy",
+     "label": "This week vs. the same week last year",
+     "value": "+2.4% ($1.80M vs. $1.76M)"
+    },
+    {
+     "id": "last_year_deviation",
+     "label": "The same 4-week method applied to last year's week",
+     "value": "−30.9%"
+    },
+    {
+     "id": "chain_median_drop",
+     "label": "Median of all 45 stores vs. their own 4-week baseline",
+     "value": "−25.3%"
+    },
+    {
+     "id": "store_rank",
+     "label": "This store's rank among all stores (1 = worst drop)",
+     "value": "20 of 45"
+    },
+    {
+     "id": "store_vs_median",
+     "label": "This store's drop compared with the median store's drop",
+     "value": "1.4 percentage points more than the median store (−26.7% vs. −25.3%)"
+    },
+    {
+     "id": "chain_yoy",
+     "label": "All stores together, this week vs. last year",
+     "value": "+5.1%"
+    },
+    {
+     "id": "next_weeks_yoy",
+     "label": "Next 4 weeks vs. the same weeks last year",
+     "value": "−0.9%"
+    },
+    {
+     "id": "top_departments",
+     "label": "Departments with the biggest shortfalls",
+     "value": "Toys (Dept 7): $19.1K vs. $128.6K expected, −13.8% vs. last year, peaks in Nov-Dec; Electronics (Dept 72): $58.8K vs. $116.8K expected, +0.6% vs. last year, peaks in Nov-Dec; Media & Gaming (Dept 5): $24.4K vs. $65.7K expected, −2.4% vs. last year, peaks in Nov-Dec; Impulse Merchandise (Dept 82): $22.6K vs. $63.0K expected, +11.0% vs. last year, peaks in Nov-Dec; Seasonal (Dept 18): $11.1K vs. $45.4K expected, +50.0% vs. last year, peaks in Nov-Dec"
+    },
+    {
+     "id": "peak_share",
+     "label": "Share of that shortfall from departments that peak in Nov-Dec",
+     "value": "100.0%"
+    },
+    {
+     "id": "top_yoy",
+     "label": "Those departments together vs. the same week last year",
+     "value": "+2.0%"
+    }
+   ],
+   "rag_stats": {
+    "chunks_in_store": 6560,
+    "chunks_after_filter": 533,
+    "reports_after_filter": 7,
+    "queries": 4,
+    "candidates": 64,
+    "returned": 6,
+    "districts": [
+     "National",
+     "Dallas"
+    ],
+    "ms": 3444,
+    "reports_in_store": 59
+   },
+   "passages": [
+    {
+     "id": "P1",
+     "doc": "Walmart FY12 Q4 earnings call transcript",
+     "doc_id": "WMT-FY12Q4-CALL",
+     "published": "2012-02-21",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.744,
+     "quote": "A few reminders before we get into the details: Walmart's consolidated financial statements are based on a fiscal year ending January 31 for our U.S. and Canadian operations, and December 31 for all other operations.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P2",
+     "doc": "Federal Reserve Beige Book, Jan 11, 2012",
+     "doc_id": "BB-2012-01-11",
+     "published": "2012-01-11",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.743,
+     "quote": "Most Districts reported that holiday retail sales were up noticeably over last year's season, with New York and Dallas describing sales as \"brisk\" and \"robust,\" respectively.",
+     "evidence_type": "Regional / macro context"
+    },
+    {
+     "id": "P3",
+     "doc": "Walmart FY2012 10-K",
+     "doc_id": "WMT-10K-FY2012",
+     "published": "2012-03-27",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.74,
+     "quote": "The Walmart U.S. segment's business is seasonal to a certain extent due to different calendar events, national and religious holidays, as well as different climatic conditions.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P4",
+     "doc": "Walmart FY12 Q4 earnings release",
+     "doc_id": "WMT-FY12Q4-RELEASE",
+     "published": "2012-02-21",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.732,
+     "quote": "Walmart will report comparable store sales for fiscal year 2013 on a 53-week basis, with 4-5-5 reporting for the fourth quarter.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P5",
+     "doc": "Walmart FY2012 10-K",
+     "doc_id": "WMT-10K-FY2012",
+     "published": "2012-03-27",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.723,
+     "quote": "The Walmart International segment's business is seasonal to a certain extent.",
+     "evidence_type": "Walmart-level context"
+    },
+    {
+     "id": "P6",
+     "doc": "Walmart FY12 Q4 earnings call transcript",
+     "doc_id": "WMT-FY12Q4-CALL",
+     "published": "2012-02-21",
+     "district": "National",
+     "relation": "covers the week",
+     "score": 0.709,
+     "quote": "The forward-looking statements discuss management's plans and expectations that the Walmart U.S. operating segment: will invest more in lower prices; have its positive trends in performance continue in fiscal 2013; continue to build on its previous price investment; continue to improve on-shelf availability; be committed to grow through new supercenters and smaller formats; will have an inventory focus to have the right inventory position to drive sales; in fiscal 2013 will add new retail space within a certain range and new units within a range; will remain efficient in capital spending by lowering remodel and construction costs; and will continue to help customers adapt to certain trends.",
+     "evidence_type": "Walmart-level context"
+    }
+   ],
+   "reason_llm": {
+    "model": "poolside/laguna-s-2.1:free",
+    "ms": 17444,
+    "tokens_in": 2584,
+    "tokens_out": 508,
+    "attempts": 1
+   }
+  }
+ },
+ "llm": {
+  "available": true,
+  "provider": "openrouter",
+  "chain": [
+   "poolside/laguna-s-2.1:free",
+   "google/gemma-4-31b-it:free",
+   "google/gemma-4-26b-a4b-it:free",
+   "poolside/laguna-xs-2.1:free"
+  ]
+ },
+ "vector_store": {
+  "files": 59,
+  "chunks": 6560,
+  "chunks_before_quality_filter": 6859,
+  "dropped_noise_chunks": 299,
+  "avg_chunk_chars": 814,
+  "avg_chunk_words": 124,
+  "approx_tokens": 1057152,
+  "chunk_target_chars": 900,
+  "overlap_chars": 150,
+  "embedding_model": "all-MiniLM-L6-v2 (ONNX, 384-dim)",
+  "embedding_dim": 384,
+  "index": "HNSW, cosine distance",
+  "collection": "walmart_reports",
+  "vector_store_bytes": 60684380,
+  "vector_store_mb": 60.7,
+  "build_seconds": 132.6,
+  "per_type": {
+   "10k": {
+    "files": 4,
+    "chunks": 585,
+    "avg_chars": 807
+   },
+   "annual_report": {
+    "files": 4,
+    "chunks": 877,
+    "avg_chars": 826
+   },
+   "beige_book": {
+    "files": 24,
+    "chunks": 3706,
+    "avg_chars": 806
+   },
+   "comp_sales": {
+    "files": 2,
+    "chunks": 2,
+    "avg_chars": 577
+   },
+   "earnings_call": {
+    "files": 11,
+    "chunks": 1008,
+    "avg_chars": 835
+   },
+   "earnings_release": {
+    "files": 11,
+    "chunks": 367,
+    "avg_chars": 827
+   },
+   "nrf_forecast": {
+    "files": 3,
+    "chunks": 15,
+    "avg_chars": 762
+   }
+  },
+  "beige_districts": [
+   "Atlanta",
+   "Boston",
+   "Chicago",
+   "Cleveland",
+   "Dallas",
+   "Kansas City",
+   "Minneapolis",
+   "National",
+   "New York",
+   "Philadelphia",
+   "Richmond",
+   "San Francisco",
+   "St. Louis"
+  ]
+ }
+}

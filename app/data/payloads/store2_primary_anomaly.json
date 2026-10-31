@@ -1,0 +1,102 @@
+{
+    "metadata": {
+        "exception_id": "EXC_STORE02_20120106",
+        "store_id": 2,
+        "store_type": "A",
+        "size_sq_ft": 202307,
+        "date": "2012-01-06",
+        "is_holiday": false,
+        "fiscal_period": "Q4 FY2012",
+        "detection_method": "Multi-Window Rolling MA (4-Wk & 8-Wk) + Multivariate Isolation Forest"
+    },
+    "quantitative_exception": {
+        "actual_weekly_sales": 1799520.14,
+        "expected_baseline_4wk_ma": 2455470.54,
+        "expected_baseline_8wk_ma": 2455470.54,
+        "sales_shortfall_dollars": 655950.4,
+        "sales_deviation_pct": -26.71,
+        "structural_slump_flag": true,
+        "isolation_forest_anomaly": false
+    },
+    "promotional_allocation": {
+        "total_markdown_spend": 52955.06,
+        "markdown_active": true,
+        "channel_breakdown": {
+            "MarkDown1": 5886.72,
+            "MarkDown2": 37454.29,
+            "MarkDown3": 121.16,
+            "MarkDown4": 2388.92,
+            "MarkDown5": 7103.97
+        }
+    },
+    "top_shortfall_departments": [
+        {
+            "dept_id": 7,
+            "actual_sales": 19058.99,
+            "expected_sales": 128557.43,
+            "dept_shortfall": 109498.44,
+            "pct_of_store_shortfall": 16.69
+        },
+        {
+            "dept_id": 72,
+            "actual_sales": 58836.73,
+            "expected_sales": 116761.46,
+            "dept_shortfall": 57924.73,
+            "pct_of_store_shortfall": 8.83
+        },
+        {
+            "dept_id": 5,
+            "actual_sales": 24429.4,
+            "expected_sales": 65737.35,
+            "dept_shortfall": 41307.95,
+            "pct_of_store_shortfall": 6.3
+        },
+        {
+            "dept_id": 82,
+            "actual_sales": 22640.5,
+            "expected_sales": 63022.71,
+            "dept_shortfall": 40382.21,
+            "pct_of_store_shortfall": 6.16
+        },
+        {
+            "dept_id": 18,
+            "actual_sales": 11130.93,
+            "expected_sales": 45443.81,
+            "dept_shortfall": 34312.88,
+            "pct_of_store_shortfall": 5.23
+        }
+    ],
+    "top_buffer_departments": [
+        {
+            "dept_id": 40,
+            "actual_sales": 86607.58,
+            "expected_sales": 79087.12,
+            "dept_surplus": 7520.46,
+            "pct_of_store_shortfall": -1.15
+        },
+        {
+            "dept_id": 38,
+            "actual_sales": 91450.24,
+            "expected_sales": 84375.82,
+            "dept_surplus": 7074.42,
+            "pct_of_store_shortfall": -1.08
+        },
+        {
+            "dept_id": 13,
+            "actual_sales": 46230.05,
+            "expected_sales": 41117.14,
+            "dept_surplus": 5112.91,
+            "pct_of_store_shortfall": -0.78
+        }
+    ],
+    "internal_macro_features": {
+        "fuel_price": 3.157,
+        "fuel_z_score": -1.49,
+        "cpi": 219.36,
+        "cpi_z_score": -1.09,
+        "unemployment": 7.057,
+        "unemployment_z_score": 0.5,
+        "temperature_f": 46.75,
+        "macro_shock_rule_out": "PASS: All macro variables remain within \u00b11.0 std dev; shortfall is internal merchandising failure, not economic shock"
+    }
+}

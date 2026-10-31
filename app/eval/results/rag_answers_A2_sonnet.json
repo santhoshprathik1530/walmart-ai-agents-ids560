@@ -1,0 +1,217 @@
+{
+ "R01": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate states 2.2 percent for the 13 weeks ended July 27, 2012, matching passage 2; it omits ticket/traffic detail but the key figure is correct.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R03": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference gives ticket +1.4% and traffic +0.1%; the candidate declines, and the passages indeed lack these figures, but the question was answerable.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R04": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate states 1.0 to 3.0 percent for the 4-5-4 period July 28 to October 26, matching passage 3 and the reference.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R05": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate gives the 7.0 percent season-to-date figure, and passage 1 supports it, including the Aug 16, 2012 Q2 FY13 call.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R08": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines to answer, but the reference gives a specific answer (brand-to-generic conversions such as Lipitor). A refusal counts as faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R10": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference (fuel up ~6%, customers consolidating trips) and is supported by passages 1 and 4.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R12": {
+  "correct": null,
+  "faithful": null,
+  "why": "no usable reply (None)"
+ },
+ "R14": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference gives a low single-digit positive comp with strong college essentials. The candidate declines, though the question is answerable. The refusal is consistent with the passages.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R15": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference (severe drought's potential effect on food prices) and is directly supported by passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R16": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines to answer, though the reference gives a low single-digit positive comp for grocery; the refusal is faithful to the passages.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B01": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference gives Boston, Cleveland and New York; the candidate declines, and none of the passages cover the July 18, 2012 report.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B02": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference lists accessories, cosmetics, and women's and children's apparel; the candidate declines, though the question is answerable. A refusal counts as faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B03": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The question is answerable per the reference (gasoline fell about 40 cents), but the candidate declined; the refusal is consistent with the passages.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B04": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference says diesel and gasoline rose about 30 cents; the candidate declines to answer. A refusal is faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B05": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The question is answerable per the reference (soft grocery spending, shift to cheaper products), but the candidate declined; the refusal is faithful to the passages.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B06": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference gives a specific answer (television sales declined), but the candidate declines to answer. The passages do not contain it, so the refusal is faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B08": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Candidate matches the weather comparison with last year but omits the retailer's strongest Labor Day weekend in years; passage supports its claims.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B10": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches reference and passage 1: brief precautionary shutdowns, full restoration, very little damage.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B11": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Captures slower sales but omits that discount stores outperformed department stores; claims are supported by passages 3 and 5.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B12": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference answer gives specific categories (furniture and electronics), but the candidate declines. The question is answerable, so this counts as wrong; the refusal is faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W02": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate matches the reference dates and nationwide availability, both supported by passages 1 and 5.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W03": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference: fee cut from $15 to $5, refunded on a Walmart gift card after final payment; date supported by passages.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "N01": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "The question is unanswerable, and the candidate correctly says the sources do not contain it; the passages never mention optical sales.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "N02": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "The question is unanswerable, and the candidate correctly says the sources don't contain it; passages show no store-level stockout information.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "N03": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate correctly says the sources lack Texas August 2012 comps; passages contain only national/segment figures.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R02": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate states 1.5 percent, matching the reference; the 1.3 percent prior-year comp and Bill Simon attribution are supported by passage 3.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R06": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Gives the deflation reason, supported by passage 1, but omits the low single-digit negative comp, and says no figure is given.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R07": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference gives a low single-digit negative comp from industry deflation; the candidate declines, though the question is answerable. The refusal is faithful to the passages.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R09": {
+  "correct": 1,
+  "faithful": 0,
+  "why": "Dates, Q4 recognition and $300M figure match sources, but 'most' is dropped, and $300M is described as the Q3 total, a slight distortion.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R11": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference answer is answerable (warm October affected apparel), but the candidate declines; the refusal is faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "R13": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The question is answerable per the reference (Labor Day, back-to-school, Halloween), but the candidate declined, so it is wrong; the refusal is faithful.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B07": {
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Gives the mild-weather cause but omits that sales were sluggish and well below 2011 levels; the 'no full explanation' claim is a reasonable inference.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B13": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The reference lists specific factors, but the candidate declines to answer, so it gets none of the key facts.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "B14": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: delayed deep discounting of back-to-school items; the extra details (first decline since 2007, not necessarily negative) are supported by passage 2.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W01": {
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate gives 3.6% growth and 1.5% comp sales driver; extra details ($2.3B, 2.1% square feet, ticket/traffic) are supported by passages 1 and 4.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "W04": {
+  "correct": 0,
+  "faithful": 1,
+  "why": "The candidate does not identify the expanded immunizations in 2,700+ stores, and instead offers a website redesign; its claims match passage 1.",
+  "model": "anthropic/claude-sonnet-5.5"
+ }
+}

@@ -1,0 +1,232 @@
+{
+ "R01": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's 2.2 percent figure is not given. Refusals count as faithful.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1065,
+  "tokens": 4225
+ },
+ "R02": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference figure of 1.5 percent is not given.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1444,
+  "tokens": 4227
+ },
+ "R03": {
+  "answer": "Not in the sources.",
+  "correct": null,
+  "faithful": null,
+  "why": "grader reply not JSON: anthropic/claude-haiku-5.5: empty answer",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1188,
+  "tokens": 1956
+ },
+ "R04": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the 1.0 to 3.0 percent expectation is absent from the passages, so the refusal is faithful.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 2481,
+  "tokens": 5193
+ },
+ "R05": {
+  "answer": "Season to date, key back-to-school apparel categories were up 7.0 percent, according to Walmart's Q2 earnings call on August 16, 2012.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "States the 7.0 percent season-to-date figure, matching the reference; the Q2 call dated August 16, 2012 is supported by passage 1.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 977,
+  "tokens": 3941
+ },
+ "R06": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines; the reference's Q2 FY2013 comp and electronics-deflation facts are absent from the passages.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1547,
+  "tokens": 3869
+ },
+ "R07": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Passages lack Walmart U.S. Q3 FY2013 comp data; the candidate correctly says the sources don't contain it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 914,
+  "tokens": 4167
+ },
+ "R08": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's brand-to-generic pharmacy pressure is not stated in the passages.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1083,
+  "tokens": 4259
+ },
+ "R10": {
+  "answer": "In the Q3 FY2013 call, Walmart said average fuel prices were up approximately 6 percent versus the prior year, and that some customers were consolidating their shopping trips.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference: fuel prices up ~6% year over year and customers consolidating trips, per passage 4.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1052,
+  "tokens": 3586
+ },
+ "R11": {
+  "answer": "Not in the sources.",
+  "correct": null,
+  "faithful": null,
+  "why": "grader reply not JSON: anthropic/claude-haiku-5.5: empty answer",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1454,
+  "tokens": 1730
+ },
+ "R12": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "No passage covers Q3 FY2013; the candidate correctly says the sources lack it.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 973,
+  "tokens": 3895
+ },
+ "R13": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The passages never mention Labor Day, back-to-school, or Halloween, so the candidate correctly says the sources lack it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1205,
+  "tokens": 4130
+ },
+ "R14": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "The candidate declines, so it gives none of the reference's key facts. The refusal is faithful.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 890,
+  "tokens": 3686
+ },
+ "R15": {
+  "answer": "In August 2012, Walmart was monitoring key commodities and the severe drought across parts of the country to gauge the potential impact on food prices for the rest of the year.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate names the severe drought and its potential impact on food prices, matching the reference; supported by passage 2.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1441,
+  "tokens": 3590
+ },
+ "R16": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer, missing the reference's positive low-single-digit grocery comp; refusal is faithful.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 852,
+  "tokens": 3925
+ },
+ "B01": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "No July 18, 2012 Beige Book is in the passages; only Aug 29, 2012 appears, so declining is correct.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 970,
+  "tokens": 4041
+ },
+ "B02": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The passages contain no August 2012 Beige Book, so the candidate correctly says the sources lack this.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1113,
+  "tokens": 3635
+ },
+ "B03": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines, saying sources lack it; the reference answer is answerable but not covered here.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 889,
+  "tokens": 3399
+ },
+ "B04": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference gives a figure (about 30 cents), and a refusal earns 0 credit.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1111,
+  "tokens": 3729
+ },
+ "B05": {
+  "answer": "Not in the sources.",
+  "correct": null,
+  "faithful": null,
+  "why": "grader reply not JSON: anthropic/claude-haiku-5.5: empty answer",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1058,
+  "tokens": 1701
+ },
+ "B06": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The passages do not include the July 18, 2012 West Coast Beige Book, so declining is correct.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 845,
+  "tokens": 3608
+ },
+ "B07": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Passages cover 2010-2011 only; none mention August or September 2012 New York retail sales, so the refusal is accurate.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1152,
+  "tokens": 4094
+ },
+ "B08": {
+  "answer": "The Philadelphia District described the 2012 Labor Day weekend as benefiting by comparison to the prior year, when severe weather disrupted end-of-summer plans. The passage gives no specific figures.",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Captures the weather-based comparison to last year's storms but omits the retailer's strongest-in-years detail.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1427,
+  "tokens": 3700
+ }
+}

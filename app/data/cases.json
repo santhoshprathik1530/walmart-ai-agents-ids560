@@ -1,0 +1,19 @@
+{
+ "cases": [
+  {
+   "id": "EXC-S07-D72-20120824",
+   "payload": "payloads/store7_dept72_extra_trees.json",
+   "detected_by": "Extra Trees model"
+  },
+  {
+   "id": "EXC-S13-D01-20120420",
+   "payload": "payloads/store13_dept1_baseline.json",
+   "detected_by": "Baseline (same week last year)"
+  },
+  {
+   "id": "EXC-S02-ALL-20120106",
+   "payload": "payloads/store2_primary_anomaly.json",
+   "detected_by": "Store-level payload (4-week average + Isolation Forest)"
+  }
+ ]
+}

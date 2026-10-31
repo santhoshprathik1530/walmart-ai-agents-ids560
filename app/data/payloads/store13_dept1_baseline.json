@@ -1,0 +1,21 @@
+{
+ "exception_id": "EXC_S13_D01_20120420",
+ "store": 13,
+ "region": "Rocky Mountain (PADD 4)",
+ "region_confidence": "High",
+ "fed_district": "Kansas City, Minneapolis or San Francisco Fed",
+ "store_format": "Supercenter",
+ "dept": 1,
+ "dept_name": "Candy & Tobacco",
+ "dept_confidence": "High",
+ "merch_unit": "Grocery",
+ "week_ending": "2012-04-20",
+ "fiscal_period": "FY2013 Q1",
+ "actual_sales": 30200.67,
+ "expected_sales": 166023.49,
+ "deviation_pct": -81.8,
+ "shortfall": 135822.82,
+ "store_markdown_total": 39620.13,
+ "expected_method": "Same week last year x recent 8-week store trend",
+ "grain": "department_week"
+}

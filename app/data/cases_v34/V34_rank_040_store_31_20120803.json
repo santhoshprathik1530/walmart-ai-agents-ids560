@@ -1,0 +1,249 @@
+{
+  "schema_version": "3.4",
+  "experiment_version": "V3.4",
+  "case_id": "STORE_31_2012-08-03",
+  "priority_rank": 40,
+  "store_week": {
+    "store": 31,
+    "date": "2012-08-03",
+    "store_type": "A",
+    "store_size": 203750,
+    "eligible_departments": 68,
+    "flagged_departments": 5,
+    "flagged_department_pct": 7.35,
+    "actual_eligible_sales": 1390093.7,
+    "expected_eligible_sales": 1427292.19,
+    "aggregate_net_modeled_shortfall": 37198.49,
+    "flagged_department_modeled_shortfall": 2235.72
+  },
+  "anomaly_detection": {
+    "forecast_model": "Extra Trees",
+    "threshold_method": "Per-Store MAD",
+    "threshold_level": "Department-week residuals pooled within each store",
+    "store_threshold_pct": -20.3142,
+    "mad_multiplier": 2.0,
+    "residual_formula": "(actual_sales - expected_sales) / expected_sales",
+    "chronological_isolation_forest_flag": true,
+    "hybrid_eligible": true,
+    "selection_rule": "Chronological IF alert AND >=1 per-store MAD department flag AND positive aggregate modeled sales gap AND markdown information recorded"
+  },
+  "markdown_information": {
+    "markdown_recorded": true,
+    "recorded_markdown_total": 45636.59,
+    "markdown_fields": {
+      "MarkDown1": 22694.34,
+      "MarkDown2": 15.96,
+      "MarkDown3": 76.19,
+      "MarkDown4": 14090.47,
+      "MarkDown5": 8759.63
+    },
+    "note": "Recorded markdown values are store-week information. Missing values are not assumed to equal zero. Recorded markdown does not establish promotional causality."
+  },
+  "external_factors": {
+    "Temperature": 91.57,
+    "Fuel_Price": 3.42,
+    "CPI": 221.59,
+    "Unemployment": 6.57
+  },
+  "flagged_department_evidence": [
+    {
+      "store": 31,
+      "department": 55,
+      "date": "2012-08-03",
+      "actual_sales": 4218.24,
+      "expected_sales": 5699.34,
+      "signed_forecast_gap": 1481.1,
+      "positive_modeled_gap": 1481.1,
+      "relative_residual_pct": -25.99,
+      "per_store_threshold_pct": -20.31,
+      "per_store_mad_flag": true,
+      "global_mad_flag": true,
+      "historical_comparisons": {
+        "recent_4_observations": 4,
+        "recent_4_week_median": 5096.18,
+        "recent_8_observations": 8,
+        "recent_8_week_median": 5623.48,
+        "same_season_observations": 4,
+        "same_season_prior_years_median": 5045.05,
+        "actual_vs_recent_4wk_pct": -17.23,
+        "actual_vs_same_season_pct": -16.39
+      },
+      "peer_comparison": {
+        "peer_count": 36,
+        "peers_overpredicted_count": 29,
+        "peers_overpredicted_pct": 80.56
+      },
+      "diagnostic_signals": {
+        "recent_sales_decline": false,
+        "seasonal_sales_decline": false,
+        "potential_forecast_overprediction": false,
+        "widespread_peer_overprediction": true
+      },
+      "diagnostic_interpretation": "Exploratory signals only. Multiple signals may apply simultaneously.",
+      "verified_business_root_cause": null,
+      "verification_status": "NOT VERIFIED"
+    },
+    {
+      "store": 31,
+      "department": 56,
+      "date": "2012-08-03",
+      "actual_sales": 401.38,
+      "expected_sales": 794.8,
+      "signed_forecast_gap": 393.42,
+      "positive_modeled_gap": 393.42,
+      "relative_residual_pct": -49.5,
+      "per_store_threshold_pct": -20.31,
+      "per_store_mad_flag": true,
+      "global_mad_flag": true,
+      "historical_comparisons": {
+        "recent_4_observations": 4,
+        "recent_4_week_median": 675.25,
+        "recent_8_observations": 8,
+        "recent_8_week_median": 1181.6,
+        "same_season_observations": 4,
+        "same_season_prior_years_median": 707.46,
+        "actual_vs_recent_4wk_pct": -40.56,
+        "actual_vs_same_season_pct": -43.26
+      },
+      "peer_comparison": {
+        "peer_count": 38,
+        "peers_overpredicted_count": 34,
+        "peers_overpredicted_pct": 89.47
+      },
+      "diagnostic_signals": {
+        "recent_sales_decline": true,
+        "seasonal_sales_decline": true,
+        "potential_forecast_overprediction": false,
+        "widespread_peer_overprediction": true
+      },
+      "diagnostic_interpretation": "Exploratory signals only. Multiple signals may apply simultaneously.",
+      "verified_business_root_cause": null,
+      "verification_status": "NOT VERIFIED"
+    },
+    {
+      "store": 31,
+      "department": 27,
+      "date": "2012-08-03",
+      "actual_sales": 616.48,
+      "expected_sales": 801.16,
+      "signed_forecast_gap": 184.68,
+      "positive_modeled_gap": 184.68,
+      "relative_residual_pct": -23.05,
+      "per_store_threshold_pct": -20.31,
+      "per_store_mad_flag": true,
+      "global_mad_flag": true,
+      "historical_comparisons": {
+        "recent_4_observations": 4,
+        "recent_4_week_median": 762.37,
+        "recent_8_observations": 8,
+        "recent_8_week_median": 762.37,
+        "same_season_observations": 4,
+        "same_season_prior_years_median": 884.19,
+        "actual_vs_recent_4wk_pct": -19.14,
+        "actual_vs_same_season_pct": -30.28
+      },
+      "peer_comparison": {
+        "peer_count": 38,
+        "peers_overpredicted_count": 23,
+        "peers_overpredicted_pct": 60.53
+      },
+      "diagnostic_signals": {
+        "recent_sales_decline": false,
+        "seasonal_sales_decline": true,
+        "potential_forecast_overprediction": false,
+        "widespread_peer_overprediction": false
+      },
+      "diagnostic_interpretation": "Exploratory signals only. Multiple signals may apply simultaneously.",
+      "verified_business_root_cause": null,
+      "verification_status": "NOT VERIFIED"
+    },
+    {
+      "store": 31,
+      "department": 59,
+      "date": "2012-08-03",
+      "actual_sales": 117.37,
+      "expected_sales": 255.38,
+      "signed_forecast_gap": 138.01,
+      "positive_modeled_gap": 138.01,
+      "relative_residual_pct": -54.04,
+      "per_store_threshold_pct": -20.31,
+      "per_store_mad_flag": true,
+      "global_mad_flag": true,
+      "historical_comparisons": {
+        "recent_4_observations": 4,
+        "recent_4_week_median": 206.36,
+        "recent_8_observations": 8,
+        "recent_8_week_median": 228.94,
+        "same_season_observations": 4,
+        "same_season_prior_years_median": 391.27,
+        "actual_vs_recent_4wk_pct": -43.12,
+        "actual_vs_same_season_pct": -70.0
+      },
+      "peer_comparison": {
+        "peer_count": 33,
+        "peers_overpredicted_count": 16,
+        "peers_overpredicted_pct": 48.48
+      },
+      "diagnostic_signals": {
+        "recent_sales_decline": true,
+        "seasonal_sales_decline": true,
+        "potential_forecast_overprediction": false,
+        "widespread_peer_overprediction": false
+      },
+      "diagnostic_interpretation": "Exploratory signals only. Multiple signals may apply simultaneously.",
+      "verified_business_root_cause": null,
+      "verification_status": "NOT VERIFIED"
+    },
+    {
+      "store": 31,
+      "department": 19,
+      "date": "2012-08-03",
+      "actual_sales": 20.08,
+      "expected_sales": 58.59,
+      "signed_forecast_gap": 38.51,
+      "positive_modeled_gap": 38.51,
+      "relative_residual_pct": -65.73,
+      "per_store_threshold_pct": -20.31,
+      "per_store_mad_flag": true,
+      "global_mad_flag": true,
+      "historical_comparisons": {
+        "recent_4_observations": 4,
+        "recent_4_week_median": 56.29,
+        "recent_8_observations": 8,
+        "recent_8_week_median": 53.22,
+        "same_season_observations": 4,
+        "same_season_prior_years_median": 56.0,
+        "actual_vs_recent_4wk_pct": -64.33,
+        "actual_vs_same_season_pct": -64.14
+      },
+      "peer_comparison": {
+        "peer_count": 26,
+        "peers_overpredicted_count": 19,
+        "peers_overpredicted_pct": 73.08
+      },
+      "diagnostic_signals": {
+        "recent_sales_decline": true,
+        "seasonal_sales_decline": true,
+        "potential_forecast_overprediction": false,
+        "widespread_peer_overprediction": true
+      },
+      "diagnostic_interpretation": "Exploratory signals only. Multiple signals may apply simultaneously.",
+      "verified_business_root_cause": null,
+      "verification_status": "NOT VERIFIED"
+    }
+  ],
+  "root_cause_assessment": {
+    "verified_business_root_cause": null,
+    "verification_status": "NOT VERIFIED",
+    "business_action": "ANALYST REVIEW REQUIRED",
+    "caution": "Anomaly flags and forecast gaps are not proof of markdown failure or realized lost revenue."
+  },
+  "provenance": {
+    "department_source": "per_store_mad_department_flags.csv",
+    "threshold_source": "per_store_mad_thresholds.csv",
+    "isolation_forest_source": "if_original_vs_chronological_comparison.csv",
+    "historical_sales_source": "train.csv",
+    "external_factors_source": "features.csv",
+    "store_metadata_source": "stores.csv"
+  }
+}
