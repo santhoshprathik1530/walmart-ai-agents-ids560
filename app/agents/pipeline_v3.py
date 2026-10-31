@@ -116,8 +116,9 @@ def _dept_item(r, have_ml: bool) -> dict:
         label=f"Dept {int(r.Dept)} {r.DeptName} ({r.Unit} unit; name {r.DeptConf.lower()} confidence)",
         actual=usd(r.Actual), ml_forecast=usd(r.Expected), below_forecast=f"{usd(r.Shortfall)} ({pc(-r.ShortfallPct)})",
         store_threshold=f"{r.ThresholdPct:.1f}%" if r.ThresholdPct == r.ThresholdPct else "n/a",
-        ml_notes=(f"vs the median of the last 4 weeks {pc(r.VsRecent4Pct)}; vs the same season in earlier years "
-                  f"{pc(r.VsSeasonPct)}; model too high at {r.ChainOverpredPct:.1f}% of other stores; signals: {r.MLNotes}"))
+        ml_notes=(f"last 4 weeks median {usd(r.Recent4Median)}, this week {pc(r.VsRecent4Pct)}; same season in earlier years "
+                  f"median {usd(r.SeasonMedian)}, this week {pc(r.VsSeasonPct)}; model too high at {r.ChainOverpredPct:.1f}% of "
+                  f"other stores; signals: {r.MLNotes}"))
     if have_ml:
         s = support.dept_summary(int(r.Dept), r.Date, int(r.Store))
         item["same_department_all_stores"] = (
@@ -282,7 +283,8 @@ REASON_SYS = (
     "Under departments, cover the departments with the largest gaps (at least the first one listed). "
     "next_steps are checks the store or analyst can make on the store side (stock and deliveries, staffing, pricing and "
     "displays, local events or competitors, data entry); never ask the ML team to review, explain or confirm its forecast, "
-    "notes or signals. Use only ids that appear in the JSON (evidence ids, 'case', passage ids). "
+    "notes or signals. Use only ids that appear in the JSON (evidence ids, 'case', passage ids); an ml_note finding cites "
+    "the department ids it is about (e.g. 'dept_92'). "
     'Reply with JSON only: {"evidence_found": "Strong|Some|Little", "summary": "2-3 sentences", '
     '"findings": [{"title": "max 6 words", "scope": "...", "text": "1-2 sentences", "evidence": ["id", ...]}], '
     '"departments": [{"department": "Dept 92 Dry Grocery", "what_supports_it": "1-2 sentences"}], '

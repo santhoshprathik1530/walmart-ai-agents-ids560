@@ -4,35 +4,39 @@
  "errors": [],
  "all_checks_passed": 39,
  "check_pass": {
-  "Numbers match the evidence": 39,
-  "Quotes are word for word": 40,
-  "Every factor cites evidence": 40,
+  "Numbers match the evidence": 40,
+  "Quotes are word for word": 39,
+  "Every finding cites evidence": 40,
   "Answer is complete": 40,
   "Guardrails respected": 40,
-  "Every factor is tagged": 40,
-  "Status agrees with the data": 40
+  "Every finding is tagged": 40,
+  "Covers the largest flagged department": 40
  },
- "llm_vs_code_status": "40/40",
- "code_status": {
-  "No action needed": 24,
-  "Action needed": 12,
-  "Check before acting": 4
+ "models": {
+  "anthropic/claude-haiku-5.5": 40
  },
  "shown_status": {
-  "No action needed": 24,
-  "Action needed": 12,
-  "Check before acting": 4
+  "Analyst review required": 39,
+  "Answer needs a check": 1
  },
- "factors_per_case": 4.2,
- "factor_types": {
-  "data": 89,
-  "report": 37,
-  "model": 42
+ "evidence_found": {
+  "Strong": 35,
+  "Some": 5
  },
- "cases_citing_a_report": 36,
+ "findings_per_case": 5.3,
+ "finding_scopes": {
+  "walmart": 20,
+  "department": 59,
+  "region": 19,
+  "store": 36,
+  "outside": 27,
+  "report": 39,
+  "ml_note": 11
+ },
+ "cases_citing_a_report": 33,
  "golden_case_facts_covered": "20/20",
  "golden_case_facts_missing": [],
- "golden_status_vs_draft": "10/10 (draft = code triage; human labels pending)",
- "seconds_per_case": 18.6,
- "tokens_per_case": 11619
+ "golden_judgments_labelled": "0 of 20 (blind labels pending)",
+ "seconds_per_case": 24.4,
+ "tokens_per_case": 14779
 }

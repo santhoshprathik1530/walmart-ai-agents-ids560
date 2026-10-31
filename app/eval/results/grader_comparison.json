@@ -24,9 +24,9 @@
   "graders_agree": "32/37"
  },
  "chat": {
-  "n": 0,
-  "code_number_match": 0,
-  "sonnet_correct": 0.0,
-  "sonnet_full_marks": 0
+  "n": 20,
+  "code_number_match": 15,
+  "sonnet_correct": 20.0,
+  "sonnet_full_marks": 20
  }
 }

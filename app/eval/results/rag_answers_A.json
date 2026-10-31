@@ -21,13 +21,13 @@
  },
  "R03": {
   "answer": "Not in the sources.",
-  "correct": null,
-  "faithful": null,
-  "why": "grader reply not JSON: anthropic/claude-haiku-5.5: empty answer",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's ticket and traffic figures are not in the passages.",
   "numbers_match": false,
   "unanswerable": false,
-  "ms": 1188,
-  "tokens": 1956
+  "ms": 1699,
+  "tokens": 4563
  },
  "R04": {
   "answer": "Not in the sources.",
@@ -91,13 +91,13 @@
  },
  "R11": {
   "answer": "Not in the sources.",
-  "correct": null,
-  "faithful": null,
-  "why": "grader reply not JSON: anthropic/claude-haiku-5.5: empty answer",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines, but the reference's warm-October apparel fact is not given. Refusal is faithful.",
   "numbers_match": null,
   "unanswerable": false,
-  "ms": 1454,
-  "tokens": 1730
+  "ms": 1264,
+  "tokens": 3817
  },
  "R12": {
   "answer": "Not in the sources.",
@@ -191,13 +191,13 @@
  },
  "B05": {
   "answer": "Not in the sources.",
-  "correct": null,
-  "faithful": null,
-  "why": "grader reply not JSON: anthropic/claude-haiku-5.5: empty answer",
+  "correct": 1,
+  "faithful": 1,
+  "why": "No passage covers the October 10, 2012 Beige Book, so declining is correct.",
   "numbers_match": null,
   "unanswerable": false,
-  "ms": 1058,
-  "tokens": 1701
+  "ms": 1218,
+  "tokens": 3923
  },
  "B06": {
   "answer": "Not in the sources.",
@@ -228,5 +228,145 @@
   "unanswerable": false,
   "ms": 1427,
   "tokens": 3700
+ },
+ "B09": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; reference gives home furnishings, clothing, back-to-school sales, which the candidate omits.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1002,
+  "tokens": 3837
+ },
+ "B10": {
+  "answer": "No. The October 10, 2012 Beige Book (Atlanta District) says that after brief, precautionary shutdowns related to Hurricane Isaac, regional refiners fully restored operations with very little damage from the storm.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: brief precautionary shutdowns, full restoration, very little damage, per the Oct 10 Atlanta Beige Book.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1234,
+  "tokens": 3786
+ },
+ "B11": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Reference gives Atlanta retail sales as generally slower, discount stores better; candidate declines to answer.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 941,
+  "tokens": 3810
+ },
+ "B12": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's furniture and electronics facts are missing. Refusal is faithful.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1270,
+  "tokens": 3901
+ },
+ "B13": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "No passage is from October 10, 2012; the candidate correctly says the sources lack it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 891,
+  "tokens": 3847
+ },
+ "B14": {
+  "answer": "The July 18, 2012 Beige Book attributed the year-over-year decline at outlet centers to a possible delay in deep discounting of back-to-school items, which had already been discounted by that time the previous year. The report presented this as a possible explanation, not a confirmed cause.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: a possible delay in deep discounting of back-to-school items already discounted last year. Passage supports it.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1637,
+  "tokens": 3996
+ },
+ "W01": {
+  "answer": "Walmart U.S. delivered approximately $2.3 billion in net sales growth in Q3 FY13. The passages attribute it to a 1.5 percent comp sales increase, with back-to-school activities early in the quarter and the mid-September launch of layaway helping drive sales.",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Gives the 1.5% comp driver but omits the 3.6% growth rate, citing only $2.3B in dollars.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1455,
+  "tokens": 4443
+ },
+ "W02": {
+  "answer": "Walmart's 2012 Christmas layaway program was available nationwide from Sept. 16 through Dec. 14, 2012 (per the Aug. 20, 2012 news release).",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference dates (Sept. 16 to Dec. 14, 2012), and the Aug. 20 release in passage 1 supports them.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1091,
+  "tokens": 3891
+ },
+ "W03": {
+  "answer": "On September 4, 2012, Walmart rolled back its Christmas Layaway open fee from $15 to $5. Customers who make their final payment receive a $5 refund on a Walmart gift card.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: open fee cut from $15 to $5, refunded as a gift card on final payment, per the Sept. 4, 2012 release.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1450,
+  "tokens": 4240
+ },
+ "W04": {
+  "answer": "The sources don't describe a late-August 2012 expansion. The closest item is the August 16, 2012 Q2 FY13 call, which said Walmart redesigned its pharmacy website and simplified online prescription ordering, with a re-launch in May and script comps rising every month since.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Misses the immunizations expansion in 2,700 stores; its cited pharmacy-website details are supported.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 2609,
+  "tokens": 5041
+ },
+ "N01": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate correctly says the sources do not contain this; none mention optical department sales.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 927,
+  "tokens": 4178
+ },
+ "N02": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate correctly says the sources do not contain this; the question is unanswerable and it is a refusal.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 915,
+  "tokens": 3813
+ },
+ "N03": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate correctly says the sources do not contain the Texas August 2012 comparable sales figure.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 922,
+  "tokens": 4127
+ },
+ "R09": {
+  "answer": "Walmart's 2012 holiday layaway ran from Sept. 16 through Dec. 14, 2012. Layaway sales are counted as revenue when the sale is completed and the merchandise is picked up, which for the holiday program mostly falls in the fourth quarter.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the mid-September launch and Q4 recognition; the Sept 16 to Dec 14 dates are in the news releases.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 2226,
+  "tokens": 4549
  }
 }

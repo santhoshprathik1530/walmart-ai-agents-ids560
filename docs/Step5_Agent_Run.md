@@ -1,5 +1,8 @@
 # Step 5: the agent on all 40 v3.3 cases
 
+> **Update 2026-10-31:** the agent no longer uses our own status rule (Action needed / Check before acting / No action needed, 10% / $2,000 / 70%), similar-store peers, signal groups or the recovery check. The ML team defines the exception; the agent only finds evidence that supports each flag. See `Supporting_Evidence_Design.md`. The parts below that use those are kept as history.
+
+
 > **Update 2026-10-30:** the agent now runs on the ML team's v3.4 cases (per-store thresholds). New results are in [Switch_to_v34.md](Switch_to_v34.md); the numbers below are for v3.3.
 
 

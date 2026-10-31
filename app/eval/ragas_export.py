@@ -1,6 +1,6 @@
 """Step 1 of the RAGAS evaluation: write, for each RAG setup and golden report question, the question, the 5 retrieved
-passages (search is deterministic, so they are exactly what the answer was written from), the saved answer and the
-reference answer.
+passages exactly as the answering LLM saw them (with the "[n] report (published date, district)" line; search is
+deterministic), the saved answer and the reference answer.
 
     python3 -m eval.ragas_export          -> eval/results/ragas_input.json   (no LLM calls)
 
@@ -12,7 +12,7 @@ from __future__ import annotations
 import json
 
 from agents.retrievers import VARIANTS, search
-from eval.compare_rag import OUT, context, items
+from eval.compare_rag import OUT, _passages, context, items
 
 
 def main() -> list[dict]:
@@ -28,8 +28,9 @@ def main() -> list[dict]:
             if it["id"] not in ans:
                 continue
             res = search(it["question"], v, 5, context(it))
+            ctx = [("[" if i else "") + c for i, c in enumerate(_passages(res).split("\n\n["))]   # one string per passage
             rows.append(dict(setup=v, id=it["id"], unanswerable=bool(it.get("unanswerable")), user_input=it["question"],
-                             retrieved_contexts=[r["text"] for r in res], response=ans[it["id"]]["answer"],
+                             retrieved_contexts=ctx, response=ans[it["id"]]["answer"],
                              reference=it["answer"]))
     (OUT / "ragas_input.json").write_text(json.dumps(rows, indent=1))
     print(f"{len(rows)} rows for {len({r['setup'] for r in rows})} setups")

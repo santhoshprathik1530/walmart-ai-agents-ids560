@@ -45,7 +45,7 @@ POSSIBLE FACTORS for each anomaly using the sales data plus time-aligned public 
   app/eval/: golden Q&A (report_qa.json, build_golden.py -> golden_qa.json; 57 report+case items approved by Santhosh
   2026-10-31; 20 judgment items wait for the blind labels in labels_sheet.csv: main supporting evidence + strength).
   Step 4: retrievers.py has 7 RAG setups, compare_rag.py scores them; winner E (Hit@5 88%); regrade_sonnet.py re-grades
-  the saved answers with Sonnet 5.5 (E 87% vs Haiku 88%; old setup A2 44% vs 64%). Step 7 (deck) dropped.
+  the saved answers with Sonnet 5.5 (E 87% vs Haiku 88%; old setup A2 44% vs 64%); RAGAS (ragas 0.4.3 in ../.venv_eval, judge Haiku) via ragas_export.py + ragas_eval.py; all metrics in eval/results/rag_metrics_table.csv. OpenRouter credit ran out 2026-10-31 ($35 used): top up before more LLM runs. Step 7 (deck) dropped.
   JTA: docs/IDS 560 - JTA - AI Agents and RAG (Team 2).docx (Domains III-VI) and the all-domain answers doc.
 - deck/ : 'AI Agents - Walmart Stakeholder Deck.pptx' = CURRENT deck for Walmart stakeholders (8 slides, white, Walmart colours:
   why an agent, knowledge sources, 5 architecture slides, evaluation; builders/build_walmart_deck.py). Santhosh wants it simple and

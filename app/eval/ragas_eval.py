@@ -15,6 +15,10 @@ Judge: Claude Haiku 5.5 through OpenRouter (chosen by Santhosh for cost). Haiku 
 answer-side metrics may be a little generous; the passage-side metrics (context precision / recall) judge the search,
 not Haiku's own text. Embeddings: all-MiniLM-L6-v2 (the same ONNX model the report index uses), run locally.
 Writes eval/results/ragas_scores.csv (per question) and ragas_summary.csv (per setup). Cached per row.
+
+Note (2026-10-31): the saved scores come from a run where each passage was given WITHOUT its "[n] report (date,
+district)" line, so faithfulness is understated (~0.5 everywhere). ragas_export.py now adds the line; the re-run with it
+stopped when the OpenRouter credit ran out. To redo: top up, delete ragas_scores.json, run ragas_export then this script.
 """
 from __future__ import annotations
 

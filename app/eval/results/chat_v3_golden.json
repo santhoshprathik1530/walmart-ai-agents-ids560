@@ -1,0 +1,252 @@
+{
+ "C01": {
+  "question": "Which flagged department has the largest modeled shortfall at Store 39 in the week ending Sep 7, 2012, and how large is it?",
+  "reference": "Dept 3 Stationery: $48,611 below the Extra Trees expectation (63.5%).",
+  "answer": "The Stationery department has the largest modeled shortfall at Store 39 that week: $48,611 below the ML forecast (-63.5%), with actual sales of $27,998 against a forecast of $76,609. This is an ML estimate, not a verified loss, and the cause has not been confirmed.",
+  "kind": "largest_dept",
+  "correct": false,
+  "missing": [
+   "3"
+  ],
+  "checks_passed": true,
+  "ms": 5879,
+  "tokens": 9175,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C02": {
+  "question": "Which flagged department has the largest modeled shortfall at Store 28 in the week ending Aug 31, 2012, and how large is it?",
+  "reference": "Dept 92 Dry Grocery: $25,828 below the Extra Trees expectation (24.5%).",
+  "answer": "Dry Grocery (Grocery unit) has the largest modeled shortfall at Store 28, at $25,828 below the ML forecast (-24.5%). This is an ML estimate, not a verified loss, and the root cause is not verified. The next largest flagged department is Frozen Food, at $19,206 below the ML forecast (-30.5%).",
+  "kind": "largest_dept",
+  "correct": false,
+  "missing": [
+   "92"
+  ],
+  "checks_passed": true,
+  "ms": 3889,
+  "tokens": 8394,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C03": {
+  "question": "Which flagged department has the largest modeled shortfall at Store 10 in the week ending Aug 10, 2012, and how large is it?",
+  "reference": "Dept 24 Boyswear: $16,323 below the Extra Trees expectation (41.1%).",
+  "answer": "Dept 24 Boyswear (Apparel unit) has the largest modeled shortfall at Store 10, at $16,323 (-41.1%) below the ML forecast of $39,665 for the week ending Aug 10, 2012. This is an ML estimate, not a verified loss, and the ML notes list seasonal decline as a signal. Across other stores, 7 of 36 were also below the ML forecast in this department that week, but none of them were flagged by the ML team.",
+  "kind": "largest_dept",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 2725,
+  "tokens": 7615,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C04": {
+  "question": "Which flagged department has the largest modeled shortfall at Store 28 in the week ending Sep 14, 2012, and how large is it?",
+  "reference": "Dept 3 Stationery: $6,116 below the Extra Trees expectation (31.8%).",
+  "answer": "The Stationery department (Hardlines unit) has the largest modeled shortfall at Store 28, at $6,116 below the ML forecast (-31.8%), with $13,136 actual against $19,252 forecast. This is an ML estimate, not a verified loss. The Boyswear department shows the largest percentage drop (Store 99 Store Supplies is -99.9%), but its dollar amount is only $148.",
+  "kind": "largest_dept",
+  "correct": false,
+  "missing": [
+   "3"
+  ],
+  "checks_passed": true,
+  "ms": 2884,
+  "tokens": 8446,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C05": {
+  "question": "What were expected and actual sales for Dry Grocery (Dept 92) at Store 28 in the week ending Aug 31, 2012?",
+  "reference": "Expected $105,389, actual $79,561.",
+  "answer": "Dry Grocery (Dept 92) at Store 28 sold $79,561 in the week ending Aug 31, 2012, against an ML forecast of $105,389. That is $25,828 (-24.5%) below the ML forecast, which is past the store threshold of -24.3%. This is an ML estimate and the root cause is not verified.",
+  "kind": "expected_vs_actual",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 2088,
+  "tokens": 7532,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C06": {
+  "question": "What were expected and actual sales for Hardware (Dept 11) at Store 11 in the week ending Aug 31, 2012?",
+  "reference": "Expected $20,453, actual $15,796.",
+  "answer": "Hardware at Store 11 sold $15,796 in the week ending Aug 31, 2012, against an ML forecast of $20,453. That is $4,657 (-22.8%) below the ML forecast, past the store's -20.1% threshold, which is why the department was flagged. This is an ML estimate, not a verified loss, and the cause has not been confirmed.",
+  "kind": "expected_vs_actual",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 3081,
+  "tokens": 10894,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C07": {
+  "question": "What were expected and actual sales for Shoes (Dept 25) at Store 11 in the week ending Aug 3, 2012?",
+  "reference": "Expected $13,919, actual $10,912.",
+  "answer": "For Shoes (Dept 25) at Store 11 in the week ending Aug 3, 2012, actual sales were $10,912 against an ML forecast of $13,919, which is $3,007 (-21.6%) below the forecast. This is an ML estimate, and the gap is not a verified loss.",
+  "kind": "expected_vs_actual",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 1471,
+  "tokens": 7765,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C08": {
+  "question": "How many departments were flagged at Store 6 in the week ending Sep 14, 2012, and what is their total modeled shortfall?",
+  "reference": "17 departments, $60,858 in total.",
+  "answer": "Store 6 had 17 flagged departments in the week ending Sep 14, 2012. Those departments were a total of $60,858 below the ML forecast, an ML estimate that has not been verified as a loss.",
+  "kind": "dept_count",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 2640,
+  "tokens": 12163,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C09": {
+  "question": "How many departments were flagged at Store 4 in the week ending Sep 7, 2012, and what is their total modeled shortfall?",
+  "reference": "16 departments, $30,730 in total.",
+  "answer": "16 departments were flagged at Store 4 for the week ending Sep 7, 2012, with a total of $30,730 below the ML forecast. This is an ML estimate, not a verified loss, and the store's flagged departments are not explained by the report passages.",
+  "kind": "dept_count",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 1360,
+  "tokens": 10270,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C10": {
+  "question": "How did Stationery sales at Store 39 in the week ending Sep 7, 2012 compare with the same week in earlier years?",
+  "reference": "Actual $27,998 vs a same-season median of $21,905 (+27.8%).",
+  "answer": "Stationery sold $27,998 at Store 39 in the week ending Sep 7, 2012, which was +27.8% above the same-season median of $21,905 from earlier years. That week was still -63.5% below the ML forecast of $76,609, which is why the department was flagged against the -20.0% store threshold. The earlier-years comparison is one ML signal, and the flag does not depend on it.",
+  "kind": "vs_last_year",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 3356,
+  "tokens": 9765,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C11": {
+  "question": "How did Boyswear sales at Store 10 in the week ending Aug 10, 2012 compare with the same week in earlier years?",
+  "reference": "Actual $23,342 vs a same-season median of $30,836 (-24.3%).",
+  "answer": "Boyswear sold $23,342 at Store 10 this week, which was -24.3% below the same-season median of $30,836 from earlier years. The ML model's estimate of the gap to forecast is $16,323 (-41.1%), which is not a verified loss. The data does not explain the cause of the drop.",
+  "kind": "vs_last_year",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 2489,
+  "tokens": 7847,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C12": {
+  "question": "How did Dry Grocery do at the other stores that week, compared with Store 28 in the week ending Aug 31, 2012?",
+  "reference": "31 of 44 other stores were below the ML forecast (median -4.1%); 0 were also flagged; this store -24.5%.",
+  "answer": "In Dry Grocery, 31 of 44 other stores were below the ML forecast that week, with a median of -4.1% (all together -4.5%), while Store 28 was at -24.5%, number 1 from the bottom of 45 stores. None of the other stores were flagged by the ML team. In the West Coast (PADD 5) region, all 5 other stores were below forecast, from -9.4% to -12.0%, compared with Store 28's -24.5%.",
+  "kind": "other_stores",
+  "correct": false,
+  "missing": [
+   "0"
+  ],
+  "checks_passed": true,
+  "ms": 3383,
+  "tokens": 7834,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C13": {
+  "question": "How did Pharmacy (Rx) do at the other stores that week, compared with Store 21 in the week ending Aug 3, 2012?",
+  "reference": "20 of 44 other stores were below the ML forecast (median +2.0%); 0 were also flagged; this store -26.2%.",
+  "answer": "Across the other 44 stores, 20 were below the ML forecast for Pharmacy (Rx) that week, with a median of +2.0% and an all-together figure of +2.6%. Store 21 was at -26.2%, the lowest of the 45 stores. Among the 13 other Texas stores, 8 were below the forecast, with the weakest at Store 5 at -13.8%, and none of them were flagged by the ML team.",
+  "kind": "other_stores",
+  "correct": false,
+  "missing": [
+   "0"
+  ],
+  "checks_passed": true,
+  "ms": 3403,
+  "tokens": 9936,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C14": {
+  "question": "At Store 39 in the week ending Sep 7, 2012, in what share of other stores did the model also overpredict Stationery?",
+  "reference": "81.8% of the other stores compared.",
+  "answer": "The ML team's notes say the model was too high for Dept 3 Stationery at 81.8% of other stores that week. In the same department, 36 of 44 other stores were also below the ML forecast. This is a model-comparison figure and does not verify a cause for Store 39's shortfall.",
+  "kind": "chain_overprediction",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 2578,
+  "tokens": 9470,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C15": {
+  "question": "At Store 6 in the week ending Sep 14, 2012, in what share of other stores did the model also overpredict Sporting Goods?",
+  "reference": "86.4% of the other stores compared.",
+  "answer": "For Dept 9 Sporting Goods, the ML model was too high at 86.4% of other stores that week. In the same department, 38 of 44 other stores were below the ML forecast. This is an ML estimate, and the data does not identify a verified cause.",
+  "kind": "chain_overprediction",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 2375,
+  "tokens": 12086,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C16": {
+  "question": "What markdowns were recorded at Store 39 in the week ending Sep 7, 2012, and do they explain the shortfall?",
+  "reference": "5 markdown fields recorded, $35,329 in total. They are store-week amounts and do not prove any department was discounted or caused the shortfall.",
+  "answer": "Store 39 recorded $35,329 in markdowns across 5 fields for the whole store that week. These markdowns are store-level only and cannot be tied to any department, so they cannot explain the shortfall in the flagged departments. The data does not show whether the markdowns relate to the departments below the ML forecast; department-level markdown records would be needed to test that.",
+  "kind": "markdowns",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 2528,
+  "tokens": 9447,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C17": {
+  "question": "What markdowns were recorded at Store 8 in the week ending Sep 7, 2012, and do they explain the shortfall?",
+  "reference": "5 markdown fields recorded, $15,595 in total. They are store-week amounts and do not prove any department was discounted or caused the shortfall.",
+  "answer": "Store 8 recorded $15,595 in markdowns across 5 fields for the whole store that week. These markdowns are recorded at store level only and cannot be tied to a department, so they cannot explain the shortfall in the flagged departments, which is an ML estimate of $52,353 below forecast and not a verified loss.",
+  "kind": "markdowns",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 1375,
+  "tokens": 11743,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C18": {
+  "question": "Which Walmart fiscal quarter does the week ending Aug 31, 2012 fall in, and which earnings report covers it?",
+  "reference": "FY2013 Q3; covered by the Walmart FY13 Q3 earnings release and call.",
+  "answer": "The case record lists the week ending Aug 31, 2012 as FY2013 Q3. The matching report in the data is the Walmart FY13 Q3 earnings call transcript dated Nov 15, 2012, which reported Walmart U.S. comparable sales of +1.5% for that quarter. The passages do not state the week's dates, so the quarter assignment comes from the case record.",
+  "kind": "fiscal_link",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 13630,
+  "tokens": 9888,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C19": {
+  "question": "Which Walmart fiscal quarter does the week ending Aug 31, 2012 fall in, and which earnings report covers it?",
+  "reference": "FY2013 Q3; covered by the Walmart FY13 Q3 earnings release and call.",
+  "answer": "The dashboard labels the week ending Aug 31, 2012 as FY2013 Q3. The matching report is the Walmart FY13 Q3 earnings release dated Nov 15, 2012, which the dashboard lists as showing Walmart U.S. comparable sales of +1.5% for that quarter. The passages don't explicitly tie this week to that release, so the link rests on the quarter label.",
+  "kind": "fiscal_link",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 5018,
+  "tokens": 9790,
+  "model": "anthropic/claude-haiku-5.5"
+ },
+ "C20": {
+  "question": "Is the week ending Sep 7, 2012 a holiday week?",
+  "reference": "Yes, it is the Labor Day week.",
+  "answer": "Yes, the case lists the week ending Sep 7, 2012 as a holiday week, with Labor Day as the holiday. The outside factors show the holiday as Labor Day, but this does not verify that it caused the flagged departments to sell below the ML forecast.",
+  "kind": "holiday",
+  "correct": true,
+  "missing": [],
+  "checks_passed": true,
+  "ms": 1535,
+  "tokens": 9255,
+  "model": "anthropic/claude-haiku-5.5"
+ }
+}

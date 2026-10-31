@@ -74,3 +74,23 @@ All setups use the same 68 reports and the same embedding model (all-MiniLM-L6-v
   - `rag_answers*.json/.csv` (every answer, with the grader's reason)
 
 The app itself (`rag.py`) is not switched to E yet. That is part of step 5.
+
+## Update 2026-10-31: standard metrics (nDCG, RAGAS) and a second grader
+All 7 setups now have answers (Haiku, same prompt) and every metric is in one table:
+`app/eval/results/rag_metrics_table.csv` (built by `eval/rag_metrics_table.py`; also in the JTA answers document).
+
+| | A | A2 | B | C | D | **E** | F |
+|---|---|---|---|---|---|---|---|
+| Chunks | 7,020 | 7,020 | 7,020 | 7,020 | 7,829 | 7,829 | 7,829 |
+| nDCG@10 | 0.20 | 0.30 | 0.23 | 0.26 | 0.55 | 0.68 | 0.80 |
+| RAGAS context recall | 0.22 | 0.46 | 0.27 | 0.37 | 0.67 | **0.90** | 0.91 |
+| RAGAS context precision | 0.29 | 0.35 | 0.25 | 0.35 | 0.55 | 0.63 | 0.77 |
+| RAGAS answer correctness | 0.24 | 0.34 | 0.23 | 0.31 | 0.53 | **0.68** | 0.67 |
+| RAGAS answer relevancy | 0.27 | 0.40 | 0.25 | 0.38 | 0.63 | **0.73** | 0.71 |
+| Answer correct, Haiku grade | 53% | 64% | 33% | 44% | 74% | **88%** | 84% |
+| Answer correct, Sonnet grade | | 44% | | | | **87%** | 88% |
+
+RAGAS 0.4.3, judge Claude Haiku 5.5 (Santhosh's choice for cost), embeddings all-MiniLM-L6-v2. RAGAS faithfulness (~0.5
+for every setup) is understated: the judge saw each passage without its report/date/district line. The re-run with that
+line (`ragas_export.py` now adds it) stopped when the OpenRouter credit ran out ($35 used). Sonnet re-grade: E 87% vs
+Haiku 88%, so Haiku was not going easy on E; it was on A2 (44% vs 64%), whose refusals Haiku counted as correct.

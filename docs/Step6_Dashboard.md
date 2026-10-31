@@ -1,5 +1,8 @@
 # Step 6: store manager dashboard + chat
 
+> **Update 2026-10-31:** the agent no longer uses our own status rule (Action needed / Check before acting / No action needed, 10% / $2,000 / 70%), similar-store peers, signal groups or the recovery check. The ML team defines the exception; the agent only finds evidence that supports each flag. See `Supporting_Evidence_Design.md`. The parts below that use those are kept as history.
+
+
 > **Update 2026-10-30:** the dashboard now shows the v3.4 cases and each store's threshold. Tiles now read 12 / 4 / 40 / $913.4K. See [Switch_to_v34.md](Switch_to_v34.md).
 
 

@@ -1,5 +1,8 @@
 # Step 1 findings: v3.3 intake, triage and peer stores (code only, no AI)
 
+> **Update 2026-10-31:** the agent no longer uses our own status rule (Action needed / Check before acting / No action needed, 10% / $2,000 / 70%), similar-store peers, signal groups or the recovery check. The ML team defines the exception; the agent only finds evidence that supports each flag. See `Supporting_Evidence_Design.md`. The parts below that use those are kept as history.
+
+
 2026-10-30. Code: `app/agents/cases_v3.py` (`python3 -m agents.cases_v3`, about 3 s).
 Inputs: the 40 ML case files (copied to `app/data/cases_v3/`), train.csv, stores.csv, dept/store mapping, fiscal calendar.
 Outputs: `app/data/triage_v3_cases.csv` (40 rows), `triage_v3_depts.csv` (302 rows), `triage_v3_peers.csv` (4,220 peer rows).

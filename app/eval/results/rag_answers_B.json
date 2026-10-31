@@ -1,0 +1,372 @@
+{
+ "R01": {
+  "answer": "Walmart U.S. comparable store sales rose 2.2 percent in the 13-week period ended July 27, 2012, with positive ticket and traffic.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate states 2.2 percent with positive ticket and traffic, matching reference and passage [5].",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1103,
+  "tokens": 4086
+ },
+ "R02": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference figure (up 1.5 percent) is not given. Refusal is faithful.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1721,
+  "tokens": 4107
+ },
+ "R03": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; reference gives ticket +1.4%, traffic +0.1%. Refusal is faithful to the passages, which lack FY2013 data.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1771,
+  "tokens": 3902
+ },
+ "R04": {
+  "answer": "Walmart U.S. expected comparable store sales for the 4-5-4 period from July 28 through October 26, 2012 to range from 1.0 percent to 3.0 percent.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate gives the 1.0 to 3.0 percent range, matching the reference and passage [2].",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1377,
+  "tokens": 3587
+ },
+ "R05": {
+  "answer": "By mid-August 2012, Walmart reported that \"key back-to-school apparel categories are up 7.0 percent\" season to date, per its FY13 Q2 earnings call on 2012-08-16.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: key back-to-school apparel categories up 7.0% season to date, per the 2012-08-16 call.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1197,
+  "tokens": 3647
+ },
+ "R06": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "The sources lack Q2 FY13 entertainment results; the candidate correctly says they are not in the sources.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1337,
+  "tokens": 4107
+ },
+ "R07": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's low single-digit negative comp is not in the passages.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1482,
+  "tokens": 4278
+ },
+ "R08": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Reference cites brand-to-generic conversions; the candidate declined, and the passages lack this detail.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1032,
+  "tokens": 3769
+ },
+ "R09": {
+  "answer": "Walmart's 2012 Christmas layaway was available nationwide from Sept. 16 through Dec. 14. Layaway sales are counted as revenue when the customer pays for and picks up the merchandise, so most of that revenue falls in the fourth quarter.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Gives Sept. 16 launch and Q4 recognition when paid and picked up, matching the reference.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 2549,
+  "tokens": 4496
+ },
+ "R10": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference gives the 6% fuel price rise and consolidated trips. Refusals are faithful.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1005,
+  "tokens": 3697
+ },
+ "R11": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference's warm-October apparel facts appear only in the FY11 passage, not FY13.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1479,
+  "tokens": 4346
+ },
+ "R12": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Reference gives 50 vs 400 bps; candidate declines, and the passages lack that figure.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1135,
+  "tokens": 3893
+ },
+ "R13": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; reference facts (Labor Day, back-to-school, Halloween) are not given.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 963,
+  "tokens": 3570
+ },
+ "R14": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's home comp and bedding/bath details are absent from the passages.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 2653,
+  "tokens": 4116
+ },
+ "R15": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; reference's drought and food-price facts are absent from the passages, so no match.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 994,
+  "tokens": 4579
+ },
+ "R16": {
+  "answer": "Not in the sources.",
+  "correct": null,
+  "faithful": null,
+  "why": "grader reply not JSON: anthropic/claude-haiku-5.5: empty answer",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1496,
+  "tokens": 1909
+ },
+ "B01": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference districts (Boston, Cleveland, New York) are not given.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1884,
+  "tokens": 4152
+ },
+ "B02": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference categories are not stated in the passages, so no key facts are given.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1107,
+  "tokens": 4092
+ },
+ "B03": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference's 40-cent fall isn't in the passages, but the question is answerable, so it scores 0.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1175,
+  "tokens": 4278
+ },
+ "B04": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference's 30-cent gasoline rise is absent from the passages, but it was still not given.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 1096,
+  "tokens": 4422
+ },
+ "B05": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference gives a grocery-spending fact the shown passages omit.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 826,
+  "tokens": 4312
+ },
+ "B06": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's television sales facts are absent from the passages.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1022,
+  "tokens": 3911
+ },
+ "B07": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "The candidate declines, but passage 1 partly answers: a mall reported stagnant sales, flat to down from 2011. It omits the reference's weather and chain facts.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 2393,
+  "tokens": 3957
+ },
+ "B08": {
+  "answer": "In the Philadelphia District's October 10, 2012 Beige Book, the Labor Day weekend \"benefited by comparison to last year when severe weather disrupted end-of-summer plans,\" and the tourist season \"concluded on a high note.\"",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Captures last year's severe weather comparison, but omits the retailer's strongest-in-years weekend and sunny weather.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1571,
+  "tokens": 3585
+ },
+ "B09": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference's key facts (home furnishings, clothing, back-to-school, weak jewelry) are not given.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1837,
+  "tokens": 3978
+ },
+ "B10": {
+  "answer": "No. The October 10, 2012 Beige Book (Atlanta District) reports that after brief, precautionary shutdowns, regional refiners fully restored operations with very little damage from the storm.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference: brief precautionary shutdowns, refiners restored operations with very little damage, per passage 1.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1524,
+  "tokens": 4025
+ },
+ "B11": {
+  "answer": "According to the August 29, 2012 Beige Book, Atlanta said retail growth had slowed.",
+  "correct": 0.5,
+  "faithful": 1,
+  "why": "Captures the slowdown but omits the discount versus department store comparison.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1191,
+  "tokens": 4055
+ },
+ "B12": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference facts (furniture, electronics slowed) are absent from the passages.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1124,
+  "tokens": 4310
+ },
+ "B13": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Declines to answer; the reference factors are not in the passages, so it misses them.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 927,
+  "tokens": 3866
+ },
+ "B14": {
+  "answer": "Children's clothing sales at Third District outlet centers fell year-over-year for the first time since 2007. The July 2012 Beige Book suggests this may reflect a delay in deep discounting of back-to-school items, which had already been discounted by the same time last year.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches the reference: a delayed deep discounting of back-to-school items already discounted last year. All claims are in passage 1.",
+  "numbers_match": null,
+  "unanswerable": false,
+  "ms": 1596,
+  "tokens": 3835
+ },
+ "W01": {
+  "answer": "Not in the sources.",
+  "correct": 0,
+  "faithful": 1,
+  "why": "Candidate declines; the reference's Q3 growth figures are absent from the passages.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 878,
+  "tokens": 3545
+ },
+ "W02": {
+  "answer": "Walmart's 2012 Christmas layaway program was available nationwide from Sept. 16 through Dec. 14 (per the Aug. 20, 2012 news release).",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference dates Sept. 16 through Dec. 14 nationwide; cited source is the Aug. 20, 2012 release, which supports it.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1351,
+  "tokens": 3845
+ },
+ "W03": {
+  "answer": "In its September 4, 2012 announcement, Walmart rolled back its Christmas Layaway open fee from $15 to $5. Customers who made their final payment received a $5 refund on a Walmart gift card.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Matches reference: $15 to $5 rollback, $5 refunded on Walmart gift card after final payment; all supported by passage 1.",
+  "numbers_match": true,
+  "unanswerable": false,
+  "ms": 1272,
+  "tokens": 4265
+ },
+ "W04": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Passages never mention the late-August 2012 immunization expansion, so saying the sources lack it is correct.",
+  "numbers_match": false,
+  "unanswerable": false,
+  "ms": 912,
+  "tokens": 3911
+ },
+ "N01": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate correctly says the sources do not contain this; reference is unanswerable.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 1351,
+  "tokens": 3845
+ },
+ "N02": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate correctly says the sources do not contain this; the reference is unanswerable.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 962,
+  "tokens": 3484
+ },
+ "N03": {
+  "answer": "Not in the sources.",
+  "correct": 1,
+  "faithful": 1,
+  "why": "Candidate correctly declines; the sources do not contain Texas comparable sales for August 2012.",
+  "numbers_match": null,
+  "unanswerable": true,
+  "ms": 974,
+  "tokens": 3566
+ }
+}

@@ -48,7 +48,7 @@ def _check_quotes(text: str, facts: dict, also_evidence: bool = False) -> dict:
 
 # ------------------------------------------------------------------------------------------ Phase 2 (v3.3 cases)
 _NEG = re.compile(r"\b(not|no|never|cannot|can't|isn't|aren't|wasn't|doesn't|don't|without|un|than|once|until|if|whether|"
-                  r"would|could|to be|needs?|before|after|none|nothing|neither|nor)\b|n't\b", re.I)
+                  r"would|could|to be|needs?|before|after|none|nothing|neither|nor|should|must|can|will)\b|n't\b", re.I)
 _CERTAIN = re.compile(r"\b(verified|confirmed|proven|proves|definitely|certainly)\b", re.I)
 _LOSS = re.compile(r"\blost (sales|revenue)\b|\b(revenue|sales) loss(es)?\b", re.I)
 _AGAINST = re.compile(r"\b(no action (is )?needed|false (alarm|positive)|flag(ged)? (was|is) (wrong|incorrect|not justified)|"

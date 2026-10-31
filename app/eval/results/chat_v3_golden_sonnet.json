@@ -1,0 +1,102 @@
+{
+ "C01": {
+  "correct": 1,
+  "why": "Candidate names Stationery with the same $48,611 shortfall and 63.5% shortfall; extra detail is consistent, and the model name is omitted only as 'ML forecast'.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C02": {
+  "correct": 1,
+  "why": "Candidate matches the reference: Dry Grocery, $25,828 below forecast, -24.5%. The department number is omitted, which is acceptable.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C03": {
+  "correct": 1,
+  "why": "Candidate matches Dept 24 Boyswear, $16,323 shortfall, 41.1%; extra details don't contradict the reference.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C04": {
+  "correct": 1,
+  "why": "Matches Stationery, $6,116 shortfall, 31.8%. Extra details about Boyswear and Store 99 are odd but don't contradict the main answer.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C05": {
+  "correct": 1,
+  "why": "Candidate gives expected $105,389 and actual $79,561, matching the reference; the extra variance figures are accurate.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C06": {
+  "correct": 1,
+  "why": "Candidate's actual $15,796 and expected $20,453 match the reference; the added variance math is correct.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C07": {
+  "correct": 1,
+  "why": "Candidate's expected $13,919 and actual $10,912 match the reference; the added gap of $3,007 (-21.6%) is also correct.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C08": {
+  "correct": 1,
+  "why": "Candidate gives 17 flagged departments and $60,858 total shortfall, matching the reference; the added caveat doesn't change the facts.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C09": {
+  "correct": 1,
+  "why": "Candidate matches both reference facts: 16 departments flagged and $30,730 total shortfall; added caveats don't contradict.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C10": {
+  "correct": 1,
+  "why": "Candidate matches the reference's $27,998 actual, $21,905 median, and +27.8%; extra forecast details don't contradict it.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C11": {
+  "correct": 1,
+  "why": "Candidate matches the reference's actual $23,342, median $30,836, and -24.3%; extra ML estimate is labeled unverified and doesn't contradict.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C12": {
+  "correct": 1,
+  "why": "Matches reference: 31 of 44 below forecast, median -4.1%, none flagged, Store 28 at -24.5%; extra details don't contradict.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C13": {
+  "correct": 1,
+  "why": "Matches 20 of 44 below forecast, median +2.0%, Store 21 at -26.2%, none flagged; extra details don't contradict.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C14": {
+  "correct": 1,
+  "why": "Candidate gives 81.8% of other stores, matching the reference; its 36 of 44 count equals 81.8%.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C15": {
+  "correct": 1,
+  "why": "Candidate gives 86.4% of other stores, matching the reference; the 38 of 44 detail is consistent (86.4%).",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C16": {
+  "correct": 1,
+  "why": "Matches $35,329 across 5 fields, store-level only, and says it cannot establish that markdowns explain the shortfall.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C17": {
+  "correct": 1,
+  "why": "Matches $15,595 across 5 fields, store-level only, and says markdowns cannot explain the shortfall; extra ML estimate detail doesn't contradict.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C18": {
+  "correct": 1,
+  "why": "Candidate gives FY2013 Q3 and the Walmart FY13 Q3 earnings call, matching the reference; extra details don't contradict it.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C19": {
+  "correct": 1,
+  "why": "Candidate gives FY2013 Q3 and the FY13 Q3 earnings release, matching the reference; extra details and the hedge don't contradict it.",
+  "model": "anthropic/claude-sonnet-5.5"
+ },
+ "C20": {
+  "correct": 1,
+  "why": "Candidate confirms the week is a holiday week and names Labor Day, matching the reference; extra caveat is not contradictory.",
+  "model": "anthropic/claude-sonnet-5.5"
+ }
+}
