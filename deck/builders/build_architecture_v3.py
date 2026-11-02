@@ -45,7 +45,7 @@ def system_map(prs):
     box(s, 1.6, 1.3, 6.55, 3.05, fill=None, line=MUTE, lw=1, dash=DASH, kind=RECT, name="boundary: LangGraph")
     tx(s, 1.7, 4.1, 3.0, 0.2, "LANGGRAPH STATEGRAPH · agents/graph.py", size=8.5, color=GREY, bold=True)
 
-    tx(s, 0.35, 1.5, 1.1, 0.3, "from the ML team\n(Extra Trees)", size=9, color=GREY, italic=True, align="c")
+    tx(s, 0.35, 1.5, 1.1, 0.3, "from the ML model\n(Extra Trees)", size=9, color=GREY, italic=True, align="c")
     box(s, 0.35, 1.85, 1.1, 1.75, [
         dict(runs=[("Anomaly payload", dict(bold=True, size=10))], after=3),
         dict(runs=["store 7"], font=MONO, size=8.5), dict(runs=["dept 72"], font=MONO, size=8.5),
@@ -123,7 +123,7 @@ def system_map(prs):
 
     notes(s, """SYSTEM ARCHITECTURE — one flagged week, end to end. Running example: Store 7, Dept 72 Electronics, week ending Aug 24, 2012.
 
-1. INPUT. The ML team's detector (Extra Trees) hands us a payload: Store 7 Electronics sold $33,958 against $45,010 expected, −24.6%. The question is always: why?
+1. INPUT. The ML model's detector (Extra Trees) hands us a payload: Store 7 Electronics sold $33,958 against $45,010 expected, −24.6%. The question is always: why?
 
 2. ORCHESTRATOR. A LangGraph graph. Code first reads the payload (three formats are accepted). Then an LLM plans the investigation: it picks which data checks to run from a fixed menu of six, and writes 2 to 4 search questions for the reports. The plan is validated in code.
 

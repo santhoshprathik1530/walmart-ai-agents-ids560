@@ -25,7 +25,8 @@ POSSIBLE FACTORS for each anomaly using the sales data plus time-aligned public 
 ## Folders
 - app/ : the live system (README.md has the run commands). Old app.py + its agents (LangGraph, 3 payloads) retired
   2026-10-31 -> ../_old_app_archive/. Live: dashboard.py (`python3 -m streamlit run dashboard.py`, launch.json
-  'store-dashboard' port 8502, run with /opt/homebrew/bin/python3) on the ML team's v3.4 cases.
+  'store-dashboard' port 8502, run with /opt/homebrew/bin/python3) on the ML team's v4 cases (127, Top 20 answered;
+  AGENT_CASE_SET=v4 set inside dashboard.py). Redesigned 2026-11-02 to cut clutter, then a UX pass: home = one list with column headers once, $ gap + evidence dots (●●● Strong); case page = 'What the agent found' answer card first, Why | What to check side by side, charts in two tabs, 'Run the agent again' inside 'How the agent got this answer' (primary button only on not-run weeks).
   Pipeline (agents/pipeline_v3.py): intake (cases_v3.py, ML numbers only) + evidence from the ML team's own forecasts
   (support.py, data/ml_v33_complete/per_store_mad_experiment/per_store_mad_department_flags.csv: all 45 stores x depts x
   Jul 20-Oct 26 2012; Walmart overall that week, same dept at every store and in the same EIA region, the store's other

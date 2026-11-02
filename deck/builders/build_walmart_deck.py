@@ -167,7 +167,7 @@ def system_map(prs):
 
     notes(s, """SYSTEM ARCHITECTURE — one flagged week, end to end. Running example: Store 7, Dept 72 Electronics, week ending Aug 24, 2012.
 
-1. INPUT. The ML team's detector (Extra Trees) hands us a payload: Store 7 Electronics sold $33,958 against $45,010 expected, −24.6%. The question is always: why?
+1. INPUT. The ML model's detector (Extra Trees) hands us a payload: Store 7 Electronics sold $33,958 against $45,010 expected, −24.6%. The question is always: why?
 
 2. ORCHESTRATOR. A LangGraph graph. Code first reads the payload (three formats are accepted). Then an LLM plans the investigation: it picks which data checks to run from a fixed menu of six, and writes 2 to 4 search questions for the reports. The plan is validated in code.
 

@@ -1,12 +1,12 @@
-"""Intake for the ML team's case files: v3.4 (data/cases_v34/, per-store MAD thresholds, current) or v3.3
+"""Intake for the ML model's case files: v3.4 (data/cases_v34/, per-store MAD thresholds, current) or v3.3
 (data/cases_v3/, kept for reference and uploads). 40 ranked store-weeks either way.
 
-Rule (Santhosh, 2026-10-31): the ML team defines the exception. Which store-weeks and departments are flagged, the
+Rule (Santhosh, 2026-10-31): the ML model defines the exception. Which store-weeks and departments are flagged, the
 thresholds, the priority order and the status ("Analyst review required") come straight from the ML files; nothing here
 re-judges a flag. The agent's job is only to look for evidence that supports each flag (agents/support.py, the reports).
 
   load_cases()   -> the 40 JSON cases, ML rank order (v3.4 files are read into the v3.3 layout by from_v34)
-  dept_rows()    -> one row per flagged department with the ML numbers and the ML team's own notes, plus our
+  dept_rows()    -> one row per flagged department with the ML numbers and the ML model's own notes, plus our
                     (publicly inferred) department name / merchandise unit and the store's region, Fed district, quarter
   case_rows()    -> one row per case, from the ML numbers
   check_case()   -> what is missing from a case file before it can be used
@@ -16,14 +16,17 @@ Run `python3 -m agents.cases_v3` to write data/triage_v3_depts.csv and data/tria
 from __future__ import annotations
 
 import json
+import os
 from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
 
 DATA = Path(__file__).resolve().parent.parent / "data"
-CASES = DATA / "cases_v34"          # switched from cases_v3 (v3.3) on 2026-10-30
-STATUS = "Analyst review required"  # the ML files' business_action for every case
+SET = os.environ.get("AGENT_CASE_SET", "v34")   # "v4" = the ML model's final package (127 cases, Extra Trees + Global MAD)
+SUF = "_v4" if SET == "v4" else ""              # suffix of the triage tables and the saved answers
+CASES = DATA / ("cases_v4" if SET == "v4" else "cases_v34")   # switched from cases_v3 (v3.3) on 2026-10-30
+STATUS = "Needs analyst review" if SET == "v4" else "Analyst review required"   # the ML files' status for every case
 
 # The v3.3 files carried these rules and questions for the agent; v3.4 files do not, so the same ones are kept here.
 GUARDRAILS = ["Do not claim markdown causality.", "Do not treat modeled shortfalls as verified revenue losses.",
@@ -44,7 +47,44 @@ def load_cases() -> list[dict]:
 
 
 def normalize(c: dict) -> dict:
-    return from_v34(c) if str(c.get("schema_version", "")).startswith("3.4") else c
+    v = str(c.get("schema_version", ""))
+    return from_v4(c) if v.startswith("4") else from_v34(c) if v.startswith("3.4") else c
+
+
+def from_v4(c: dict) -> dict:
+    """A v4 case (127 eligible store-weeks, Extra Trees + Global MAD) in the v3.3 layout. v4 has no per-department
+    history, peer rate or per-store threshold, so those stay empty; the agent's own comparisons come from the ML model's
+    forecast file (support.py). Isolation Forest flags are passed on as the ML model's supporting signals, not scores."""
+    sw, sp, ms, bc = c["store_week"], c["sales_performance"], c["model_signals"], c["business_context"]
+    store = int(sw["store"])
+    flagged = [d for d in c["department_summary"]["departments"] if d["global_mad_flag"] and d["modeled_shortfall"] > 0]
+    depts = [dict(department_id=int(d["department"]), actual_weekly_sales=d["actual_sales"],
+                  expected_weekly_sales_extra_trees=d["expected_sales"], modeled_dollar_shortfall=d["modeled_shortfall"],
+                  modeled_shortfall_percent=d["shortfall_pct"], global_mad_flag=True,
+                  historical_validation=dict(recent_4_weeks=dict(median_actual_sales=None, current_actual_vs_median_pct=None),
+                                             same_season_previous_years=dict(median_actual_sales=None,
+                                                                             current_actual_vs_seasonal_pct=None)),
+                  cross_store_validation=dict(overprediction_rate_pct=None), diagnostic_signals={}) for d in flagged]
+    agree = {"ET only": "Extra Trees + Global MAD only", "ET + IF-A": "Extra Trees + Global MAD, and Isolation Forest A",
+             "ET + IF-B": "Extra Trees + Global MAD, and Isolation Forest B",
+             "ET + IF-A + IF-B": "Extra Trees + Global MAD, and Isolation Forest A and B"}.get(ms["model_agreement"], ms["model_agreement"])
+    return dict(
+        schema_version="4.0 (read as 3.3)", source_schema=c["schema_version"], original_case_id=c["case_id"],
+        case_id=c["case_id"], store_week=dict(store_id=store, date=sw["date"], store_type=sw["type"],
+                                              priority_rank=int(c["priority_rank"])),
+        anomaly_detection=dict(forecast_model="Extra Trees", threshold_method="Global MAD",
+                               detector=f"Extra Trees forecast with a Global MAD threshold; flagged by: {agree}"),
+        sales_evidence=dict(global_mad_flagged_departments=dict(count=len(depts), sum_positive_modeled_shortfalls=sum(
+            d["modeled_dollar_shortfall"] for d in depts), departments=depts),
+                            eligible_department_aggregate=dict(expected_sales=sp["expected_sales"], actual_sales=sp["actual_sales"],
+                                                               net_modeled_shortfall=sp["net_modeled_gap"],
+                                                               eligible_departments=c["department_summary"]["department_count"])),
+        markdown_context=dict(markdown_recorded=bc["markdown_data_available"], recorded_markdown_total=bc["total_recorded_markdown"],
+                              recorded_markdown_count=sum(v is not None for v in bc["markdown_fields"].values()),
+                              markdown_fields=bc["markdown_fields"],
+                              interpretation="Recorded markdown values are store-week information; they do not establish promotional causality."),
+        rag_investigation=dict(retrieved_documents=[], questions_for_agent=QUESTIONS, guardrails=GUARDRAILS),
+        root_cause_assessment=dict(business_action=c["investigation"]["status"]))
 
 
 def from_v34(c: dict) -> dict:
@@ -159,6 +199,12 @@ def check_case(c) -> list[str]:
     """Problems that stop a file from being used as a v3.3 or v3.4 case (empty list = fine)."""
     if not isinstance(c, dict):
         return ["the file is not a JSON object"]
+    if str(c.get("schema_version", "")).startswith("4"):
+        try:
+            from_v4(c)
+        except (KeyError, TypeError, ValueError) as e:
+            return [f"v4 file could not be read ({type(e).__name__}: {e})"]
+        return []
     if str(c.get("schema_version", "")).startswith("3.4"):
         miss = [k for k in ("case_id", "priority_rank", "store_week", "anomaly_detection", "markdown_information",
                             "flagged_department_evidence", "root_cause_assessment") if k not in c]
@@ -190,7 +236,7 @@ if __name__ == "__main__":
     cs = load_cases()
     d = dept_rows(cs)
     c = case_rows(d, cs)
-    d.to_csv(DATA / "triage_v3_depts.csv", index=False)
-    c.to_csv(DATA / "triage_v3_cases.csv", index=False)
+    d.to_csv(DATA / f"triage_v3_depts{SUF}.csv", index=False)
+    c.to_csv(DATA / f"triage_v3_cases{SUF}.csv", index=False)
     (DATA / "triage_v3_peers.csv").unlink(missing_ok=True)     # our own similar-store table: removed 2026-10-31
     print(f"{len(cs)} cases, {len(d)} flagged departments; status: {c.Status.value_counts().to_dict()}")

@@ -208,7 +208,7 @@ def system_map(prs):
     tx(s, 1.85, 4.24, 3.0, 0.2, "LANGGRAPH STATEGRAPH · agents/graph.py", size=8.5, color=GREY, bold=True)
 
     # input
-    tx(s, 0.35, 1.5, 1.2, 0.3, "from the ML team\n(Extra Trees)", size=9, color=GREY, italic=True, align="c")
+    tx(s, 0.35, 1.5, 1.2, 0.3, "from the ML model\n(Extra Trees)", size=9, color=GREY, italic=True, align="c")
     box(s, 0.35, 1.85, 1.2, 1.75, [
         dict(runs=[("Anomaly payload", dict(bold=True, size=10))], after=3),
         dict(runs=["store 7"], font=MONO, size=8.5),
@@ -294,7 +294,7 @@ def system_map(prs):
 
     notes(s, """SYSTEM ARCHITECTURE — one flagged week, end to end. Running example: Store 7, Dept 72 Electronics, week ending Aug 24, 2012.
 
-1. INPUT. The ML team's detector (Extra Trees) flags a store × department × week and hands us a JSON payload: store, department, week, expected $45,010 vs actual $33,958 (−24.6%). The question is always the same: why is this week below expected?
+1. INPUT. The ML model's detector (Extra Trees) flags a store × department × week and hands us a JSON payload: store, department, week, expected $45,010 vs actual $33,958 (−24.6%). The question is always the same: why is this week below expected?
 
 2. ORCHESTRATOR. A LangGraph state graph (agents/graph.py). Two nodes: intake normalizes any of the three payload formats into one internal payload; plan computes cheap signals (calendar, fuel, weather) and writes one task per agent. It is rules, not an LLM: the payload already states the question, so there is no intent to guess.
 

@@ -1,14 +1,14 @@
-"""Evidence that may support an ML flag, built only from the ML team's own numbers and the agreed data (no thresholds,
+"""Evidence that may support an ML flag, built only from the ML model's own numbers and the agreed data (no thresholds,
 groupings or forecasts of ours). For a flagged store-week and department it answers:
 
   walmart_week()     How did all 45 stores do that week against the ML forecast?   (and how that week ranks among the 15)
   store_week()       How did all of this store's departments do that week?
-  dept_everywhere()  How did the same department do at every store that week?   (below forecast / flagged by the ML team)
+  dept_everywhere()  How did the same department do at every store that week?   (below forecast / flagged by the ML model)
   dept_region()      ... and at the stores in the same region (EIA fuel region, publicly inferred)?
   outside()          Outside factors that week: holiday, fuel price, temperature, unemployment vs the 4 weeks before,
                      markdowns (store-level), Walmart's reported U.S. comp sales for the quarter
 
-Sources: ML_DEPT is the ML team's department-week file for the test weeks Jul 20 - Oct 26, 2012 (all 45 stores, the
+Sources: ML_DEPT is the ML model's department-week file for the test weeks Jul 20 - Oct 26, 2012 (all 45 stores, the
 Extra Trees forecast and the per-store MAD flag; the v3.4 cases name it as their department source). features.csv is
 the Kaggle store-week file (EIA-style fuel price, temperature, unemployment; CPI is left out by the sponsor's rule).
 """
@@ -18,15 +18,17 @@ from functools import lru_cache
 
 import pandas as pd
 
-from .cases_v3 import DATA, lookups
+from .cases_v3 import DATA, SET, lookups
+
+FLAG = "Global_MAD_Flag" if SET == "v4" else "Per_Store_MAD_Flag"   # the flag of the ML model's detector for the case set
 
 ML_DEPT = DATA / "ml_v33_complete" / "per_store_mad_experiment" / "per_store_mad_department_flags.csv"
 
 
 @lru_cache(maxsize=1)
 def ml() -> pd.DataFrame:
-    d = pd.read_csv(ML_DEPT, usecols=["Store", "Dept", "Date", "Actual", "Expected", "Per_Store_MAD_Flag"])
-    return d.rename(columns={"Per_Store_MAD_Flag": "Flag"}).assign(Pct=lambda x: (x.Actual / x.Expected - 1) * 100)
+    d = pd.read_csv(ML_DEPT, usecols=["Store", "Dept", "Date", "Actual", "Expected", FLAG])
+    return d.rename(columns={FLAG: "Flag"}).assign(Pct=lambda x: (x.Actual / x.Expected - 1) * 100)
 
 
 @lru_cache(maxsize=1)

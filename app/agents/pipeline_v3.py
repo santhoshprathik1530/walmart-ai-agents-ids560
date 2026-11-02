@@ -6,10 +6,10 @@ per-store MAD thresholds, several flagged departments each; v3.3 outputs are arc
     python3 -m agents.pipeline_v3 --reevaluate    re-run only the code checks on the saved answers
     The dashboard can also add a case file and run it live (add_case, run_live -> data/agent_outputs_v3_live.json).
 
-The ML team defines the exception (Santhosh, 2026-10-31): the flagged store-week and departments, the thresholds, the
+The ML model defines the exception (Santhosh, 2026-10-31): the flagged store-week and departments, the thresholds, the
 priority order and the status ("Analyst review required") come from the ML files and are never re-judged here.
 
-    intake (code)       the ML numbers per flagged department + evidence from the ML team's own forecasts (agents/support.py):
+    intake (code)       the ML numbers per flagged department + evidence from the ML model's own forecasts (agents/support.py):
                         Walmart overall that week, this store's other departments, the same department at every store and
                         in the same region, outside factors (holiday, fuel, temperature, unemployment, markdowns, reported comps)
     orchestrator (LLM)  picks up to 3 departments to research (largest gaps first) and writes 2-4 report search questions
@@ -29,12 +29,12 @@ from functools import lru_cache
 import pandas as pd
 
 from . import evaluate, llm, retrievers, support
-from .cases_v3 import DATA, STATUS, case_rows, check_case, dept_rows, load_cases, normalize
+from .cases_v3 import DATA, SET, STATUS, SUF, case_rows, check_case, dept_rows, load_cases, normalize
 from .retrievers import allowed_districts
 
-OUT = DATA / "agent_outputs_v3.json"
-LIVE = DATA / "agent_outputs_v3_live.json"          # cases run from the dashboard (new uploads, "run again")
-UPLOADS = DATA / "cases_v3_uploaded"                 # case files uploaded in the dashboard
+OUT = DATA / f"agent_outputs_v3{SUF}.json"
+LIVE = DATA / f"agent_outputs_v3{SUF}_live.json"    # cases run from the dashboard (new uploads, "run again")
+UPLOADS = DATA / f"cases_v3_uploaded{SUF}"           # case files uploaded in the dashboard
 VARIANT, PER_QUERY, N_PASSAGES, MAX_PER_DOC, GRACE = "E", 6, 6, 2, 21
 NEEDS_CHECK = "Answer needs a check"                 # shown when the assistant's answer fails a code check
 EVIDENCE_FOUND = ("Strong", "Some", "Little")
@@ -57,7 +57,7 @@ def day(d) -> str:
 
 @lru_cache(maxsize=1)
 def _base_tables():
-    return (pd.read_csv(DATA / "triage_v3_depts.csv"), pd.read_csv(DATA / "triage_v3_cases.csv"),
+    return (pd.read_csv(DATA / f"triage_v3_depts{SUF}.csv"), pd.read_csv(DATA / f"triage_v3_cases{SUF}.csv"),
             {c["case_id"]: c for c in load_cases()})
 
 
@@ -69,7 +69,7 @@ def _uploaded_tables(stamp: tuple):
 
 
 def tables():
-    """(departments, cases indexed by CaseID, raw case files): the ML team's 40 cases plus any uploaded in the dashboard
+    """(departments, cases indexed by CaseID, raw case files): the ML model's 40 cases plus any uploaded in the dashboard
     (an uploaded case with the same case_id replaces the original)."""
     d, c, raw = _base_tables()
     stamp = tuple(sorted((f.name, f.stat().st_mtime) for f in UPLOADS.glob("*.json"))) if UPLOADS.exists() else ()
@@ -103,6 +103,8 @@ def run_live(cid: str, progress=None) -> dict:
     """Run one case now (dashboard: new upload or 'run again') and save it to the live file."""
     res = run_case(cid, progress)
     res["run"], res["ran_at"] = "live", time.strftime("%b %-d, %Y %H:%M")
+    if res.get("error"):                              # a failed run never replaces a saved answer
+        return res
     live = json.loads(LIVE.read_text()) if LIVE.exists() else {}
     live[cid] = res
     LIVE.write_text(json.dumps(live, indent=1, default=str))
@@ -115,19 +117,21 @@ def _dept_item(r, have_ml: bool) -> dict:
         id=f"dept_{int(r.Dept)}", kind="ML flag",
         label=f"Dept {int(r.Dept)} {r.DeptName} ({r.Unit} unit; name {r.DeptConf.lower()} confidence)",
         actual=usd(r.Actual), ml_forecast=usd(r.Expected), below_forecast=f"{usd(r.Shortfall)} ({pc(-r.ShortfallPct)})",
-        store_threshold=f"{r.ThresholdPct:.1f}%" if r.ThresholdPct == r.ThresholdPct else "n/a",
-        ml_notes=(f"last 4 weeks median {usd(r.Recent4Median)}, this week {pc(r.VsRecent4Pct)}; same season in earlier years "
+        store_threshold=f"{r.ThresholdPct:.1f}%" if r.ThresholdPct == r.ThresholdPct else None,
+        ml_notes=None if r.Recent4Median != r.Recent4Median else (f"last 4 weeks median {usd(r.Recent4Median)}, this week {pc(r.VsRecent4Pct)}; same season in earlier years "
                   f"median {usd(r.SeasonMedian)}, this week {pc(r.VsSeasonPct)}; model too high at {r.ChainOverpredPct:.1f}% of "
                   f"other stores; signals: {r.MLNotes}"))
     if have_ml:
         s = support.dept_summary(int(r.Dept), r.Date, int(r.Store))
         item["same_department_all_stores"] = (
             f"{s['below']} of {s['stores']} other stores were below the ML forecast in this department that week "
-            f"(median {pc(s['median_pct'])}, all together {pc(s['all_pct'])}); {s['flagged']} of them were also flagged by "
-            f"the ML team; this store {pc(s['this_pct'])}, number {s['rank_low']} from the bottom of {s['stores'] + 1}")
+            f"(median {pc(s['median_pct'])}, all together {pc(s['all_pct'])})"
+            + (f"; {s['flagged']} of them were also flagged by the ML model" if SET != "v4" else "")
+            + f"; this store {pc(s['this_pct'])}, number {s['rank_low']} from the bottom of {s['stores'] + 1}")
         item["same_department_same_region"] = (
             f"{s['region']} (region publicly inferred): {s['region_below']} of {s['region_stores']} other stores below the "
-            f"ML forecast, {s['region_flagged']} flagged" + (f" ({s['region_list']})" if s["region_list"] else ""))
+            f"ML forecast" + (f", {s['region_flagged']} flagged" if SET != "v4" else "")
+            + (f" ({s['region_list'] if SET != 'v4' else s['region_list'].replace(' (flagged)', '')})" if s["region_list"] else ""))
     return item
 
 
@@ -142,27 +146,27 @@ def case_facts(cid: str) -> dict:
         store=int(row.Store), store_type=row.Type, store_size=f"{int(first.Size):,} sq ft", region=row.Region,
         fed_district=row.District, week_ending=day(row.Date), walmart_quarter=row.FiscalPeriod,
         holiday_week=row.HolidayWeek if isinstance(row.HolidayWeek, str) else "none",
-        ml_priority_rank=f"{int(row.Rank)} of 40", ml_status=f"{STATUS} (root cause not verified)",
+        ml_priority_rank=f"{int(row.Rank)} of {len(cases)}", ml_status=f"{STATUS} (root cause not verified)",
         flagged_departments=int(row.FlaggedDepts),
         total_below_forecast=f"{usd(row.FlaggedShortfall)} in the flagged departments (ML estimate, not a verified loss)",
         store_threshold=(f"{row.ThresholdPct:.1f}% (a department is flagged when it sells at least this far below the ML "
-                         f"forecast)") if row.ThresholdPct == row.ThresholdPct else "n/a",
-        detector=("Isolation Forest screen, then Extra Trees forecast with a per-store MAD threshold"
+                         f"forecast)") if row.ThresholdPct == row.ThresholdPct else "Global MAD (one threshold for all stores)",
+        detector=js["anomaly_detection"].get("detector") or ("Isolation Forest screen, then Extra Trees forecast with a per-store MAD threshold"
                   if row.ThresholdPct == row.ThresholdPct else "Isolation Forest screen, then Extra Trees forecast with a Global MAD filter"))
     ev = [{k: v for k, v in _dept_item(r, have_ml).items() if v is not None} for r in g.itertuples()]
     if have_ml:
         sw, ww = support.store_week(int(row.Store), row.Date), support.walmart_week(row.Date)
         ev.append(dict(id="this_store", kind="ML forecast", label=f"All of Store {int(row.Store)}'s departments that week",
-                       value=f"{sw['below']} of {sw['depts']} departments below the ML forecast, {sw['flagged']} flagged; the "
+                       value=f"{sw['below']} of {sw['depts']} departments below the ML forecast" + (f", {sw['flagged']} flagged" if SET != "v4" else "") + f"; the "
                              f"store as a whole {usd(sw['actual'])} vs {usd(sw['expected'])} forecast ({pc(sw['pct'])})"))
         ev.append(dict(id="walmart_week", kind="ML forecast", label="All 45 stores that week",
                        value=f"{usd(ww['actual'])} vs {usd(ww['expected'])} forecast ({pc(ww['pct'])}); {ww['stores_below']} of 45 "
-                             f"stores below the forecast; {ww['stores_flagged']} stores had at least one flagged department; "
-                             f"number {ww['rank_low']} from the bottom of the {ww['weeks']} test weeks (median week "
+                             f"stores below the forecast; " + (f"{ww['stores_flagged']} stores had at least one flagged department; " if SET != "v4" else "")
+                             + f"number {ww['rank_low']} from the bottom of the {ww['weeks']} test weeks (median week "
                              f"{pc(ww['median_week_pct'])})"))
     else:
         ev.append(dict(id="this_store", kind="ML forecast", label="Other stores and departments",
-                       value="not available: the ML team's forecasts for all stores cover Jul 20 - Oct 26, 2012 only"))
+                       value="not available: the ML model's forecasts for all stores cover Jul 20 - Oct 26, 2012 only"))
     o = support.outside(int(row.Store), row.Date)
     bits = [f"holiday: {o['holiday']}"]
     if "Fuel_Price" in o:
@@ -186,7 +190,7 @@ def case_facts(cid: str) -> dict:
 
 # ------------------------------------------------------------------------------------------ orchestrator
 PLAN_SYS = (
-    "You are the orchestrator of a Walmart sales investigation. The ML team flagged a store-week where several departments "
+    "You are the orchestrator of a Walmart sales investigation. The ML model flagged a store-week where several departments "
     "sold below the ML forecast; the flag is theirs and is not questioned. Your job is to find evidence that supports it. "
     "The sales comparisons are already done. Decide what to look up in a library of Walmart earnings releases, earnings "
     "call transcripts, 10-Qs, 10-Ks, Walmart news releases and Federal Reserve Beige Books from the same weeks and region. "
@@ -259,15 +263,15 @@ def retrieve(f: dict, queries: list[dict]) -> dict:
 
 # ------------------------------------------------------------------------------------------ reasoning
 REASON_SYS = (
-    "You support a Walmart analyst who reviews store-weeks flagged by the ML team. The ML team defines the exception: its "
+    "You support a Walmart analyst who reviews store-weeks flagged by the ML model. The ML model defines the exception: its "
     "forecast, the store's threshold and the flagged departments are given and are NOT questioned. Never say the flag is "
     "wrong, that the forecast is the problem, or that no action is needed. Your only job: find evidence that supports or "
     "explains the flagged drops, and say plainly where none was found. Look at: Walmart overall that week (walmart_week, "
     "walmart_quarter), the same department at other stores and in the same region, this store's other departments "
     "(this_store), outside factors (holiday, fuel, temperature, unemployment), and the report passages. A drop shared by "
     "many stores or the region points to a wider cause (category, economy, weather, calendar); a drop only at this store "
-    "points to something local (stock, staffing, execution, local competition). The ML team's own notes (ml_notes) may be "
-    "mentioned as the ML team's notes. Write short, plain sentences for a store manager: no jargon, no ids or field names "
+    "points to something local (stock, staffing, execution, local competition). The ML model's own notes (ml_notes) may be "
+    "mentioned as the ML model's notes. Write short, plain sentences for a store manager: no jargon, no ids or field names "
     "in the text (name the department and the report), dates like 'Aug 31, 2012'. "
     "Use ONLY the facts in the JSON. Copy every number exactly as written; do not calculate, round or convert. Quote a "
     "passage only by copying its words exactly inside quotation marks. Rules you must follow: {} "
@@ -278,11 +282,11 @@ REASON_SYS = (
     "'Some' if only general evidence (Walmart overall, the economy, weather, a holiday); 'Little' if nothing beyond the ML "
     "numbers. Give 2 to 6 findings. Each finding has a scope: 'walmart' (all stores that week or the quarter), 'department' "
     "(the same department at other stores), 'region', 'store' (this store's other departments), 'outside' (holiday, fuel, "
-    "weather, unemployment), 'report' (a Walmart or Fed report; must cite a passage id like P1) or 'ml_note' (the ML team's "
+    "weather, unemployment), 'report' (a Walmart or Fed report; must cite a passage id like P1) or 'ml_note' (the ML model's "
     "own notes). Each finding lists the ids it uses (evidence ids like 'dept_92', 'walmart_week', or passage ids like 'P2'). "
     "Under departments, cover the departments with the largest gaps (at least the first one listed). "
     "next_steps are checks the store or analyst can make on the store side (stock and deliveries, staffing, pricing and "
-    "displays, local events or competitors, data entry); never ask the ML team to review, explain or confirm its forecast, "
+    "displays, local events or competitors, data entry); never question, or ask anyone to review, the ML forecast, "
     "notes or signals. Use only ids that appear in the JSON (evidence ids, 'case', passage ids); an ml_note finding cites "
     "the department ids it is about (e.g. 'dept_92'). "
     'Reply with JSON only: {"evidence_found": "Strong|Some|Little", "summary": "2-3 sentences", '
@@ -333,24 +337,24 @@ def run_case(cid: str, progress=None) -> dict:
     say = progress or (lambda _msg: None)
     t0 = time.time()
     f = case_facts(cid)
-    say(f"Read the ML flag: {f['case']['flagged_departments']} departments below the store's threshold; compared them with "
+    say(f"Steps 1–2 · Read the ML flag ({f['case']['flagged_departments']} departments) and compared them with "
         "all stores, the region and the store's other departments")
     out = dict(case_id=cid, case=f["case"], code_status=f["code_status"], top_depts=f["top_depts"], evidence=f["evidence"])
     p = plan(f)
     out["plan"] = p
     if p.get("error"):
         return dict(out, error=p["error"], shown_status="Try again")
-    say("Planned the search: " + " | ".join(q["text"] for q in p["queries"]))
+    say("Step 3 · Planned the searches: " + " | ".join(q["text"] for q in p["queries"]))
     r = retrieve(f, p["queries"])
     out["rag"] = r
-    say(f"Read {len(r['passages'])} report passages ({r['filter']['start']} to {r['filter']['end']}, "
+    say(f"Step 4 · Read {len(r['passages'])} report passages ({r['filter']['start']} to {r['filter']['end']}, "
         f"{', '.join(r['filter']['districts'])})")
     a = reason(f, r["passages"])
     if a.get("error"):
         return dict(out, error=a["error"], shown_status="Try again")
-    say(f"Wrote the answer: {len(a['report']['findings'])} findings")
+    say(f"Step 5 · Wrote the answer: {len(a['report']['findings'])} findings")
     res = evaluate.evaluate_v3(a["report"], a["facts"], f["top_depts"])
-    say(f"Checked the answer: {sum(k['passed'] for k in res['checks'])} of {len(res['checks'])} checks passed")
+    say(f"Step 6 · Checked the answer: {sum(k['passed'] for k in res['checks'])} of {len(res['checks'])} checks passed")
     shown = f["code_status"] if res["passed"] else NEEDS_CHECK
     return dict(out, report=a["report"], llm=a["llm"], evaluation=res, shown_status=shown,
                 needs_review=not res["passed"], seconds=round(time.time() - t0, 1))

@@ -8,7 +8,7 @@ evaluate_v3() checks each answer from agents/pipeline_v3.py:
   4. Answer is complete           allowed evidence_found; summary; 1-6 findings with title and text; next steps
   5. Guardrails respected        no "verified / confirmed cause", no "lost sales / revenue", no markdown causing a drop,
                                  no anomaly score read as a probability (the ML file's guardrails), and no doubt cast on the
-                                 ML flag ("no action needed", "false alarm"): the ML team defines the exception
+                                 ML flag ("no action needed", "false alarm"): the ML model defines the exception
   6. Every finding is tagged      scope is walmart / department / region / store / outside / report / ml_note; a report
                                  finding cites a passage, the others cite a sales evidence item
   7. Covers the largest flagged department   the per-department part covers the department with the largest gap
@@ -52,7 +52,7 @@ _NEG = re.compile(r"\b(not|no|never|cannot|can't|isn't|aren't|wasn't|doesn't|don
 _CERTAIN = re.compile(r"\b(verified|confirmed|proven|proves|definitely|certainly)\b", re.I)
 _LOSS = re.compile(r"\blost (sales|revenue)\b|\b(revenue|sales) loss(es)?\b", re.I)
 _AGAINST = re.compile(r"\b(no action (is )?needed|false (alarm|positive)|flag(ged)? (was|is) (wrong|incorrect|not justified)|"
-                      r"not a real (drop|exception)|ask the ML team|(review|check|confirm|question) (the |its |their )?(ML )?"
+                      r"not a real (drop|exception)|ask the ML (team|model)|(review|check|confirm|question) (the |its |their )?(ML )?"
                       r"forecasts?\b)", re.I)
 _CAUSAL = re.compile(r"\b(caus\w*|led to|drove|driven|because|due to|explain\w*|result\w*|behind)\b", re.I)
 

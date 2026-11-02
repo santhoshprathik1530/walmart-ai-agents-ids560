@@ -1,0 +1,594 @@
+{
+ "Store_27_2012-09-14": {
+  "case_id": "Store_27_2012-09-14",
+  "case": {
+   "store": 27,
+   "store_type": "A",
+   "store_size": "204,184 sq ft",
+   "region": "New York State",
+   "fed_district": "New York Fed (2nd District)",
+   "week_ending": "Sep 14, 2012",
+   "walmart_quarter": "FY2013 Q3",
+   "holiday_week": "none",
+   "ml_priority_rank": "1 of 127",
+   "ml_status": "Needs analyst review (root cause not verified)",
+   "flagged_departments": 25,
+   "total_below_forecast": "$204,155 in the flagged departments (ML estimate, not a verified loss)",
+   "store_threshold": "Global MAD (one threshold for all stores)",
+   "detector": "Extra Trees forecast with a Global MAD threshold; flagged by: Extra Trees + Global MAD only"
+  },
+  "code_status": "Needs analyst review",
+  "top_depts": [
+   3,
+   95,
+   72
+  ],
+  "evidence": [
+   {
+    "id": "dept_3",
+    "kind": "ML flag",
+    "label": "Dept 3 Stationery (Hardlines unit; name high confidence)",
+    "actual": "$24,076",
+    "ml_forecast": "$59,063",
+    "below_forecast": "$34,988 (-59.2%)",
+    "same_department_all_stores": "43 of 44 other stores were below the ML forecast in this department that week (median -24.2%, all together -34.3%); this store -59.2%, number 1 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -54.9%; Store 15 -46.7%; Store 19 -31.0%)"
+   },
+   {
+    "id": "dept_95",
+    "kind": "ML flag",
+    "label": "Dept 95 DSD Grocery, Snacks & Beverages (Grocery unit; name high confidence)",
+    "actual": "$107,557",
+    "ml_forecast": "$125,003",
+    "below_forecast": "$17,446 (-14.0%)",
+    "same_department_all_stores": "37 of 44 other stores were below the ML forecast in this department that week (median -6.3%, all together -6.2%); this store -14.0%, number 4 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -9.0%; Store 15 -6.7%; Store 19 -2.3%)"
+   },
+   {
+    "id": "dept_72",
+    "kind": "ML flag",
+    "label": "Dept 72 Electronics (Entertainment unit; name high confidence)",
+    "actual": "$38,845",
+    "ml_forecast": "$54,242",
+    "below_forecast": "$15,397 (-28.4%)",
+    "same_department_all_stores": "23 of 41 other stores were below the ML forecast in this department that week (median -2.0%, all together +0.3%); this store -28.4%, number 4 from the bottom of 42",
+    "same_department_same_region": "New York State (region publicly inferred): 0 of 3 other stores below the ML forecast (Store 24 +0.1%; Store 19 +2.4%; Store 15 +18.2%)"
+   },
+   {
+    "id": "dept_2",
+    "kind": "ML flag",
+    "label": "Dept 2 Health & Beauty Aids (Grocery unit; name high confidence)",
+    "actual": "$71,725",
+    "ml_forecast": "$83,776",
+    "below_forecast": "$12,051 (-14.4%)",
+    "same_department_all_stores": "40 of 44 other stores were below the ML forecast in this department that week (median -6.9%, all together -7.7%); this store -14.4%, number 3 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -15.8%; Store 15 -10.9%; Store 19 -4.9%)"
+   },
+   {
+    "id": "dept_9",
+    "kind": "ML flag",
+    "label": "Dept 9 Sporting Goods (Hardlines unit; name high confidence)",
+    "actual": "$23,225",
+    "ml_forecast": "$33,277",
+    "below_forecast": "$10,052 (-30.2%)",
+    "same_department_all_stores": "38 of 44 other stores were below the ML forecast in this department that week (median -13.3%, all together -12.0%); this store -30.2%, number 5 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 2 of 3 other stores below the ML forecast (Store 24 -20.6%; Store 15 -16.7%; Store 19 +9.7%)"
+   },
+   {
+    "id": "dept_46",
+    "kind": "ML flag",
+    "label": "Dept 46 Cosmetics (Grocery unit; name medium confidence)",
+    "actual": "$32,907",
+    "ml_forecast": "$41,295",
+    "below_forecast": "$8,389 (-20.3%)",
+    "same_department_all_stores": "35 of 44 other stores were below the ML forecast in this department that week (median -6.7%, all together -6.9%); this store -20.3%, number 1 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -13.5%; Store 19 -13.2%; Store 15 -10.2%)"
+   },
+   {
+    "id": "dept_96",
+    "kind": "ML flag",
+    "label": "Dept 96 Liquor (Grocery unit; name high confidence)",
+    "actual": "$17,452",
+    "ml_forecast": "$25,654",
+    "below_forecast": "$8,202 (-32.0%)",
+    "same_department_all_stores": "29 of 33 other stores were below the ML forecast in this department that week (median -11.4%, all together -11.0%); this store -32.0%, number 1 from the bottom of 34",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 15 -25.7%; Store 24 -21.9%; Store 19 -17.3%)"
+   },
+   {
+    "id": "dept_16",
+    "kind": "ML flag",
+    "label": "Dept 16 Lawn & Garden (Home unit; name high confidence)",
+    "actual": "$9,862",
+    "ml_forecast": "$17,808",
+    "below_forecast": "$7,947 (-44.6%)",
+    "same_department_all_stores": "42 of 44 other stores were below the ML forecast in this department that week (median -28.0%, all together -29.2%); this store -44.6%, number 6 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 19 -41.5%; Store 24 -31.0%; Store 15 -23.2%)"
+   },
+   {
+    "id": "dept_23",
+    "kind": "ML flag",
+    "label": "Dept 23 Menswear (Apparel unit; name medium confidence)",
+    "actual": "$30,049",
+    "ml_forecast": "$37,722",
+    "below_forecast": "$7,673 (-20.3%)",
+    "same_department_all_stores": "31 of 40 other stores were below the ML forecast in this department that week (median -10.4%, all together -9.6%); this store -20.3%, number 9 from the bottom of 41",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -25.5%; Store 15 -16.9%; Store 19 -6.5%)"
+   },
+   {
+    "id": "dept_13",
+    "kind": "ML flag",
+    "label": "Dept 13 Household Chemicals (Grocery unit; name high confidence)",
+    "actual": "$51,581",
+    "ml_forecast": "$58,884",
+    "below_forecast": "$7,303 (-12.4%)",
+    "same_department_all_stores": "40 of 44 other stores were below the ML forecast in this department that week (median -5.1%, all together -5.8%); this store -12.4%, number 4 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -12.4%; Store 15 -11.6%; Store 19 -6.6%)"
+   },
+   {
+    "id": "dept_10",
+    "kind": "ML flag",
+    "label": "Dept 10 Automotive (Hardlines unit; name high confidence)",
+    "actual": "$29,816",
+    "ml_forecast": "$37,020",
+    "below_forecast": "$7,203 (-19.5%)",
+    "same_department_all_stores": "29 of 44 other stores were below the ML forecast in this department that week (median -4.9%, all together -3.6%); this store -19.5%, number 4 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 2 of 3 other stores below the ML forecast (Store 24 -14.1%; Store 19 -6.2%; Store 15 +6.8%)"
+   },
+   {
+    "id": "dept_24",
+    "kind": "ML flag",
+    "label": "Dept 24 Boyswear (Apparel unit; name medium confidence)",
+    "actual": "$7,971",
+    "ml_forecast": "$14,560",
+    "below_forecast": "$6,589 (-45.3%)",
+    "same_department_all_stores": "28 of 36 other stores were below the ML forecast in this department that week (median -18.9%, all together -22.4%); this store -45.3%, number 3 from the bottom of 37",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -50.6%; Store 15 -40.2%; Store 19 -36.5%)"
+   },
+   {
+    "id": "dept_92",
+    "kind": "ML flag",
+    "label": "Dept 92 Dry Grocery (Grocery unit; name high confidence)",
+    "actual": "$138,774",
+    "ml_forecast": "$145,225",
+    "below_forecast": "$6,450 (-4.4%)",
+    "same_department_all_stores": "24 of 44 other stores were below the ML forecast in this department that week (median -0.9%, all together -0.6%); this store -4.4%, number 14 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 1 of 3 other stores below the ML forecast (Store 15 -1.1%; Store 24 +2.8%; Store 19 +3.3%)"
+   },
+   {
+    "id": "dept_33",
+    "kind": "ML flag",
+    "label": "Dept 33 Girlswear (Apparel unit; name medium confidence)",
+    "actual": "$7,182",
+    "ml_forecast": "$13,259",
+    "below_forecast": "$6,077 (-45.8%)",
+    "same_department_all_stores": "33 of 36 other stores were below the ML forecast in this department that week (median -20.9%, all together -22.2%); this store -45.8%, number 2 from the bottom of 37",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -50.6%; Store 15 -41.7%; Store 19 -39.9%)"
+   },
+   {
+    "id": "dept_74",
+    "kind": "ML flag",
+    "label": "Dept 74 Home Management / Storage (Home unit; name medium confidence)",
+    "actual": "$23,194",
+    "ml_forecast": "$28,845",
+    "below_forecast": "$5,650 (-19.6%)",
+    "same_department_all_stores": "42 of 44 other stores were below the ML forecast in this department that week (median -16.0%, all together -15.9%); this store -19.6%, number 14 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -21.3%; Store 15 -19.9%; Store 19 -15.4%)"
+   },
+   {
+    "id": "dept_40",
+    "kind": "ML flag",
+    "label": "Dept 40 OTC Pharmacy (Health & Wellness unit; name high confidence)",
+    "actual": "$68,286",
+    "ml_forecast": "$73,851",
+    "below_forecast": "$5,566 (-7.5%)",
+    "same_department_all_stores": "22 of 44 other stores were below the ML forecast in this department that week (median +0.0%, all together -0.4%); this store -7.5%, number 5 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 2 of 3 other stores below the ML forecast (Store 24 -9.6%; Store 15 -2.8%; Store 19 +0.1%)"
+   },
+   {
+    "id": "dept_82",
+    "kind": "ML flag",
+    "label": "Dept 82 Impulse Merchandise (Grocery unit; name medium confidence)",
+    "actual": "$23,907",
+    "ml_forecast": "$28,745",
+    "below_forecast": "$4,838 (-16.8%)",
+    "same_department_all_stores": "34 of 44 other stores were below the ML forecast in this department that week (median -5.2%, all together -5.7%); this store -16.8%, number 2 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -13.9%; Store 19 -1.8%; Store 15 -0.8%)"
+   },
+   {
+    "id": "dept_4",
+    "kind": "ML flag",
+    "label": "Dept 4 Paper Goods (Grocery unit; name high confidence)",
+    "actual": "$38,824",
+    "ml_forecast": "$43,400",
+    "below_forecast": "$4,575 (-10.5%)",
+    "same_department_all_stores": "42 of 44 other stores were below the ML forecast in this department that week (median -8.6%, all together -8.4%); this store -10.5%, number 16 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 15 -15.3%; Store 19 -13.7%; Store 24 -11.1%)"
+   },
+   {
+    "id": "dept_31",
+    "kind": "ML flag",
+    "label": "Dept 31 Accessories (Apparel unit; name medium confidence)",
+    "actual": "$3,160",
+    "ml_forecast": "$7,348",
+    "below_forecast": "$4,188 (-57.0%)",
+    "same_department_all_stores": "31 of 43 other stores were below the ML forecast in this department that week (median -24.6%, all together -34.1%); this store -57.0%, number 4 from the bottom of 44",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -53.6%; Store 19 -50.5%; Store 15 -48.4%)"
+   },
+   {
+    "id": "dept_14",
+    "kind": "ML flag",
+    "label": "Dept 14 Housewares / Kitchen (Home unit; name medium confidence)",
+    "actual": "$23,109",
+    "ml_forecast": "$27,251",
+    "below_forecast": "$4,141 (-15.2%)",
+    "same_department_all_stores": "30 of 44 other stores were below the ML forecast in this department that week (median -9.1%, all together -8.3%); this store -15.2%, number 14 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 3 of 3 other stores below the ML forecast (Store 24 -18.4%; Store 19 -9.8%; Store 15 -9.0%)"
+   },
+   {
+    "id": "dept_79",
+    "kind": "ML flag",
+    "label": "Dept 79 Infant Consumables (Grocery unit; name high confidence)",
+    "actual": "$33,662",
+    "ml_forecast": "$37,656",
+    "below_forecast": "$3,994 (-10.6%)",
+    "same_department_all_stores": "34 of 44 other stores were below the ML forecast in this department that week (median -4.9%, all together -5.2%); this store -10.6%, number 8 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 2 of 3 other stores below the ML forecast (Store 15 -15.2%; Store 24 -9.7%; Store 19 +1.6%)"
+   },
+   {
+    "id": "dept_81",
+    "kind": "ML flag",
+    "label": "Dept 81 Bread (Grocery unit; name high confidence)",
+    "actual": "$25,770",
+    "ml_forecast": "$29,710",
+    "below_forecast": "$3,939 (-13.3%)",
+    "same_department_all_stores": "32 of 44 other stores were below the ML forecast in this department that week (median -4.3%, all together -3.6%); this store -13.3%, number 3 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 1 of 3 other stores below the ML forecast (Store 24 -5.1%; Store 15 +1.0%; Store 19 +2.6%)"
+   },
+   {
+    "id": "dept_90",
+    "kind": "ML flag",
+    "label": "Dept 90 Dairy (Grocery unit; name high confidence)",
+    "actual": "$88,444",
+    "ml_forecast": "$92,380",
+    "below_forecast": "$3,935 (-4.3%)",
+    "same_department_all_stores": "29 of 44 other stores were below the ML forecast in this department that week (median -1.8%, all together -1.2%); this store -4.3%, number 16 from the bottom of 45",
+    "same_department_same_region": "New York State (region publicly inferred): 1 of 3 other stores below the ML forecast (Store 24 -0.6%; Store 15 +4.1%; Store 19 +5.4%)"
+   },
+   {
+    "id": "dept_93",
+    "kind": "ML flag",
+    "label": "Dept 93 Meat (Grocery unit; name high confidence)",
+    "actual": "$52,561",
+    "ml_forecast": "$56,371",
+    "below_forecast": "$3,811 (-6.8%)",
+    "same_department_all_stores": "28 of 41 other stores were below the ML forecast in this department that week (median -4.1%, all together -2.2%); this store -6.8%, number 16 from the bottom of 42",
+    "same_department_same_region": "New York State (region publicly inferred): 1 of 3 other stores below the ML forecast (Store 15 -9.8%; Store 19 +0.6%; Store 24 +0.8%)"
+   },
+   {
+    "id": "dept_94",
+    "kind": "ML flag",
+    "label": "Dept 94 Produce (Grocery unit; name high confidence)",
+    "actual": "$59,332",
+    "ml_forecast": "$63,081",
+    "below_forecast": "$3,749 (-5.9%)",
+    "same_department_all_stores": "28 of 32 other stores were below the ML forecast in this department that week (median -6.0%, all together -5.7%); this store -5.9%, number 17 from the bottom of 33",
+    "same_department_same_region": "New York State (region publicly inferred): 2 of 2 other stores below the ML forecast (Store 24 -10.5%; Store 19 -2.3%)"
+   },
+   {
+    "id": "this_store",
+    "kind": "ML forecast",
+    "label": "All of Store 27's departments that week",
+    "value": "60 of 69 departments below the ML forecast; the store as a whole $1,511,915 vs $1,751,935 forecast (-13.7%)"
+   },
+   {
+    "id": "walmart_week",
+    "kind": "ML forecast",
+    "label": "All 45 stores that week",
+    "value": "$44,169,616 vs $46,628,419 forecast (-5.3%); 36 of 45 stores below the forecast; number 1 from the bottom of the 15 test weeks (median week -0.4%)"
+   },
+   {
+    "id": "outside",
+    "kind": "data",
+    "label": "Outside factors that week (vs the median of the 4 weeks before)",
+    "value": "holiday: none; local fuel price $4.09/gal vs $4.01; temperature 69\u00b0F vs 76\u00b0F; unemployment 8.2% vs 8.2%"
+   },
+   {
+    "id": "markdowns",
+    "kind": "data",
+    "label": "Markdowns recorded for the whole store this week",
+    "value": "$23,812 across 5 fields. Store-level only: cannot be tied to a department."
+   },
+   {
+    "id": "walmart_quarter",
+    "kind": "report",
+    "label": "Walmart U.S. comparable sales reported for FY2013 Q3",
+    "value": "+1.5%"
+   }
+  ],
+  "plan": {
+   "focus": [
+    "dept_3",
+    "dept_95",
+    "dept_72"
+   ],
+   "queries": [
+    {
+     "name": "stationery",
+     "text": "What did Walmart's FY2013 Q3 earnings release, call, or 10-Q say about stationery, office supplies, or back-to-school demand in the quarter ending October 2012?",
+     "hits": [
+      "WMT-FY13Q3-CALL::National::s45",
+      "WMT-FY13Q3-RELEASE::National::s0",
+      "WMT-FY13Q3-CALL::National::s24",
+      "WMT-FY13Q3-CALL::National::s0",
+      "WMT-FY13Q3-CALL::National::s5",
+      "WMT-FY13Q3-RELEASE::National::s28"
+     ]
+    },
+    {
+     "name": "electronics",
+     "text": "What did Walmart or the September 2012 Beige Books report about consumer electronics demand, pricing, or promotions in the Northeast or New York state?",
+     "hits": [
+      "BB-2012-08-29::New_York::s1",
+      "BB-2012-10-10::New_York::s3",
+      "BB-2012-10-10::New_York::s1",
+      "BB-2012-10-10::National::s8",
+      "BB-2012-08-29::National::s8",
+      "BB-2012-08-29::National::s9"
+     ]
+    },
+    {
+     "name": "region",
+     "text": "What did the New York Fed's September 2012 Beige Book report on retail sales, consumer spending, fuel prices, and weather in the Second District?",
+     "hits": [
+      "BB-2012-08-29::National::s8",
+      "BB-2012-10-10::National::s8",
+      "BB-2012-08-29::New_York::s1",
+      "BB-2012-10-10::New_York::s1",
+      "BB-2012-10-10::New_York::s3",
+      "BB-2012-10-10::National::s3"
+     ]
+    }
+   ],
+   "why": "Dept 3 is the largest dollar gap and was below forecast chain-wide, pointing to a category-level cause; Dept 95 and Dept 72 are the next largest gaps, and Dept 72 stands out because it was flat across all other stores, so it needs a regional or category explanation.",
+   "llm": {
+    "model": "anthropic/claude-haiku-5.5",
+    "ms": 5174,
+    "tokens_in": 4179,
+    "tokens_out": 1008
+   }
+  },
+  "rag": {
+   "passages": [
+    {
+     "id": "P1",
+     "source": "Federal Reserve Beige Book, Aug 29, 2012",
+     "date": "Aug 29, 2012",
+     "district": "New York Fed District",
+     "kind": "Regional / macro context",
+     "section": "",
+     "url": "https://www.federalreserve.gov/monetarypolicy/beigebook/beigebook201208.htm",
+     "chunk_id": "BB-2012-08-29::New_York::s1",
+     "queries": [
+      "electronics",
+      "region"
+     ],
+     "text": "Consumer Spending Retailers report that sales activity has firmed somewhat since the last report. Two major retail chains report that sales in the region were on plan in July and ahead of plan in early August. Similarly a major retail mall in upstate New York reports some firming in sales, as well as shopper traffic, in July and early August, following lackluster business in May and June. Retail prices continue to be described as steady--including apparel prices, which had previously been expected to drift down with the retreat in cotton prices earlier this year. Stores in New York City have performed on par or modestly better than those in the rest of the region. Inventories are generally said to be at or slightly above desired levels."
+    },
+    {
+     "id": "P2",
+     "source": "Federal Reserve Beige Book, Aug 29, 2012",
+     "date": "Aug 29, 2012",
+     "district": "National",
+     "kind": "Regional / macro context",
+     "section": "Full Report",
+     "url": "https://www.federalreserve.gov/monetarypolicy/beigebook/beigebook201208.htm",
+     "chunk_id": "BB-2012-08-29::National::s8",
+     "queries": [
+      "electronics",
+      "region"
+     ],
+     "text": "Consumer Spending and Tourism Most Districts reported that retail spending in July and early August was up compared with the previous Beige Book. New York and San Francisco noted strengthening sales compared with a softer May and June, although in San Francisco's case, the rise was only \"a bit further.\" Philadelphia, Richmond, Minneapolis, and Kansas City reported stronger retail sales, while Cleveland, Chicago, St. Louis, and Dallas all said that sales were up \"slightly.\" In the Atlanta District, most retail contacts reported slower sales, while Boston's retail contacts provided a mixed assessment."
+    },
+    {
+     "id": "P3",
+     "source": "Federal Reserve Beige Book, Oct 10, 2012",
+     "date": "Oct 10, 2012",
+     "district": "National",
+     "kind": "Regional / macro context",
+     "section": "Full Report",
+     "url": "https://www.federalreserve.gov/monetarypolicy/beigebook/beigebook201210.htm",
+     "chunk_id": "BB-2012-10-10::National::s8",
+     "queries": [
+      "electronics",
+      "region"
+     ],
+     "text": "Consumer Spending and Tourism Consumer spending was mixed but generally reported to be flat to up slightly over the latest reporting period. Retail sales were said to have improved modestly in the Cleveland, Richmond, Atlanta, Minneapolis, and San Francisco Districts, while sales were characterized as flat to softer in the New York and Kansas City Districts. In general, retail sales were reported to be running only modestly ahead of a year ago. A number of reports noted various factors affecting sales, such as rising gasoline prices, political uncertainty, concerns about the \"fiscal cliff\" and weather. Atlanta and San Francisco noted that discounters have been outperforming traditional department stores. Cleveland reported that back-to-school merchandise sold well, while Chicago said that such sales were below expectations. Boston noted a pickup in furniture sales, Richmond cited brisk sales at building supplies stores, and San Francisco reported stronger demand at restaurants and food-service establishments."
+    },
+    {
+     "id": "P4",
+     "source": "Federal Reserve Beige Book, Oct 10, 2012",
+     "date": "Oct 10, 2012",
+     "district": "New York Fed District",
+     "kind": "Regional / macro context",
+     "section": "",
+     "url": "https://www.federalreserve.gov/monetarypolicy/beigebook/beigebook201210.htm",
+     "chunk_id": "BB-2012-10-10::New_York::s3",
+     "queries": [
+      "electronics",
+      "region"
+     ],
+     "text": "Similarly, weekly attendance and revenues at Broadway theaters were running ahead of comparable 2011 levels in August and early September but slipped well below year-earlier levels for the third week of the month. Finally, consumer confidence fell in August and was little changed at a low level in September, according to the Conference Board's monthly survey of residents of the Middle Atlantic states (NY, NJ, Pa)."
+    },
+    {
+     "id": "P5",
+     "source": "Walmart FY13 Q3 earnings call transcript",
+     "date": "Nov 15, 2012",
+     "district": "National",
+     "kind": "Walmart-level context",
+     "section": "And now I'll turn it over to Jeff for the financial details. Jeff\u2026",
+     "url": "https://stock.walmart.com/_assets/_8c8425b76a1d46bbbbc16466da2a6b9c/walmart/db/938/9439/transcript_management_call/Q3+2013+Earnings+Call.pdf",
+     "chunk_id": "WMT-FY13Q3-CALL::National::s45",
+     "queries": [
+      "stationery"
+     ],
+     "text": "We had positive comps across all geographies and store formats. During the quarter, we focused on being the destination for back-to-school and Halloween shopping. Our merchants and operators developed a strong cross-functional plan, and I'm pleased with our execution and the sales growth achieved this year. As a reminder, a slightly larger portion of Halloween sales versus last year will fall into the fourth quarter comp period, given how the 4-5-4 calendar falls this year."
+    },
+    {
+     "id": "P6",
+     "source": "Walmart FY13 Q3 earnings release",
+     "date": "Nov 15, 2012",
+     "district": "National",
+     "kind": "Walmart-level context",
+     "section": "Press Release",
+     "url": "https://www.sec.gov/Archives/edgar/data/104169/000119312512471604/d440140dex991.htm",
+     "chunk_id": "WMT-FY13Q3-RELEASE::National::s0",
+     "queries": [
+      "stationery"
+     ],
+     "text": "EX-99.1 d440140dex991.htm PRESS RELEASE Press Release Exhibit 99.1 For Immediate Release Media Relations Contact Randy Hargrove 800-331-0085 Investor Relations Contact Carol Schumacher 479-277-1498 Pre-recorded conference call 877-523-5612 (U.S. and Canada) 201-689-8483 (All other countries) Call passcode: 9256278 Walmart reports Q3 EPS of $1.08, reaffirms top end of full-year EPS guidance; Company is well positioned for Q4 holidays Q3 Highlights : Wal-Mart Stores, Inc. (Walmart) reported third quarter diluted earnings per share from continuing operations of $1.08, within guidance of $1.04 to $1.09. This was an 11.3 percent increase from the $0.97 per share reported for the third quarter last year."
+    }
+   ],
+   "ms": 1051,
+   "candidates": 13,
+   "filter": {
+    "start": "2012-08-24",
+    "end": "2012-09-14",
+    "districts": [
+     "National",
+     "New York"
+    ]
+   }
+  },
+  "report": {
+   "evidence_found": "Strong",
+   "summary": "Store 27 was below the ML forecast in most departments the week ending Sep 14, 2012, and so were most stores in the chain and the other New York stores. The shared pattern points to a wider cause, but no single cause was verified. Electronics is the exception: it was flat across the chain and the region, so its drop looks local to this store.",
+   "findings": [
+    {
+     "title": "Chain-wide shortfall that week",
+     "scope": "walmart",
+     "text": "Across all 45 stores, sales were $44,169,616 against a forecast of $46,628,419 (-5.3%), and 36 of 45 stores were below the forecast. The store's own gap is larger than the chain's.",
+     "evidence": [
+      "walmart_week"
+     ]
+    },
+    {
+     "title": "New York stores also below forecast",
+     "scope": "region",
+     "text": "The other New York stores were below the ML forecast in most of the flagged departments, including Dept 3 Stationery, Dept 16 Lawn & Garden, Dept 46 Cosmetics and Dept 96 Liquor. This suggests a shared regional factor, but the cause is not identified.",
+     "evidence": [
+      "dept_3",
+      "dept_16",
+      "dept_46",
+      "dept_96"
+     ]
+    },
+    {
+     "title": "Store-wide shortfall across departments",
+     "scope": "store",
+     "text": "Store 27 as a whole was $1,511,915 against a forecast of $1,751,935 (-13.7%), and 60 of its 69 departments were below the ML forecast. A drop this broad points to something affecting the whole store, though the data does not say what.",
+     "evidence": [
+      "this_store"
+     ]
+    },
+    {
+     "title": "Electronics drop is local to this store",
+     "scope": "store",
+     "text": "Dept 72 Electronics was $15,397 below the ML forecast (-28.4%) here. Across all stores its total was +0.3%, and the other New York stores were not below the forecast, so this drop is not shared and may be local.",
+     "evidence": [
+      "dept_72"
+     ]
+    },
+    {
+     "title": "Regional reports mixed on sales",
+     "scope": "report",
+     "text": "The Aug 29, 2012 Beige Book, published before this week, said \"Two major retail chains report that sales in the region were on plan in July and ahead of plan in early August.\" The Oct 10, 2012 report, published after this week, said \"sales were characterized as flat to softer in the New York and Kansas City Districts.\" These are general regional statements and do not name this store or these departments.",
+     "evidence": [
+      "P1",
+      "P3"
+     ]
+    }
+   ],
+   "departments": [
+    {
+     "department": "Dept 3 Stationery",
+     "what_supports_it": "Store 27 was $34,988 below the ML forecast (-59.2%). 43 of 44 other stores were also below the forecast in this department, and all stores together were -34.3%, so the drop is widely shared."
+    },
+    {
+     "department": "Dept 72 Electronics",
+     "what_supports_it": "Store 27 was $15,397 below the ML forecast (-28.4%), while all stores together were +0.3% and no other New York store was below the forecast. This points to a local cause at this store, not a wider one."
+    },
+    {
+     "department": "Dept 16 Lawn & Garden",
+     "what_supports_it": "Store 27 was $7,947 below the ML forecast (-44.6%). 42 of 44 other stores and all 3 other New York stores were also below the forecast in this department."
+    }
+   ],
+   "not_found": "No report, outside factor or other department data explains the drops in these specific departments; no passage names Store 27, its departments or its stock.",
+   "next_steps": [
+    "Check stock on hand and recent deliveries for Dept 3 Stationery, Dept 16 Lawn & Garden and Dept 46 Cosmetics against what was sold that week.",
+    "Check whether Dept 72 Electronics had out-of-stocks, missing items or display changes that week.",
+    "Review staffing and shift coverage in the week ending Sep 14, 2012, especially in the departments with the largest gaps.",
+    "Check pricing, shelf labels and end-cap displays for the flagged departments that week.",
+    "Ask the store about local events, road work or nearby competitor openings that could affect traffic in the week ending Sep 14, 2012.",
+    "Check that that week's sales were entered correctly by department at Store 27."
+   ],
+   "data_needed": [
+    "Store-side stock and delivery records by department for the week ending Sep 14, 2012.",
+    "Staffing and schedule records for the week ending Sep 14, 2012.",
+    "Department-level pricing, promotion and display records (markdowns are only recorded store-wide, so they cannot be tied to a department).",
+    "Records of local competitor activity or store events near Store 27 that week.",
+    "Confirmation that the week's department sales were recorded correctly."
+   ]
+  },
+  "llm": {
+   "model": "anthropic/claude-haiku-5.5",
+   "ms": 14999,
+   "tokens_in": 9843,
+   "tokens_out": 3445
+  },
+  "evaluation": {
+   "passed": true,
+   "checks": [
+    {
+     "name": "Numbers match the evidence",
+     "passed": true,
+     "detail": "every number is in the evidence"
+    },
+    {
+     "name": "Quotes are word for word",
+     "passed": true,
+     "detail": "2 quote(s), all found in the reports"
+    },
+    {
+     "name": "Every finding cites evidence",
+     "passed": true,
+     "detail": "5 finding(s), all cite real evidence"
+    },
+    {
+     "name": "Answer is complete",
+     "passed": true,
+     "detail": "evidence found, summary, findings, next steps"
+    },
+    {
+     "name": "Guardrails respected",
+     "passed": true,
+     "detail": "no certainty claims, lost-sales wording, markdown causality, probabilities or doubts about the ML flag"
+    },
+    {
+     "name": "Every finding is tagged",
+     "passed": true,
+     "detail": "1 walmart, 1 region, 2 store, 1 report"
+    },
+    {
+     "name": "Covers the largest flagged department",
+     "passed": true,
+     "detail": "Dept 3 Stationery is covered"
+    }
+   ]
+  },
+  "shown_status": "Needs analyst review",
+  "needs_review": false,
+  "seconds": 21.3,
+  "run": "live",
+  "ran_at": "Nov 2, 2026 15:16"
+ }
+}

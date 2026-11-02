@@ -1,0 +1,656 @@
+{
+  "schema_version": "4.0-draft",
+  "case_id": "Store_28_2012-08-31",
+  "priority_rank": 21,
+  "source": {
+    "project": "Walmart Markdown Performance Exception Investigation",
+    "primary_model": "Extra Trees + Global MAD",
+    "selection_method": "ET-first",
+    "isolation_forest_role": "Supporting",
+    "export_status": "draft",
+    "test_period": "2012-07-20 to 2012-10-26",
+    "department_source": "Latest calibrated test DataFrame"
+  },
+  "store_week": {
+    "store": 28,
+    "date": "2012-08-31",
+    "type": "A"
+  },
+  "sales_performance": {
+    "actual_sales": 1227097.81,
+    "expected_sales": 1340249.9753666664,
+    "net_modeled_gap": 113152.16536666639,
+    "positive_net_gap": 113152.16536666639,
+    "has_positive_net_gap": true
+  },
+  "model_signals": {
+    "et_global_mad_flag": true,
+    "if_a_flag": true,
+    "if_b_flag": true,
+    "if_a_score": -0.05647741850083121,
+    "if_b_score": -0.02024438985493804,
+    "ma4_residual_pct": -0.02399346086405904,
+    "model_agreement": "ET + IF-A + IF-B",
+    "if_required_for_eligibility": false
+  },
+  "department_summary": {
+    "department_count": 69,
+    "flagged_departments": 11,
+    "flagged_department_rate": 0.15942028985507245,
+    "departments": [
+      {
+        "department": 92,
+        "actual_sales": 79561.1,
+        "expected_sales": 105388.83197777768,
+        "modeled_shortfall": 25827.731977777672,
+        "shortfall_pct": 24.50708627572959,
+        "global_mad_flag": true
+      },
+      {
+        "department": 95,
+        "actual_sales": 80564.57,
+        "expected_sales": 100484.99004444438,
+        "modeled_shortfall": 19920.42004444437,
+        "shortfall_pct": 19.824274287765363,
+        "global_mad_flag": true
+      },
+      {
+        "department": 91,
+        "actual_sales": 43765.93,
+        "expected_sales": 62972.30813888886,
+        "modeled_shortfall": 19206.37813888886,
+        "shortfall_pct": 30.499720760636794,
+        "global_mad_flag": true
+      },
+      {
+        "department": 93,
+        "actual_sales": 36508.03,
+        "expected_sales": 52007.95832222225,
+        "modeled_shortfall": 15499.928322222251,
+        "shortfall_pct": 29.802993276895002,
+        "global_mad_flag": true
+      },
+      {
+        "department": 90,
+        "actual_sales": 57626.94,
+        "expected_sales": 70843.9393777778,
+        "modeled_shortfall": 13216.9993777778,
+        "shortfall_pct": 18.65649975687784,
+        "global_mad_flag": true
+      },
+      {
+        "department": 94,
+        "actual_sales": 32501.72,
+        "expected_sales": 39409.60323333335,
+        "modeled_shortfall": 6907.8832333333485,
+        "shortfall_pct": 17.528426237721007,
+        "global_mad_flag": true
+      },
+      {
+        "department": 97,
+        "actual_sales": 19276.89,
+        "expected_sales": 25954.9079111111,
+        "modeled_shortfall": 6678.017911111099,
+        "shortfall_pct": 25.729306896335743,
+        "global_mad_flag": true
+      },
+      {
+        "department": 81,
+        "actual_sales": 19278.79,
+        "expected_sales": 23317.52835555554,
+        "modeled_shortfall": 4038.738355555539,
+        "shortfall_pct": 17.32061088967556,
+        "global_mad_flag": true
+      },
+      {
+        "department": 80,
+        "actual_sales": 14162.34,
+        "expected_sales": 18191.38423333333,
+        "modeled_shortfall": 4029.0442333333303,
+        "shortfall_pct": 22.148090445754175,
+        "global_mad_flag": true
+      },
+      {
+        "department": 79,
+        "actual_sales": 38525.21,
+        "expected_sales": 42479.22106666666,
+        "modeled_shortfall": 3954.0110666666587,
+        "shortfall_pct": 9.308106333826732,
+        "global_mad_flag": true
+      },
+      {
+        "department": 49,
+        "actual_sales": 10697.3,
+        "expected_sales": 14223.60343333332,
+        "modeled_shortfall": 3526.30343333332,
+        "shortfall_pct": 24.7919133140998,
+        "global_mad_flag": true
+      },
+      {
+        "department": 38,
+        "actual_sales": 44423.39,
+        "expected_sales": 47138.93703333333,
+        "modeled_shortfall": 2715.5470333333287,
+        "shortfall_pct": 5.760730309665417,
+        "global_mad_flag": false
+      },
+      {
+        "department": 83,
+        "actual_sales": 4557.6,
+        "expected_sales": 6532.014244444446,
+        "modeled_shortfall": 1974.414244444446,
+        "shortfall_pct": 30.22672900818776,
+        "global_mad_flag": false
+      },
+      {
+        "department": 58,
+        "actual_sales": 14370.97,
+        "expected_sales": 16170.149199999996,
+        "modeled_shortfall": 1799.1791999999969,
+        "shortfall_pct": 11.126546686409037,
+        "global_mad_flag": false
+      },
+      {
+        "department": 96,
+        "actual_sales": 26357.76,
+        "expected_sales": 28109.03495555556,
+        "modeled_shortfall": 1751.2749555555602,
+        "shortfall_pct": 6.230291998016221,
+        "global_mad_flag": false
+      },
+      {
+        "department": 7,
+        "actual_sales": 16774.61,
+        "expected_sales": 18473.147566666667,
+        "modeled_shortfall": 1698.537566666666,
+        "shortfall_pct": 9.19462999219225,
+        "global_mad_flag": false
+      },
+      {
+        "department": 1,
+        "actual_sales": 13388.17,
+        "expected_sales": 15038.002699999995,
+        "modeled_shortfall": 1649.8326999999954,
+        "shortfall_pct": 10.971089265730722,
+        "global_mad_flag": false
+      },
+      {
+        "department": 10,
+        "actual_sales": 21034.62,
+        "expected_sales": 22533.288088888905,
+        "modeled_shortfall": 1498.668088888906,
+        "shortfall_pct": 6.65090723988877,
+        "global_mad_flag": false
+      },
+      {
+        "department": 11,
+        "actual_sales": 11388.8,
+        "expected_sales": 12868.346877777774,
+        "modeled_shortfall": 1479.546877777775,
+        "shortfall_pct": 11.49756757282313,
+        "global_mad_flag": false
+      },
+      {
+        "department": 32,
+        "actual_sales": 5407.95,
+        "expected_sales": 6459.466038888887,
+        "modeled_shortfall": 1051.5160388888871,
+        "shortfall_pct": 16.27868360261186,
+        "global_mad_flag": false
+      },
+      {
+        "department": 46,
+        "actual_sales": 19270.2,
+        "expected_sales": 20084.47162222222,
+        "modeled_shortfall": 814.2716222222189,
+        "shortfall_pct": 4.054234721919585,
+        "global_mad_flag": false
+      },
+      {
+        "department": 82,
+        "actual_sales": 16359.95,
+        "expected_sales": 17161.221099999995,
+        "modeled_shortfall": 801.2710999999945,
+        "shortfall_pct": 4.669079754470355,
+        "global_mad_flag": false
+      },
+      {
+        "department": 98,
+        "actual_sales": 7884.66,
+        "expected_sales": 8665.360255555559,
+        "modeled_shortfall": 780.7002555555591,
+        "shortfall_pct": 9.009437952161706,
+        "global_mad_flag": false
+      },
+      {
+        "department": 20,
+        "actual_sales": 4920.05,
+        "expected_sales": 5662.28787777778,
+        "modeled_shortfall": 742.2378777777794,
+        "shortfall_pct": 13.108444745290448,
+        "global_mad_flag": false
+      },
+      {
+        "department": 5,
+        "actual_sales": 19901.3,
+        "expected_sales": 20600.981877777784,
+        "modeled_shortfall": 699.6818777777844,
+        "shortfall_pct": 3.39635208617182,
+        "global_mad_flag": false
+      },
+      {
+        "department": 29,
+        "actual_sales": 4806.18,
+        "expected_sales": 5397.942911111112,
+        "modeled_shortfall": 591.7629111111119,
+        "shortfall_pct": 10.96274860360284,
+        "global_mad_flag": false
+      },
+      {
+        "department": 6,
+        "actual_sales": 1941.48,
+        "expected_sales": 2520.8111333333336,
+        "modeled_shortfall": 579.3311333333336,
+        "shortfall_pct": 22.981933302050642,
+        "global_mad_flag": false
+      },
+      {
+        "department": 33,
+        "actual_sales": 18126.41,
+        "expected_sales": 18690.10585555556,
+        "modeled_shortfall": 563.6958555555611,
+        "shortfall_pct": 3.0160121077538187,
+        "global_mad_flag": false
+      },
+      {
+        "department": 71,
+        "actual_sales": 5829.0,
+        "expected_sales": 6376.517899999997,
+        "modeled_shortfall": 547.5178999999971,
+        "shortfall_pct": 8.586471622701747,
+        "global_mad_flag": false
+      },
+      {
+        "department": 74,
+        "actual_sales": 11711.59,
+        "expected_sales": 12169.965588888885,
+        "modeled_shortfall": 458.3755888888845,
+        "shortfall_pct": 3.766449342366087,
+        "global_mad_flag": false
+      },
+      {
+        "department": 8,
+        "actual_sales": 32471.91,
+        "expected_sales": 32880.056355555564,
+        "modeled_shortfall": 408.1463555555638,
+        "shortfall_pct": 1.241318905119825,
+        "global_mad_flag": false
+      },
+      {
+        "department": 30,
+        "actual_sales": 3689.32,
+        "expected_sales": 4087.240444444444,
+        "modeled_shortfall": 397.920444444444,
+        "shortfall_pct": 9.73567495852403,
+        "global_mad_flag": false
+      },
+      {
+        "department": 36,
+        "actual_sales": 491.78,
+        "expected_sales": 858.085177777778,
+        "modeled_shortfall": 366.305177777778,
+        "shortfall_pct": 42.68867325344264,
+        "global_mad_flag": false
+      },
+      {
+        "department": 35,
+        "actual_sales": 2048.5,
+        "expected_sales": 2355.5741111111115,
+        "modeled_shortfall": 307.0741111111115,
+        "shortfall_pct": 13.03606240460277,
+        "global_mad_flag": false
+      },
+      {
+        "department": 67,
+        "actual_sales": 4418.69,
+        "expected_sales": 4693.491127777778,
+        "modeled_shortfall": 274.8011277777787,
+        "shortfall_pct": 5.854940816898666,
+        "global_mad_flag": false
+      },
+      {
+        "department": 85,
+        "actual_sales": 1231.99,
+        "expected_sales": 1499.746333333334,
+        "modeled_shortfall": 267.75633333333394,
+        "shortfall_pct": 17.853441437540916,
+        "global_mad_flag": false
+      },
+      {
+        "department": 34,
+        "actual_sales": 17529.58,
+        "expected_sales": 17796.076344444435,
+        "modeled_shortfall": 266.4963444444329,
+        "shortfall_pct": 1.4975005685881289,
+        "global_mad_flag": false
+      },
+      {
+        "department": 41,
+        "actual_sales": 1417.63,
+        "expected_sales": 1661.119733333333,
+        "modeled_shortfall": 243.48973333333288,
+        "shortfall_pct": 14.658168730843219,
+        "global_mad_flag": false
+      },
+      {
+        "department": 22,
+        "actual_sales": 8602.43,
+        "expected_sales": 8792.60994444445,
+        "modeled_shortfall": 190.17994444444957,
+        "shortfall_pct": 2.16295213419098,
+        "global_mad_flag": false
+      },
+      {
+        "department": 2,
+        "actual_sales": 57429.63,
+        "expected_sales": 57617.93686666666,
+        "modeled_shortfall": 188.30686666666588,
+        "shortfall_pct": 0.32681987052473904,
+        "global_mad_flag": false
+      },
+      {
+        "department": 21,
+        "actual_sales": 4187.09,
+        "expected_sales": 4372.698199999996,
+        "modeled_shortfall": 185.60819999999603,
+        "shortfall_pct": 4.244706392039501,
+        "global_mad_flag": false
+      },
+      {
+        "department": 31,
+        "actual_sales": 6375.18,
+        "expected_sales": 6527.272177777774,
+        "modeled_shortfall": 152.09217777777394,
+        "shortfall_pct": 2.3301031983249407,
+        "global_mad_flag": false
+      },
+      {
+        "department": 37,
+        "actual_sales": 1375.56,
+        "expected_sales": 1522.457822222222,
+        "modeled_shortfall": 146.89782222222198,
+        "shortfall_pct": 9.648728528177275,
+        "global_mad_flag": false
+      },
+      {
+        "department": 99,
+        "actual_sales": 40.08,
+        "expected_sales": 177.67364444444448,
+        "modeled_shortfall": 137.59364444444446,
+        "shortfall_pct": 77.44178652645788,
+        "global_mad_flag": false
+      },
+      {
+        "department": 42,
+        "actual_sales": 6063.95,
+        "expected_sales": 6199.249022222219,
+        "modeled_shortfall": 135.2990222222188,
+        "shortfall_pct": 2.1825066510026847,
+        "global_mad_flag": false
+      },
+      {
+        "department": 16,
+        "actual_sales": 5704.66,
+        "expected_sales": 5808.589722222224,
+        "modeled_shortfall": 103.92972222222397,
+        "shortfall_pct": 1.7892419191635214,
+        "global_mad_flag": false
+      },
+      {
+        "department": 56,
+        "actual_sales": 132.22,
+        "expected_sales": 203.3365333333332,
+        "modeled_shortfall": 71.1165333333332,
+        "shortfall_pct": 34.974793839310024,
+        "global_mad_flag": false
+      },
+      {
+        "department": 59,
+        "actual_sales": 153.64,
+        "expected_sales": 219.63185,
+        "modeled_shortfall": 65.99185,
+        "shortfall_pct": 30.046575667418,
+        "global_mad_flag": false
+      },
+      {
+        "department": 19,
+        "actual_sales": 1141.73,
+        "expected_sales": 1207.157377777778,
+        "modeled_shortfall": 65.42737777777802,
+        "shortfall_pct": 5.419954264639581,
+        "global_mad_flag": false
+      },
+      {
+        "department": 60,
+        "actual_sales": 477.0,
+        "expected_sales": 496.2591111111114,
+        "modeled_shortfall": 19.259111111111395,
+        "shortfall_pct": 3.8808579389083135,
+        "global_mad_flag": false
+      },
+      {
+        "department": 26,
+        "actual_sales": 7168.62,
+        "expected_sales": 7153.334200000001,
+        "modeled_shortfall": -15.285799999998744,
+        "shortfall_pct": -0.21368776535002015,
+        "global_mad_flag": false
+      },
+      {
+        "department": 28,
+        "actual_sales": 446.24,
+        "expected_sales": 412.8868888888886,
+        "modeled_shortfall": -33.35311111111139,
+        "shortfall_pct": -8.078026212183016,
+        "global_mad_flag": false
+      },
+      {
+        "department": 44,
+        "actual_sales": 4030.66,
+        "expected_sales": 3990.894611111111,
+        "modeled_shortfall": -39.76538888888899,
+        "shortfall_pct": -0.9964028811529516,
+        "global_mad_flag": false
+      },
+      {
+        "department": 52,
+        "actual_sales": 2053.41,
+        "expected_sales": 1995.0686333333333,
+        "modeled_shortfall": -58.341366666666545,
+        "shortfall_pct": -2.924278678533008,
+        "global_mad_flag": false
+      },
+      {
+        "department": 27,
+        "actual_sales": 1887.19,
+        "expected_sales": 1773.674888888889,
+        "modeled_shortfall": -113.51511111111108,
+        "shortfall_pct": -6.399995389359215,
+        "global_mad_flag": false
+      },
+      {
+        "department": 12,
+        "actual_sales": 3428.87,
+        "expected_sales": 3065.249866666666,
+        "modeled_shortfall": -363.6201333333338,
+        "shortfall_pct": -11.862658809239452,
+        "global_mad_flag": false
+      },
+      {
+        "department": 4,
+        "actual_sales": 27833.3,
+        "expected_sales": 27432.00405555555,
+        "modeled_shortfall": -401.29594444444956,
+        "shortfall_pct": -1.4628750551062228,
+        "global_mad_flag": false
+      },
+      {
+        "department": 13,
+        "actual_sales": 37975.03,
+        "expected_sales": 37475.65134444446,
+        "modeled_shortfall": -499.3786555555416,
+        "shortfall_pct": -1.3325416307395856,
+        "global_mad_flag": false
+      },
+      {
+        "department": 14,
+        "actual_sales": 14379.04,
+        "expected_sales": 13251.040599999997,
+        "modeled_shortfall": -1127.9994000000042,
+        "shortfall_pct": -8.512534479744968,
+        "global_mad_flag": false
+      },
+      {
+        "department": 40,
+        "actual_sales": 43452.85,
+        "expected_sales": 42289.63967777778,
+        "modeled_shortfall": -1163.2103222222213,
+        "shortfall_pct": -2.750579884541937,
+        "global_mad_flag": false
+      },
+      {
+        "department": 87,
+        "actual_sales": 16691.18,
+        "expected_sales": 15262.22313333334,
+        "modeled_shortfall": -1428.95686666666,
+        "shortfall_pct": -9.36270459541217,
+        "global_mad_flag": false
+      },
+      {
+        "department": 9,
+        "actual_sales": 19219.21,
+        "expected_sales": 17639.15732222223,
+        "modeled_shortfall": -1580.0526777777704,
+        "shortfall_pct": -8.957642640826059,
+        "global_mad_flag": false
+      },
+      {
+        "department": 23,
+        "actual_sales": 33594.46,
+        "expected_sales": 31149.986044444435,
+        "modeled_shortfall": -2444.4739555555643,
+        "shortfall_pct": -7.847431944488892,
+        "global_mad_flag": false
+      },
+      {
+        "department": 17,
+        "actual_sales": 10215.88,
+        "expected_sales": 7756.954244444446,
+        "modeled_shortfall": -2458.925755555553,
+        "shortfall_pct": -31.699629494613085,
+        "global_mad_flag": false
+      },
+      {
+        "department": 55,
+        "actual_sales": 8502.34,
+        "expected_sales": 5754.244600000001,
+        "modeled_shortfall": -2748.0953999999992,
+        "shortfall_pct": -47.75770915264879,
+        "global_mad_flag": false
+      },
+      {
+        "department": 25,
+        "actual_sales": 18946.7,
+        "expected_sales": 15483.029744444446,
+        "modeled_shortfall": -3463.670255555555,
+        "shortfall_pct": -22.37075244784293,
+        "global_mad_flag": false
+      },
+      {
+        "department": 3,
+        "actual_sales": 52778.77,
+        "expected_sales": 48309.04771111111,
+        "modeled_shortfall": -4469.722288888886,
+        "shortfall_pct": -9.252350233889722,
+        "global_mad_flag": false
+      },
+      {
+        "department": 24,
+        "actual_sales": 22665.84,
+        "expected_sales": 16769.225011111117,
+        "modeled_shortfall": -5896.614988888883,
+        "shortfall_pct": -35.16331246662768,
+        "global_mad_flag": false
+      },
+      {
+        "department": 72,
+        "actual_sales": 45922.14,
+        "expected_sales": 38384.07196666668,
+        "modeled_shortfall": -7538.068033333322,
+        "shortfall_pct": -19.638531419697987,
+        "global_mad_flag": false
+      }
+    ]
+  },
+  "historical_sales": {
+    "previous_8_weeks": [
+      {
+        "date": "2012-07-06",
+        "weekly_sales": 1500863.54
+      },
+      {
+        "date": "2012-07-13",
+        "weekly_sales": 1179915.04
+      },
+      {
+        "date": "2012-07-20",
+        "weekly_sales": 1149427.48
+      },
+      {
+        "date": "2012-07-27",
+        "weekly_sales": 1135035.09
+      },
+      {
+        "date": "2012-08-03",
+        "weekly_sales": 1376520.0999999999
+      },
+      {
+        "date": "2012-08-10",
+        "weekly_sales": 1269113.41
+      },
+      {
+        "date": "2012-08-17",
+        "weekly_sales": 1184198.41
+      },
+      {
+        "date": "2012-08-24",
+        "weekly_sales": 1199309.59
+      }
+    ],
+    "previous_8_week_average": 1249297.8325,
+    "deviation_from_previous_8w_pct": -1.775323859773048
+  },
+  "business_context": {
+    "is_holiday": false,
+    "temperature": 89.78,
+    "fuel_price": 4.093,
+    "cpi": 130.8853548,
+    "unemployment": 10.926,
+    "markdown_fields": {
+      "MarkDown1": 25745.2,
+      "MarkDown2": 3.2,
+      "MarkDown3": 115.39,
+      "MarkDown4": 11858.54,
+      "MarkDown5": 4508.04
+    },
+    "markdown_data_available": true,
+    "total_recorded_markdown": 42230.37
+  },
+  "investigation": {
+    "status": "Needs analyst review",
+    "recommended_next_step": "Review department contributors, historical trends, markdown records, and relevant contextual evidence.",
+    "causality_verified": false,
+    "modeled_gap_is_confirmed_loss": false,
+    "human_review_required": true
+  }
+}
