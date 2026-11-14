@@ -490,3 +490,7 @@ if cid and cid in set(cases.CaseID):
     case_page(cid)
 else:
     home()
+st.markdown("<div class='muted' style='margin-top:36px;padding-top:12px;border-top:1px solid #E3E6EA;font-size:.78rem'>"
+            "IDS 560 Team 2 student project with a Walmart sponsor. Not an official Walmart tool. Built on the public Kaggle "
+            "Walmart sales data (2010-2012) and public Walmart, Federal Reserve, NRF and EIA reports.</div>",
+            unsafe_allow_html=True)

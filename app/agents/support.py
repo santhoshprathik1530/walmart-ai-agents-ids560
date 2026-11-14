@@ -89,15 +89,16 @@ def dept_summary(dept: int, date: str, store: int) -> dict:
 
 
 def outside(store: int, date: str) -> dict:
-    f = features().loc[store]
-    dates = list(f.index)
-    i = dates.index(date)
-    before = f.iloc[max(0, i - 4):i]
     out = {}
-    for k in ("Fuel_Price", "Temperature", "Unemployment"):
-        cur, prev = f.iloc[i][k], before[k].median()
-        if cur == cur:
-            out[k] = dict(current=float(cur), prior_4_week_median=float(prev))
+    if (DATA / "features.csv").exists():             # Kaggle file; left out of the public web copy (no re-sharing)
+        f = features().loc[store]
+        dates = list(f.index)
+        i = dates.index(date)
+        before = f.iloc[max(0, i - 4):i]
+        for k in ("Fuel_Price", "Temperature", "Unemployment"):
+            cur, prev = f.iloc[i][k], before[k].median()
+            if cur == cur:
+                out[k] = dict(current=float(cur), prior_4_week_median=float(prev))
     _, _, cal = lookups()
     c = cal.loc[date]
     out["holiday"] = c.HolidayWeek if isinstance(c.HolidayWeek, str) else "none"
