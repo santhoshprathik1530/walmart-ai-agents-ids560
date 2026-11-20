@@ -94,7 +94,22 @@ st.markdown(f"""<style>
   .answer-k {{color:{NAVY}; font-weight:800; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; margin-right:auto;}}
   .answer-b {{font-size:1.05rem; line-height:1.55; color:{INK};}}
   .answer-f {{color:{GREY}; font-size:.82rem; margin-top:8px;}}
-  .card {{background:{LIGHT}; border-radius:10px; padding:12px 16px; margin-bottom:10px; border-left:4px solid #B8BEC6;}}
+  .card {{background:#fff; border:1px solid {LINE}; border-radius:10px; padding:12px 16px; margin-bottom:10px;}}
+  .strip {{display:flex; align-items:center; gap:28px; flex-wrap:wrap; border-bottom:1px solid {LINE}; padding:6px 0 14px;
+          margin-bottom:16px;}}
+  .strip-l {{margin-right:auto;}}
+  .stat-v {{color:{NAVY}; font-weight:800; font-size:1.25rem; line-height:1.2;}}
+  .stat-l {{color:{GREY}; font-size:.78rem;}}
+  .lead {{background:{SKY}; border-radius:12px; padding:14px 20px; margin-bottom:18px;}}
+  .lead-b {{color:{INK}; font-size:1.2rem; font-weight:600; line-height:1.45; margin-top:4px;}}
+  .lead details summary {{color:{BLUE}; font-size:.85rem; font-weight:700; cursor:pointer; margin-top:6px; list-style:none;}}
+  .lead details summary::-webkit-details-marker {{display:none;}}
+  .lead details[open] summary {{display:none;}}
+  .lead details {{color:{INK}; font-size:.95rem; line-height:1.5; margin-top:6px;}}
+  .colhead {{border-top:4px solid; padding:10px 2px 12px;}}
+  .colhead-t {{font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.05em;}}
+  .colhead-v {{color:{INK}; font-size:.93rem; margin-top:3px;}}
+  .panel-t {{color:{NAVY}; font-weight:800; font-size:1rem; margin-bottom:6px;}}
   .card-t {{color:{NAVY}; font-weight:800; margin-bottom:2px;}}
   .tag {{display:inline-block; color:{GREY}; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
         margin-bottom:2px;}}
@@ -103,7 +118,7 @@ st.markdown(f"""<style>
   .todo-i:last-child {{border-bottom:none;}}
   .todo-i span {{flex:none; width:16px; height:16px; margin-top:3px; border:2px solid {BLUE}; border-radius:4px;}}
   .muted {{color:{GREY}; font-size:.88rem;}}
-  .st-key-todo_box {{border-top:5px solid {SPARK} !important;}}
+  .st-key-todo_box {{border-top:4px solid {SPARK} !important;}}
   .st-key-todo_box [data-testid="stCheckbox"] {{padding:4px 0; border-bottom:1px solid {LINE};}}
   .after {{display:inline-block; background:#FDF1E3; color:#8A4B00; font-size:.72rem; font-weight:700; border-radius:999px;
           padding:1px 8px; margin-left:6px;}}
@@ -178,7 +193,7 @@ def tidy(t) -> str:
 
 
 def first_sentence(t: str) -> tuple[str, str]:
-    parts = re.split(r"(?<=[.!?])\s+(?=[A-Z\"])", t.strip(), maxsplit=1)
+    parts = re.split(r"(?:(?<=[.!?])|(?<=[.!?][\"”]))\s+(?=[A-Z\"“])", t.strip(), maxsplit=1)
     return parts[0], parts[1] if len(parts) > 1 else ""
 
 
@@ -293,8 +308,8 @@ st.session_state.setdefault("live_log", {})
 cid = st.query_params.get("case")
 
 st.markdown(f"<div class='topbar'>{uic_logo()}<div class='topbar-m'><div class='topbar-t'>Forecasting Exception Investigation</div>"
-            f"<div class='topbar-s'>Walmart store-level sales and markdown performance · IDS 560 Team 2 · "
-            f"sales data through Oct 26, 2012</div></div>{team()}<div class='spark'>{logo()}</div></div>",
+            f"<div class='topbar-s'>Walmart store-level sales and markdown performance · IDS 560 · "
+            f"Fall 2026</div></div>{team()}<div class='spark'>{logo()}</div></div>",
             unsafe_allow_html=True)
 
 
@@ -420,23 +435,40 @@ def everywhere_chart(dept: int, date: str, store: int):
     st.plotly_chart(fig, width="stretch", config=dict(displayModeBar=False))
 
 
-def header(r):
-    if st.button("← All flagged weeks", key="back"):
+WIDER_SCOPES = {"walmart", "department", "region", "report", "outside"}     # findings shown under "Wider market"
+
+
+def neighbours(case_id: str) -> tuple[str | None, str | None]:
+    """Previous / next case in the home list's order (ML priority), within the list the user was looking at."""
+    ready = st.session_state.get("show", "Ready to review") == "Ready to review" and case_id in runs
+    pool = cases[cases.CaseID.isin(runs)] if ready else cases
+    ids = list(pool.sort_values("Rank").CaseID)
+    i = ids.index(case_id) if case_id in ids else -1
+    return (ids[i - 1] if i > 0 else None), (ids[i + 1] if 0 <= i < len(ids) - 1 else None)
+
+
+def header(r, x: dict | None):
+    """Back + previous/next, then one strip with the store-week and its key numbers (replaces the number tiles)."""
+    prev_id, next_id = neighbours(r.CaseID)
+    a, _, b, c = st.columns([1.4, 4, 0.8, 0.8], vertical_alignment="center")
+    if a.button("← All flagged weeks", key="back"):
         go_to(None)
+    if b.button("‹ Previous", key="prev", disabled=prev_id is None, width="stretch"):
+        go_to(prev_id)
+    if c.button("Next ›", key="next_case", disabled=next_id is None, width="stretch"):
+        go_to(next_id)
     holiday = f" · {r.HolidayWeek} week" if isinstance(r.HolidayWeek, str) else ""
-    st.markdown(f"<div class='title'>Store {r.Store} · week ending {week(r.Week)}</div>"
-                f"<div class='sub'>{h(r.RegionShort)} · {h(quarter(r.FiscalPeriod))}{h(holiday)} · Priority #{r.Rank} of "
-                f"{len(cases)}</div>", unsafe_allow_html=True)
-
-
-def key_numbers(r, g: pd.DataFrame):
-    """Two totals, both labelled: the whole store (the home list figure) and the flagged departments (the agent's figure)."""
-    top = g.iloc[0]
-    tiles([(usd(r.Net), "whole store below the ML forecast (estimate)"),
-           (usd(r.FlaggedShortfall), f"of it in the {r.FlaggedDepts} flagged departments (of {int(r.EligibleDepts)})"),
-           (f"{top.DeptName}", f"biggest gap: {usd(top.Shortfall)} ({-top.ShortfallPct:+.0f}%)")]
-          + ([(usd(r.Markdown), "markdowns this week, whole store; not tied to a department or shown to cause the gap")]
-             if pd.notna(r.Markdown) else []))
+    stats = [(usd(r.Net), "below forecast, whole store"),
+             (usd(r.FlaggedShortfall), f"in {r.FlaggedDepts} of {int(r.EligibleDepts)} departments flagged")]
+    if pd.notna(r.Markdown):
+        stats.append((usd(r.Markdown), "markdowns, whole store"))
+    ev = strength(x["report"]["evidence_found"], " evidence") if x else strength("")
+    st.markdown(
+        f"<div class='strip'><div class='strip-l'><div class='title'>Store {r.Store} · week ending {week(r.Week)}</div>"
+        f"<div class='sub' style='margin:2px 0 0'>{h(r.RegionShort)} · {h(quarter(r.FiscalPeriod))}{h(holiday)} · "
+        f"Priority #{r.Rank} of {len(cases)}</div></div>"
+        + "".join(f"<div class='stat'><div class='stat-v'>{h(v)}</div><div class='stat-l'>{h(l)}</div></div>" for v, l in stats)
+        + f"<div class='stat'>{ev}</div></div>", unsafe_allow_html=True)
 
 
 @st.cache_data(show_spinner=False)
@@ -453,37 +485,35 @@ def shared_or_local(case_id: str) -> tuple[list[str], list[str]] | None:
         s = support.dept_summary(int(d.Dept), date, store)
         most = lambda below, n: n == 0 or below > n / 2                  # no same-region stores -> chain test only
         shared_here = s["stores"] > 0 and most(s["below"], s["stores"]) and most(s["region_below"], s["region_stores"])
-        (shared if shared_here else local).append(d.DeptName)
+        (shared if shared_here else local).append(plain(d.DeptName))
     return shared, local
 
 
-def split_line(case_id: str) -> str:
-    sl = shared_or_local(case_id)
-    if not sl:
-        return ""
-    shared, local = sl
-    n = len(shared) + len(local)
-    names = lambda xs: h(", ".join(xs[:4]) + (f" + {len(xs) - 4} more" if len(xs) > 4 else "")) or "None"
-    return (f"<div class='split'><div class='split-b'><div class='split-k' style='color:{BLUE}' title='{h(WIDER)}'>Wider market · most stores fell too ⓘ</div>"
-            f"<div class='split-v'><b>{len(shared)} of {n}</b> flagged departments also fell at most other stores</div></div>"
-            f"<div class='split-b' style='border-color:{NAVY}'><div class='split-k' style='color:{NAVY}'>Looks store-specific · "
-            f"check store operations</div><div class='split-v'>{'<b>' + names(local) + '</b>' if local else 'None of the flagged departments'}</div>"
-            f"</div></div>")
+def headline(x: dict):
+    """The agent's answer in one sentence; the rest one click away."""
+    lead, rest = first_sentence(tidy(x["report"]["summary"]))
+    more = f"<details><summary>Read more</summary>{h(rest)}</details>" if rest else ""
+    warn = ("<div class='answer-f'>◐ This answer failed one of the agent's checks; read it with care.</div>"
+            if x.get("needs_review") else "")
+    st.markdown(f"<div class='lead'><div class='answer-k'>What the agent found</div>"
+                f"<div class='lead-b'>{h(lead)}</div>{more}{warn}</div>", unsafe_allow_html=True)
 
 
-def answer_card(x: dict):
-    """The agent's short answer, first thing on the page: ML status, evidence strength, summary, one-line caveat."""
-    rep, shown = x["report"], x["shown_status"]
-    _, fg, bg = STATUS.get(shown, STATUS["Needs analyst review"])
-    edge = "#E8A33D" if x.get("needs_review") else BLUE
-    note = "This answer failed one of the agent's checks; read it with care." if x.get("needs_review") else ""
-    badge = "" if shown in ML_STATUS else pill(shown)          # the ML status is the same on every week: said once, in the footer
-    st.markdown(f"<div class='answer' style='background:{SKY if not x.get('needs_review') else bg};border-left-color:{edge}'>"
-                f"<div class='answer-h'><span class='answer-k'>What the agent found</span>{badge}"
-                f"{strength(rep['evidence_found'], ' evidence')}</div>"
-                f"<div class='answer-b'>{h(tidy(rep['summary']))}</div>{split_line(x['case_id'])}"
-                + (f"<div class='answer-f'>{h(note)}</div>" if note else "") + "</div>",
-                unsafe_allow_html=True)
+def finding_cards(findings: list[dict], where):
+    if not findings:
+        where.markdown("<div class='muted' style='padding:8px 2px'>No finding of this kind for this week.</div>",
+                       unsafe_allow_html=True)
+    for f in findings:                                                 # title + one line; the rest one click away
+        lead, rest = first_sentence(tidy(f["text"]))
+        more = f"<details><summary>Show more</summary>{h(rest)}</details>" if rest else ""
+        where.markdown(f"<div class='card'><div class='tag'>{h(TAG.get(f['scope'], f['scope']))}</div>"
+                       f"<div class='card-t'>{h(f['title'])}</div>{h(lead)}{more}</div>", unsafe_allow_html=True)
+
+
+def col_head(where, colour: str, title: str, line: str, tip: str = ""):
+    t = f" title='{h(tip)}'" if tip else ""
+    where.markdown(f"<div class='colhead' style='border-top-color:{colour}'><div class='colhead-t' style='color:{colour}'{t}>"
+                   f"{h(title)}{' ⓘ' if tip else ''}</div><div class='colhead-v'>{line}</div></div>", unsafe_allow_html=True)
 
 
 def todo(steps: list[tuple[int, str]], case_id: str):
@@ -492,52 +522,72 @@ def todo(steps: list[tuple[int, str]], case_id: str):
         st.checkbox(md(tidy(s_)), key=f"chk_{case_id}_{i}")
 
 
-def why_and_checks(rep: dict, g: pd.DataFrame, case_id: str):
-    left, right = st.columns([1.65, 1], gap="large")
-    section("Why it may have happened", left)
-    for f in rep["findings"]:                                          # title + one line; the rest one click away
-        lead, rest = first_sentence(tidy(f["text"]))
-        more = f"<details><summary>Show more</summary>{h(rest)}</details>" if rest else ""
-        left.markdown(f"<div class='card' style='border-left-color:{EDGE.get(f['scope'], '#B8BEC6')}'>"
-                      f"<div class='tag'>{h(TAG.get(f['scope'], f['scope']))}</div>"
-                      f"<div class='card-t'>{h(f['title'])}</div>{h(lead)}{more}</div>", unsafe_allow_html=True)
-    section("What to check first", right)
+def checks_panel(rep: dict, g: pd.DataFrame, case_id: str):
     names = [n.lower() for n in g.DeptName] + ["dept "]
     specific = lambda s: any(n in s.lower() for n in names)            # department-specific checks go first
     steps = sorted(enumerate(rep["next_steps"]), key=lambda t: not specific(t[1]))
     done = sum(bool(st.session_state.get(f"chk_{case_id}_{i}")) for i, _ in steps)
-    with right.container(border=True, key="todo_box"):
-        st.markdown(f"<div class='muted' style='margin-bottom:4px'>{done} of {len(steps)} checked</div>",
-                    unsafe_allow_html=True)
-        todo(steps[:3], case_id)
-        if steps[3:]:
-            with st.expander(f"{len(steps) - 3} more routine checks"):
-                todo(steps[3:], case_id)
+    st.markdown(f"<div class='panel-t'>What to check first <span class='muted'>· {done} of {len(steps)} done</span></div>",
+                unsafe_allow_html=True)
+    todo(steps[:3], case_id)
+    if steps[3:]:
+        with st.expander(f"{len(steps) - 3} more routine checks"):
+            todo(steps[3:], case_id)
 
 
-def where_the_gap_is(r, g: pd.DataFrame, x: dict | None):
-    section("Same department at other stores")
-    with st.container():
-        if x is None:                                                  # no answer card yet: the department chart lives here
-            dept_bars(g)
+def story(x: dict, g: pd.DataFrame, case_id: str):
+    """Wider market | This store | What to do (stays in view while scrolling)."""
+    rep = x["report"]
+    sl = shared_or_local(case_id)
+    wide, mine, act = st.columns([1, 1, 0.95], gap="medium")
+    n = sum(map(len, sl)) if sl else 0
+    names = lambda xs: h(", ".join(xs[:4]) + (f" + {len(xs) - 4} more" if len(xs) > 4 else ""))
+    col_head(wide, BLUE, "Wider market · most stores fell too",
+             f"<b>{len(sl[0])} of {n}</b> flagged departments also fell at most other stores" if sl else "", tip=WIDER)
+    finding_cards([f for f in rep["findings"] if f["scope"] in WIDER_SCOPES], wide)
+    col_head(mine, NAVY, "This store · check store operations",
+             (f"Looks store-specific: <b>{names(sl[1])}</b>" if sl[1] else "No flagged department looks store-specific")
+             if sl else "")
+    finding_cards([f for f in rep["findings"] if f["scope"] not in WIDER_SCOPES], mine)
+    with act:
+        with st.container(key="actions"):
+            with st.container(border=True, key="todo_box"):
+                checks_panel(rep, g, case_id)
+            with st.container(border=True, key="ask_box"):
+                st.markdown("<div class='panel-t'>Ask a question</div>", unsafe_allow_html=True)
+                chat_box(case_id, x, g)
+
+
+def evidence_tabs(r, g: pd.DataFrame, x: dict | None):
+    section("The evidence")
+    names = ["Departments", "Other stores"] + (["Reports used", "How the agent worked"] if x else [])
+    tabs = st.tabs(names)
+    with tabs[0]:
+        dept_bars(g)
         with st.expander(f"All {len(g)} flagged departments"):
-            st.dataframe(pd.DataFrame({"Department": [plain(f"{int(d.Dept)} {d.DeptName}") for d in g.itertuples()], "Category": g.Unit,
-                                       "Actual": g.Actual.map(usd), "ML forecast": g.Expected.map(usd),
-                                       "Below forecast": g.Shortfall.map(usd), "%": g.ShortfallPct.map(lambda v: f"{-v:+.1f}%")}),
+            st.dataframe(pd.DataFrame({"Department": [plain(f"{int(d.Dept)} {d.DeptName}") for d in g.itertuples()],
+                                       "Category": g.Unit, "Actual": g.Actual.map(usd), "ML forecast": g.Expected.map(usd),
+                                       "Below forecast": g.Shortfall.map(usd),
+                                       "%": g.ShortfallPct.map(lambda v: f"{-v:+.1f}%")}),
                          hide_index=True, width="stretch")
             st.caption("Numbers from the ML model's case file. Department names are publicly inferred.")
-    with st.container():
+    with tabs[1]:
         date = g.Date.iloc[0]
         if not support.covered(date):
             st.caption("Store-by-store numbers are not available for this week.")
-            return
-        names = {int(d.Dept): plain(d.DeptName) for d in g.itertuples()}
-        dept = st.selectbox("Department", list(names), format_func=names.get)
-        everywhere_chart(dept, date, int(r.Store))
-        e = {k["id"]: k for k in (x or {}).get("evidence", [])}.get(f"dept_{dept}", {})
-        more = f" {e['same_department_all_stores']}." if e.get("same_department_all_stores") else ""
-        st.caption(f"Each bar is one store, this week vs the ML forecast. Dark = Store {r.Store}, mid blue = same region "
-                   f"(publicly inferred).{more}")
+        else:
+            dn = {int(d.Dept): plain(d.DeptName) for d in g.itertuples()}
+            dept = st.selectbox("Department", list(dn), format_func=dn.get)
+            everywhere_chart(dept, date, int(r.Store))
+            e = {k["id"]: k for k in (x or {}).get("evidence", [])}.get(f"dept_{dept}", {})
+            more = f" {plain(e['same_department_all_stores'])}." if e.get("same_department_all_stores") else ""
+            st.caption(f"Each bar is one store, this week vs the ML forecast. Dark = Store {r.Store}, mid blue = same region "
+                       f"(publicly inferred).{more}")
+    if x:
+        with tabs[2]:
+            reports_used(r.CaseID, x)
+        with tabs[3]:
+            how_it_worked(r.CaseID, x)
 
 
 def live_note(case_id: str):
@@ -552,32 +602,35 @@ def live_note(case_id: str):
             st.markdown(f"- {md(m)}")
 
 
-def how_it_was_found(case_id: str, x: dict):
-    rep = x["report"]
-    with st.expander("How the agent got this answer"):
-        p, rg = x["plan"], x["rag"]
-        st.markdown("**Searches it wrote**")
-        st.markdown("\n".join(f"- {md(q['text'])}" for q in p["queries"]))
-        cited = {e for f in rep["findings"] for e in f["evidence"]}
-        used = [ps for ps in rg["passages"] if ps["id"] in cited]
-        st.markdown(f"**Report passages used** ({len(used)} of {len(rg['passages'])} read; reports from "
-                    f"{rg['filter']['start']} to {rg['filter']['end']})")
-        wk = cases.set_index("CaseID").Week[case_id]
-        for ps in used:
-            later = pd.to_datetime(ps.get("date"), errors="coerce")
-            after = "<span class='after'>Published after this week</span>" if pd.notna(later) and later > wk else ""
-            link = f" · <a href='{h(ps['url'])}' target='_blank'>open</a>" if ps.get("url") else ""
-            st.markdown(f"<b>{h(ps['source'])}</b>{after} <span class='muted'>· {h(ps['district'])}{link}</span>"
-                        f"<div class='quote'>{h(ps['text'][:500])}{'…' if len(ps['text']) > 500 else ''}</div>",
-                        unsafe_allow_html=True)
-        checks = x["evaluation"]["checks"]
-        st.markdown(f"**Checks: {sum(k['passed'] for k in checks)} of {len(checks)} passed**")
-        st.markdown("\n".join(f"- {'✅' if k['passed'] else '❌'} {md(k['name'])}" for k in checks))
-        st.caption(f"Written by {x['llm']['model']} in {x['seconds']:.0f} s"
-                   f"{' (live, ' + x['ran_at'] + ')' if x.get('ran_at') else ''}. The flag and status are the ML model's.")
-        if st.button("▶ Run the agent again on this week", key="rerun",
-                     help="Runs the six steps on this week now (about 30 seconds)."):
-            go_to(case_id, live=True)
+def reports_used(case_id: str, x: dict):
+    rep, rg = x["report"], x["rag"]
+    cited = {e for f in rep["findings"] for e in f["evidence"]}
+    used = [ps for ps in rg["passages"] if ps["id"] in cited]
+    st.markdown(f"<div class='muted'>{len(used)} of {len(rg['passages'])} passages read were used · reports from "
+                f"{rg['filter']['start']} to {rg['filter']['end']}</div>", unsafe_allow_html=True)
+    if not used:
+        st.caption("No report passage was used in this answer.")
+    wk = cases.set_index("CaseID").Week[case_id]
+    for ps in used:
+        later = pd.to_datetime(ps.get("date"), errors="coerce")
+        after = "<span class='after'>Published after this week</span>" if pd.notna(later) and later > wk else ""
+        link = f" · <a href='{h(ps['url'])}' target='_blank'>open</a>" if ps.get("url") else ""
+        st.markdown(f"<b>{h(ps['source'])}</b>{after} <span class='muted'>· {h(ps['district'])}{link}</span>"
+                    f"<div class='quote'>{h(ps['text'][:500])}{'…' if len(ps['text']) > 500 else ''}</div>",
+                    unsafe_allow_html=True)
+
+
+def how_it_worked(case_id: str, x: dict):
+    st.markdown("**Searches it wrote**")
+    st.markdown("\n".join(f"- {md(q['text'])}" for q in x["plan"]["queries"]))
+    checks = x["evaluation"]["checks"]
+    st.markdown(f"**Checks: {sum(k['passed'] for k in checks)} of {len(checks)} passed**")
+    st.markdown("\n".join(f"- {'✅' if k['passed'] else '❌'} {md(k['name'])}" for k in checks))
+    st.caption(f"Written by {x['llm']['model']} in {x['seconds']:.0f} s"
+               f"{' (live, ' + x['ran_at'] + ')' if x.get('ran_at') else ''}. The flag and status are the ML model's.")
+    if st.button("▶ Run the agent again on this week", key="rerun",
+                 help="Runs the six steps on this week now (about 30 seconds)."):
+        go_to(case_id, live=True)
 
 
 def case_page(case_id: str):
@@ -585,7 +638,7 @@ def case_page(case_id: str):
     r["CaseID"] = case_id
     x = runs.get(case_id)
     g = depts[depts.CaseID == case_id].sort_values("Shortfall", ascending=False)
-    header(r)
+    header(r, x)
 
     if st.session_state.get("live_now") == case_id:
         st.session_state["live_now"] = None
@@ -600,30 +653,18 @@ def case_page(case_id: str):
                        "30 seconds to find the evidence.", unsafe_allow_html=True)
             if b.button("▶ Find the evidence now", type="primary", width="stretch", key="run_first"):
                 go_to(case_id, live=True)
-        key_numbers(r, g)
-        where_the_gap_is(r, g, None)
+        evidence_tabs(r, g, None)
         return
 
-    left, right = st.columns([1.75, 1], gap="large")
-    with left:
-        answer_card(x)
-    with right:
-        st.markdown("<div class='answer-k' style='margin:6px 0 2px'>Biggest gaps this week</div>", unsafe_allow_html=True)
-        dept_bars(g, 5)
-    key_numbers(r, g)
-    why_and_checks(x["report"], g, case_id)
-    where_the_gap_is(r, g, x)
-
-    section("Ask a question")
-    chat_box(case_id, x, g)
-    st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
-    how_it_was_found(case_id, x)
+    headline(x)
+    story(x, g, case_id)
+    evidence_tabs(r, g, x)
 
 
 def chat_box(case_id: str, x: dict, g: pd.DataFrame):
     hist = st.session_state["chat"].setdefault(case_id, [])
     top = g.iloc[0]
-    ideas = [f"How did {plain(top.DeptName)} do at other stores?", "What did Walmart report that quarter?",
+    ideas = [f"How did {plain(top.DeptName)} do elsewhere?", "What did Walmart report that quarter?",
              "Was anything happening in the region?"]
     asked = st.pills("Suggested questions", ideas, key=f"ideas_{case_id}_{len(hist)}", label_visibility="collapsed")
     for m in hist:
