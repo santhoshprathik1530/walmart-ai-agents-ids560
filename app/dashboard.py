@@ -1,4 +1,4 @@
-"""Store Sales Assistant: the store dashboard for the ML model's flagged store-weeks (v4, 127 store-weeks).
+"""Forecasting Exception Investigation: the store dashboard for the ML model's flagged store-weeks (v4, 127 store-weeks).
 
     python3 -m streamlit run dashboard.py        (run from app/; answers come from data/agent_outputs_v3_v4.json)
 
@@ -16,6 +16,7 @@ Live:  'Run the agent' runs the six steps now and shows each one (saved to data/
 from __future__ import annotations
 
 import base64
+import re
 import html
 import os
 from pathlib import Path
@@ -30,7 +31,7 @@ from agents import pipeline_v3 as P                   # noqa: E402
 from agents import support                            # noqa: E402
 
 APP = Path(__file__).parent
-st.set_page_config(page_title="Store Sales Assistant", page_icon="🛒", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Forecasting Exception Investigation", page_icon="🛒", layout="wide", initial_sidebar_state="collapsed")
 
 # Walmart brand: True Blue, Bentonville Blue (navy) and Spark Yellow on white
 BLUE, NAVY, SPARK, INK, GREY, LINE, LIGHT, SKY = ("#0053E2", "#001E60", "#FFC220", "#1A1A1A", "#5A5F66", "#E3E6EA",
@@ -46,15 +47,34 @@ TAG = {"walmart": "Walmart overall", "department": "Same department, other store
        "store": "This store", "outside": "Outside factors", "report": "Walmart / Fed report", "ml_note": "ML model's note"}
 EDGE = {"walmart": BLUE, "department": BLUE, "region": BLUE, "store": NAVY, "report": SPARK}   # finding card accent
 LEVEL = {"Strong": 3, "Some": 2, "Little": 1}
+ML_STATUS = {"Needs analyst review", "Analyst review required"}           # the ML model's status on every flagged week
+WIDER = ("Wider market: in that department, more than half of the other stores and of the same-region stores were also "
+         "below the ML forecast that week.")
+UIC_RED = "#D50032"
+TEAM = ["Veronica Dinh", "Michaela Dennis", "Santhosh Kasam", "Labeeb Ahmed"]   # photos: assets/team/<first_last>.jpg|png
 
 st.markdown(f"""<style>
   .stApp {{background:#FFFFFF;}}
   header[data-testid="stHeader"] {{background:transparent;}}
-  .block-container {{padding-top:1rem; max-width:1120px;}}
-  .topbar {{background:{BLUE}; border-radius:14px; padding:12px 20px; display:flex; align-items:center; gap:14px; margin-bottom:18px;}}
-  .topbar img {{height:34px;}}
-  .topbar-t {{color:#fff; font-size:1.25rem; font-weight:700;}}
-  .topbar-r {{margin-left:auto; color:#fff; font-size:.85rem; opacity:.9;}}
+  .block-container {{padding:1rem 2.5rem 2rem; max-width:none;}}
+  .topbar {{background:linear-gradient(90deg,{UIC_RED} 0%,#8E1B3A 30%,{NAVY} 62%,{BLUE} 100%); border-radius:14px;
+           padding:14px 22px; display:flex; align-items:center; gap:22px; margin-bottom:20px;}}
+  .uic {{background:#fff; border-radius:10px; padding:6px 12px; display:flex; align-items:center; gap:10px; flex:none;}}
+  .uic img {{height:44px;}}
+  .uic-mark {{width:44px; height:44px; border-radius:50%; background:{UIC_RED}; color:#fff; font-weight:900; font-size:1rem;
+             display:flex; align-items:center; justify-content:center; letter-spacing:.02em;}}
+  .uic-word {{color:{UIC_RED}; font-weight:800; line-height:1.05; font-size:.72rem; letter-spacing:.12em;}}
+  .uic-word b {{display:block; font-size:1.02rem; letter-spacing:.02em;}}
+  .topbar-m {{flex:1; min-width:0;}}
+  .topbar-t {{color:#fff; font-size:1.45rem; font-weight:800; line-height:1.2;}}
+  .topbar-s {{color:#fff; font-size:.88rem; opacity:.88; margin-top:2px;}}
+  .team {{display:flex; gap:14px; flex:none;}}
+  .member {{display:flex; flex-direction:column; align-items:center; gap:4px; width:66px;}}
+  .member img, .member .ph {{width:48px; height:48px; border-radius:50%; object-fit:cover; border:2px solid #fff;}}
+  .member .ph {{border-style:dashed; background:rgba(255,255,255,.14); color:#fff; font-weight:800; font-size:.9rem;
+               display:flex; align-items:center; justify-content:center;}}
+  .member span {{color:#fff; font-size:.72rem; font-weight:600; text-align:center; line-height:1.15;}}
+  .spark img {{height:46px; display:block;}}
   .title {{color:{NAVY}; font-size:1.6rem; font-weight:800; margin:0; line-height:1.25;}}
   .sub {{color:{GREY}; font-size:.95rem; margin:2px 0 14px;}}
   .tile {{border:1px solid {LINE}; border-radius:12px; padding:12px 16px; height:100%;}}
@@ -83,6 +103,17 @@ st.markdown(f"""<style>
   .todo-i:last-child {{border-bottom:none;}}
   .todo-i span {{flex:none; width:16px; height:16px; margin-top:3px; border:2px solid {BLUE}; border-radius:4px;}}
   .muted {{color:{GREY}; font-size:.88rem;}}
+  .st-key-todo_box {{border-top:5px solid {SPARK} !important;}}
+  .st-key-todo_box [data-testid="stCheckbox"] {{padding:4px 0; border-bottom:1px solid {LINE};}}
+  .after {{display:inline-block; background:#FDF1E3; color:#8A4B00; font-size:.72rem; font-weight:700; border-radius:999px;
+          padding:1px 8px; margin-left:6px;}}
+  .card details summary {{color:{BLUE}; font-size:.82rem; font-weight:700; cursor:pointer; margin-top:4px; list-style:none;}}
+  .card details summary::-webkit-details-marker {{display:none;}}
+  .card details[open] summary {{display:none;}}
+  .split {{display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 2px;}}
+  .split-b {{flex:1 1 260px; background:#fff; border:1px solid {LINE}; border-radius:10px; padding:8px 12px;}}
+  .split-k {{font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.05em;}}
+  .split-v {{color:{INK}; font-size:.93rem; margin-top:2px;}}
   .colh {{color:{GREY}; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:0 2px;}}
   .rank {{width:30px; height:30px; border-radius:8px; background:{LIGHT}; color:{NAVY}; font-weight:800; display:flex;
          align-items:center; justify-content:center; font-size:.9rem;}}
@@ -97,7 +128,9 @@ st.markdown(f"""<style>
   [class*="st-key-row_"] {{transition:border-color .15s;}}
   [class*="st-key-row_"]:hover {{border-color:{BLUE} !important;}}
   .stTabs [data-baseweb="tab"] {{font-weight:700;}}
-  @media (max-width:640px) {{ .st-key-colhead {{display:none;}} .topbar-r {{display:none;}} }}
+  @media (max-width:1100px) {{ .team {{display:none;}} }}
+  @media (max-width:640px) {{ .st-key-colhead {{display:none;}} .uic-word, .topbar-s {{display:none;}}
+    .block-container {{padding:1rem 1rem 2rem;}} }}
 </style>""", unsafe_allow_html=True)
 
 
@@ -106,9 +139,26 @@ def usd(x: float) -> str:
     return f"${x / 1e6:,.2f}M" if abs(x) >= 1e6 else f"${x / 1000:,.1f}K" if abs(x) >= 1000 else f"${x:,.0f}"
 
 
+ALIAS = {"DSD Grocery, Snacks & Beverages": "Snacks & Beverages (direct-to-store)"}   # display only; mapping files unchanged
+
+
 def plain(t) -> str:
-    """One team built this: saved answers that say 'ML team' are shown as 'ML model' (Santhosh, 2026-11-02)."""
-    return str(t).replace("ML team", "ML model").replace("ML Team", "ML model")
+    """One team built this: saved answers that say 'ML team' are shown as 'ML model' (Santhosh, 2026-11-02).
+    Jargon department names are shown in plain words (ALIAS)."""
+    t = str(t).replace("ML team", "ML model").replace("ML Team", "ML model")
+    for a, b in ALIAS.items():
+        t = t.replace(a, b)
+    return t
+
+
+def quarter(fp: str) -> str:
+    """'FY2013 Q3' -> 'Walmart Q3 (Aug-Oct 2012)'; Walmart's fiscal year ends Jan 31."""
+    m = re.match(r"FY(\d{4}) Q([1-4])", str(fp))
+    if not m:
+        return f"Walmart {fp}"
+    fy, q = int(m.group(1)), int(m.group(2))
+    span = {1: f"Feb–Apr {fy - 1}", 2: f"May–Jul {fy - 1}", 3: f"Aug–Oct {fy - 1}", 4: f"Nov {fy - 1}–Jan {fy}"}[q]
+    return f"Walmart Q{q} ({span})"
 
 
 def h(t) -> str:
@@ -117,6 +167,19 @@ def h(t) -> str:
 
 def md(t: str) -> str:
     return plain(t).replace("$", "\\$")
+
+
+MONEY = re.compile(r"\$(\d{1,3}(?:,\d{3})+)(?:\.\d+)?")
+
+
+def tidy(t) -> str:
+    """Round long dollar figures in the agent's text for reading: $44,169,616 -> $44.17M, $15,397 -> $15.4K."""
+    return MONEY.sub(lambda m: usd(float(m.group(1).replace(",", ""))), str(t))
+
+
+def first_sentence(t: str) -> tuple[str, str]:
+    parts = re.split(r"(?<=[.!?])\s+(?=[A-Z\"])", t.strip(), maxsplit=1)
+    return parts[0], parts[1] if len(parts) > 1 else ""
 
 
 def pill(status: str) -> str:
@@ -141,6 +204,35 @@ def logo() -> str:
     """Official Walmart Spark (brandcenter.walmart.com), Spark Yellow on True Blue; never redrawn, not next to the wordmark."""
     f = APP / "assets" / "walmart_spark.svg"
     return f"<img src='data:image/svg+xml;base64,{base64.b64encode(f.read_bytes()).decode()}' alt='Walmart Spark'>" if f.exists() else ""
+
+
+def img64(f: Path) -> str:
+    mime = {".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
+    return f"data:{mime[f.suffix.lower()]};base64,{base64.b64encode(f.read_bytes()).decode()}"
+
+
+def first_file(stem: Path) -> Path | None:
+    return next((f for ext in (".svg", ".png", ".jpg", ".jpeg", ".webp") if (f := stem.with_suffix(ext)).exists()), None)
+
+
+def uic_logo() -> str:
+    """Official UIC logo from assets/uic_logo.(svg|png|jpg) when present; until then a plain text placeholder."""
+    f = first_file(APP / "assets" / "uic_logo")
+    if f:
+        return f"<div class='uic'><img src='{img64(f)}' alt='University of Illinois Chicago'></div>"
+    return ("<div class='uic'><div class='uic-mark'>UIC</div>"
+            "<div class='uic-word'>UNIVERSITY OF<b>ILLINOIS CHICAGO</b></div></div>")
+
+
+def team() -> str:
+    """Team photos from assets/team/<first_last>.(jpg|png); a dashed circle with initials until the photo is added."""
+    out = []
+    for name in TEAM:
+        f = first_file(APP / "assets" / "team" / name.lower().replace(" ", "_"))
+        pic = (f"<img src='{img64(f)}' alt='{h(name)}'>" if f
+               else f"<div class='ph' title='Photo to come'>{''.join(w[0] for w in name.split())}</div>")
+        out.append(f"<div class='member'>{pic}<span>{h(name)}</span></div>")
+    return "<div class='team'>" + "".join(out) + "</div>"
 
 
 def section(text: str, where=st):
@@ -173,7 +265,7 @@ def stamp() -> tuple:
 @st.cache_data(show_spinner=False)
 def load(_stamp: tuple):
     runs = {k: v for k, v in P.outputs().items() if "findings" in v.get("report", {})}
-    depts, cases, _ = P.tables()
+    depts, cases, raw = P.tables()
     cases = cases.reset_index()
     cases["Net"] = cases.StoreExpected - cases.StoreActual           # the ML model's net modeled shortfall (their ranking)
     cases["Shown"] = cases.CaseID.map(lambda c: runs[c]["shown_status"] if c in runs else "Not run yet")
@@ -181,6 +273,9 @@ def load(_stamp: tuple):
     cases["RegionShort"] = cases.Region.map(lambda r: r.split(" (")[0])
     cases["Units"] = cases.CaseID.map(depts.groupby("CaseID").Unit.apply(lambda s: sorted(set(s))).to_dict())
     cases["Week"] = pd.to_datetime(cases.Date)
+    md_ = {k: v.get("markdown_context", {}) for k, v in raw.items()}  # store-level markdowns from the ML case files
+    cases["Markdown"] = cases.CaseID.map(lambda c: md_.get(c, {}).get("recorded_markdown_total")
+                                         if md_.get(c, {}).get("markdown_recorded") else None)
     return runs, depts, cases
 
 
@@ -197,8 +292,10 @@ st.session_state.setdefault("page", 0)
 st.session_state.setdefault("live_log", {})
 cid = st.query_params.get("case")
 
-st.markdown(f"<div class='topbar'>{logo()}<div class='topbar-t'>Store Sales Assistant</div>"
-            f"<div class='topbar-r'>Sales data through Oct 26, 2012</div></div>", unsafe_allow_html=True)
+st.markdown(f"<div class='topbar'>{uic_logo()}<div class='topbar-m'><div class='topbar-t'>Forecasting Exception Investigation</div>"
+            f"<div class='topbar-s'>Walmart store-level sales and markdown performance · IDS 560 Team 2 · "
+            f"sales data through Oct 26, 2012</div></div>{team()}<div class='spark'>{logo()}</div></div>",
+            unsafe_allow_html=True)
 
 
 # ------------------------------------------------------------------------------------------ live run
@@ -226,10 +323,10 @@ ROW = [0.45, 2.3, 2.4, 1.3, 1.3, 0.85]          # priority · store and week · 
 
 def home():
     st.markdown("<div class='title'>Flagged store-weeks</div>"
-                "<div class='sub'>Weeks the ML model flagged, in its priority order. Open one to see what may explain it "
-                "and what to check in the store.</div>", unsafe_allow_html=True)
+                "<div class='sub'>Markdown weeks where sales came in well below the ML forecast, in priority order. Open one to "
+                "see the evidence and what to check.</div>", unsafe_allow_html=True)
     answered = cases[cases.CaseID.isin(runs)]
-    tiles([(usd(cases.Net.sum()), "below the ML forecast across all flagged weeks (net, estimate)"),
+    tiles([(usd(cases.Net.sum()), "below the ML forecast across all flagged weeks (estimate)"),
            (str(len(cases)), f"store-weeks flagged · {cases.Store.nunique()} stores"),
            (str(len(answered)), "ready to review: the agent has found the evidence")])
     st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
@@ -261,14 +358,17 @@ def home():
         st.info("No flagged weeks match these filters.")
         return
     with st.container(key="colhead"):                                  # column headers once (hidden on phones)
-        for col, label in zip(st.columns(ROW), ["#", "Store and week", "Biggest gap", "Below forecast", "Evidence", ""]):
+        for col, label in zip(st.columns(ROW), ["#", "Store and week", "Biggest gap", "Store below forecast", "Evidence", ""]):
             col.markdown(f"<div class='colh'>{label}</div>", unsafe_allow_html=True)
+    same_week = cases.groupby("Week").size()                          # all flagged store-weeks, not just this view
     for r in v.iloc[page * per:(page + 1) * per].itertuples():
         with st.container(border=True, key=f"row_{r.CaseID}"):
             a, b, c2, d, e, f = st.columns(ROW, vertical_alignment="center")
             a.markdown(f"<div class='rank{' top' if r.Rank <= 3 else ''}'>{r.Rank}</div>", unsafe_allow_html=True)
             b.markdown(f"<div class='row-t'>Store {r.Store} · {week(r.Week)}</div>"
-                       f"<div class='muted'>{h(r.RegionShort)}</div>", unsafe_allow_html=True)
+                       f"<div class='muted'>{h(r.RegionShort)}"
+                       + (f" · <b>{same_week[r.Week] - 1} other stores</b> flagged this week" if same_week[r.Week] > 1 else "")
+                       + "</div>", unsafe_allow_html=True)
             c2.markdown(f"<div>{h(r.TopDept)}</div><div class='muted'>{r.FlaggedDepts} departments flagged</div>",
                         unsafe_allow_html=True)
             d.markdown(f"<div class='big'>{usd(r.Net)}</div>", unsafe_allow_html=True)
@@ -289,15 +389,15 @@ def home():
 
 
 # ------------------------------------------------------------------------------------------ case page
-def dept_bars(g: pd.DataFrame):
-    g = g.sort_values("Shortfall").tail(8)
-    labels = [f"{int(r.Dept)} {r.DeptName}" for r in g.itertuples()]
+def dept_bars(g: pd.DataFrame, n: int = 8):
+    g = g.sort_values("Shortfall").tail(n)
+    labels = [plain(r.DeptName) for r in g.itertuples()]
     colors = ["#99B9F2"] * (len(g) - 1) + [BLUE]                        # the biggest gap stands out
     fig = go.Figure(go.Bar(x=g.Shortfall, y=labels, orientation="h", marker=dict(color=colors, cornerradius=4),
                            text=[f"{usd(s)}  ({-p:+.0f}%)" for s, p in zip(g.Shortfall, g.ShortfallPct)], textposition="outside",
                            hovertemplate="%{y}: %{text} below the ML forecast<extra></extra>"))
     fig.update_layout(height=60 + 34 * len(g), margin=dict(l=0, r=10, t=6, b=6), plot_bgcolor="#fff", paper_bgcolor="#fff",
-                      xaxis=dict(visible=False, range=[0, g.Shortfall.max() * 1.3]), yaxis=dict(tickfont=dict(size=13)), bargap=.35,
+                      xaxis=dict(visible=False, range=[0, g.Shortfall.max() * (1.6 if n <= 5 else 1.3)]), yaxis=dict(tickfont=dict(size=13)), bargap=.35,
                       font=dict(color=INK))
     st.plotly_chart(fig, width="stretch", config=dict(displayModeBar=False))
 
@@ -325,15 +425,50 @@ def header(r):
         go_to(None)
     holiday = f" · {r.HolidayWeek} week" if isinstance(r.HolidayWeek, str) else ""
     st.markdown(f"<div class='title'>Store {r.Store} · week ending {week(r.Week)}</div>"
-                f"<div class='sub'>{h(r.RegionShort)} · Walmart {h(r.FiscalPeriod)}{h(holiday)} · ML priority {r.Rank} of "
+                f"<div class='sub'>{h(r.RegionShort)} · {h(quarter(r.FiscalPeriod))}{h(holiday)} · Priority #{r.Rank} of "
                 f"{len(cases)}</div>", unsafe_allow_html=True)
 
 
 def key_numbers(r, g: pd.DataFrame):
+    """Two totals, both labelled: the whole store (the home list figure) and the flagged departments (the agent's figure)."""
     top = g.iloc[0]
-    tiles([(usd(r.Net), "below the ML forecast (net, estimate)"),
-           (f"{r.FlaggedDepts} of {int(r.EligibleDepts)}", "departments flagged"),
-           (f"{top.DeptName}", f"biggest gap: {usd(top.Shortfall)} ({-top.ShortfallPct:+.0f}%)")])
+    tiles([(usd(r.Net), "whole store below the ML forecast (estimate)"),
+           (usd(r.FlaggedShortfall), f"of it in the {r.FlaggedDepts} flagged departments (of {int(r.EligibleDepts)})"),
+           (f"{top.DeptName}", f"biggest gap: {usd(top.Shortfall)} ({-top.ShortfallPct:+.0f}%)")]
+          + ([(usd(r.Markdown), "markdowns this week, whole store; not tied to a department or shown to cause the gap")]
+             if pd.notna(r.Markdown) else []))
+
+
+@st.cache_data(show_spinner=False)
+def shared_or_local(case_id: str) -> tuple[list[str], list[str]] | None:
+    """Each flagged department: did more than half of the other stores, and of the same-region stores, also fall below
+    the ML forecast that week?
+    A plain description of the ML team's own numbers; it does not change or judge the flag."""
+    g = depts[depts.CaseID == case_id].sort_values("Shortfall", ascending=False)
+    date, store = g.Date.iloc[0], int(g.Store.iloc[0])
+    if not support.covered(date):
+        return None
+    shared, local = [], []
+    for d in g.itertuples():
+        s = support.dept_summary(int(d.Dept), date, store)
+        most = lambda below, n: n == 0 or below > n / 2                  # no same-region stores -> chain test only
+        shared_here = s["stores"] > 0 and most(s["below"], s["stores"]) and most(s["region_below"], s["region_stores"])
+        (shared if shared_here else local).append(d.DeptName)
+    return shared, local
+
+
+def split_line(case_id: str) -> str:
+    sl = shared_or_local(case_id)
+    if not sl:
+        return ""
+    shared, local = sl
+    n = len(shared) + len(local)
+    names = lambda xs: h(", ".join(xs[:4]) + (f" + {len(xs) - 4} more" if len(xs) > 4 else "")) or "None"
+    return (f"<div class='split'><div class='split-b'><div class='split-k' style='color:{BLUE}' title='{h(WIDER)}'>Wider market · most stores fell too ⓘ</div>"
+            f"<div class='split-v'><b>{len(shared)} of {n}</b> flagged departments also fell at most other stores</div></div>"
+            f"<div class='split-b' style='border-color:{NAVY}'><div class='split-k' style='color:{NAVY}'>Looks store-specific · "
+            f"check store operations</div><div class='split-v'>{'<b>' + names(local) + '</b>' if local else 'None of the flagged departments'}</div>"
+            f"</div></div>")
 
 
 def answer_card(x: dict):
@@ -341,45 +476,62 @@ def answer_card(x: dict):
     rep, shown = x["report"], x["shown_status"]
     _, fg, bg = STATUS.get(shown, STATUS["Needs analyst review"])
     edge = "#E8A33D" if x.get("needs_review") else BLUE
-    note = ("This answer failed one of the agent's checks; read it with care." if x.get("needs_review")
-            else "The ML model flagged this week. The agent looked for evidence that supports the flag; no cause is verified.")
+    note = "This answer failed one of the agent's checks; read it with care." if x.get("needs_review") else ""
+    badge = "" if shown in ML_STATUS else pill(shown)          # the ML status is the same on every week: said once, in the footer
     st.markdown(f"<div class='answer' style='background:{SKY if not x.get('needs_review') else bg};border-left-color:{edge}'>"
-                f"<div class='answer-h'><span class='answer-k'>What the agent found</span>{pill(shown)}"
+                f"<div class='answer-h'><span class='answer-k'>What the agent found</span>{badge}"
                 f"{strength(rep['evidence_found'], ' evidence')}</div>"
-                f"<div class='answer-b'>{h(rep['summary'])}</div><div class='answer-f'>{h(note)}</div></div>",
+                f"<div class='answer-b'>{h(tidy(rep['summary']))}</div>{split_line(x['case_id'])}"
+                + (f"<div class='answer-f'>{h(note)}</div>" if note else "") + "</div>",
                 unsafe_allow_html=True)
 
 
-def why_and_checks(rep: dict):
+def todo(steps: list[tuple[int, str]], case_id: str):
+    """Tickable checks; ticks are kept for this browser session."""
+    for i, s_ in steps:
+        st.checkbox(md(tidy(s_)), key=f"chk_{case_id}_{i}")
+
+
+def why_and_checks(rep: dict, g: pd.DataFrame, case_id: str):
     left, right = st.columns([1.65, 1], gap="large")
     section("Why it may have happened", left)
-    for f in rep["findings"]:
+    for f in rep["findings"]:                                          # title + one line; the rest one click away
+        lead, rest = first_sentence(tidy(f["text"]))
+        more = f"<details><summary>Show more</summary>{h(rest)}</details>" if rest else ""
         left.markdown(f"<div class='card' style='border-left-color:{EDGE.get(f['scope'], '#B8BEC6')}'>"
                       f"<div class='tag'>{h(TAG.get(f['scope'], f['scope']))}</div>"
-                      f"<div class='card-t'>{h(f['title'])}</div>{h(f['text'])}</div>", unsafe_allow_html=True)
-    section("What to check", right)
-    right.markdown("<div class='todo'>" + "".join(f"<div class='todo-i'><span></span><div>{h(s)}</div></div>"
-                                                 for s in rep["next_steps"]) + "</div>", unsafe_allow_html=True)
+                      f"<div class='card-t'>{h(f['title'])}</div>{h(lead)}{more}</div>", unsafe_allow_html=True)
+    section("What to check first", right)
+    names = [n.lower() for n in g.DeptName] + ["dept "]
+    specific = lambda s: any(n in s.lower() for n in names)            # department-specific checks go first
+    steps = sorted(enumerate(rep["next_steps"]), key=lambda t: not specific(t[1]))
+    done = sum(bool(st.session_state.get(f"chk_{case_id}_{i}")) for i, _ in steps)
+    with right.container(border=True, key="todo_box"):
+        st.markdown(f"<div class='muted' style='margin-bottom:4px'>{done} of {len(steps)} checked</div>",
+                    unsafe_allow_html=True)
+        todo(steps[:3], case_id)
+        if steps[3:]:
+            with st.expander(f"{len(steps) - 3} more routine checks"):
+                todo(steps[3:], case_id)
 
 
 def where_the_gap_is(r, g: pd.DataFrame, x: dict | None):
-    section("Where the gap is")
-    t1, t2 = st.tabs(["By department", "Same department at other stores"])
-    with t1:
-        st.markdown("<div class='muted'>Biggest gaps this week, $ below the ML forecast</div>", unsafe_allow_html=True)
-        dept_bars(g)
+    section("Same department at other stores")
+    with st.container():
+        if x is None:                                                  # no answer card yet: the department chart lives here
+            dept_bars(g)
         with st.expander(f"All {len(g)} flagged departments"):
-            st.dataframe(pd.DataFrame({"Department": [f"{int(d.Dept)} {d.DeptName}" for d in g.itertuples()], "Category": g.Unit,
+            st.dataframe(pd.DataFrame({"Department": [plain(f"{int(d.Dept)} {d.DeptName}") for d in g.itertuples()], "Category": g.Unit,
                                        "Actual": g.Actual.map(usd), "ML forecast": g.Expected.map(usd),
                                        "Below forecast": g.Shortfall.map(usd), "%": g.ShortfallPct.map(lambda v: f"{-v:+.1f}%")}),
                          hide_index=True, width="stretch")
             st.caption("Numbers from the ML model's case file. Department names are publicly inferred.")
-    with t2:
+    with st.container():
         date = g.Date.iloc[0]
         if not support.covered(date):
             st.caption("Store-by-store numbers are not available for this week.")
             return
-        names = {int(d.Dept): f"{int(d.Dept)} {d.DeptName}" for d in g.itertuples()}
+        names = {int(d.Dept): plain(d.DeptName) for d in g.itertuples()}
         dept = st.selectbox("Department", list(names), format_func=names.get)
         everywhere_chart(dept, date, int(r.Store))
         e = {k["id"]: k for k in (x or {}).get("evidence", [])}.get(f"dept_{dept}", {})
@@ -410,9 +562,12 @@ def how_it_was_found(case_id: str, x: dict):
         used = [ps for ps in rg["passages"] if ps["id"] in cited]
         st.markdown(f"**Report passages used** ({len(used)} of {len(rg['passages'])} read; reports from "
                     f"{rg['filter']['start']} to {rg['filter']['end']})")
+        wk = cases.set_index("CaseID").Week[case_id]
         for ps in used:
+            later = pd.to_datetime(ps.get("date"), errors="coerce")
+            after = "<span class='after'>Published after this week</span>" if pd.notna(later) and later > wk else ""
             link = f" · <a href='{h(ps['url'])}' target='_blank'>open</a>" if ps.get("url") else ""
-            st.markdown(f"<b>{h(ps['source'])}</b> <span class='muted'>· {h(ps['district'])}{link}</span>"
+            st.markdown(f"<b>{h(ps['source'])}</b>{after} <span class='muted'>· {h(ps['district'])}{link}</span>"
                         f"<div class='quote'>{h(ps['text'][:500])}{'…' if len(ps['text']) > 500 else ''}</div>",
                         unsafe_allow_html=True)
         checks = x["evaluation"]["checks"]
@@ -449,9 +604,14 @@ def case_page(case_id: str):
         where_the_gap_is(r, g, None)
         return
 
-    answer_card(x)
+    left, right = st.columns([1.75, 1], gap="large")
+    with left:
+        answer_card(x)
+    with right:
+        st.markdown("<div class='answer-k' style='margin:6px 0 2px'>Biggest gaps this week</div>", unsafe_allow_html=True)
+        dept_bars(g, 5)
     key_numbers(r, g)
-    why_and_checks(x["report"])
+    why_and_checks(x["report"], g, case_id)
     where_the_gap_is(r, g, x)
 
     section("Ask a question")
@@ -463,7 +623,7 @@ def case_page(case_id: str):
 def chat_box(case_id: str, x: dict, g: pd.DataFrame):
     hist = st.session_state["chat"].setdefault(case_id, [])
     top = g.iloc[0]
-    ideas = [f"How did {top.DeptName} do at other stores?", "What did Walmart report that quarter?",
+    ideas = [f"How did {plain(top.DeptName)} do at other stores?", "What did Walmart report that quarter?",
              "Was anything happening in the region?"]
     asked = st.pills("Suggested questions", ideas, key=f"ideas_{case_id}_{len(hist)}", label_visibility="collapsed")
     for m in hist:
@@ -491,6 +651,8 @@ if cid and cid in set(cases.CaseID):
 else:
     home()
 st.markdown("<div class='muted' style='margin-top:36px;padding-top:12px;border-top:1px solid #E3E6EA;font-size:.78rem'>"
+            "Every flagged week comes from the ML model, marked 'Analyst review required'. The agent only looks for evidence that "
+            "supports the flag; no cause is verified, and markdowns are not shown to cause a gap. "
             "IDS 560 Team 2 student project with a Walmart sponsor. Not an official Walmart tool. Built on the public Kaggle "
             "Walmart sales data (2010-2012) and public Walmart, Federal Reserve, NRF and EIA reports.</div>",
             unsafe_allow_html=True)
